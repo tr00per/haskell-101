@@ -40,3 +40,7 @@ Common
 Operators
 Lambdas
 Currying
+
+## Error handling
+Maybe
+Either
