@@ -11,5 +11,5 @@ Books
 
 Workshops / talks / meta-pages
 * [Scala Workshop by Pawel Wlodarski](https://www.gitbook.com/book/pawelwlodarski/workshops/details) - [@PawelWlodarski](https://twitter.com/PawelWlodarski)
-* [Archives of Venkat Subramaniam](http://agiledeveloper.com/downloads.html) - [@venkat_s](https://twitter.com/venkat_s)
 * [World Domination with Haskell by Petar Radošević](https://gibbon.co/wunki/world-domination-with-haskell#chapters) - [@wunki](https://twitter.com/wunki)
+* [Archives of Venkat Subramaniam](http://agiledeveloper.com/downloads.html) - [@venkat_s](https://twitter.com/venkat_s)
