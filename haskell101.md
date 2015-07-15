@@ -122,10 +122,24 @@ Prelude> take 3 [1..]
 [1,3,5]
 ```
 
-## Everything together
+## Function chaining
 ```haskell
 Prelude> take 3 (filter odd [1..])
 [1,3,5]
 Prelude> take 3 $ filter odd [1..]
 [1,3,5]
+Prelude> (take 3 . filter odd) [1..]
+[1,3,5]
+```
+
+## Pattern matching
+
+## List comprehension
+```haskell
+
+```
+
+### Mandatory Fibonacci sequence
+```haskell
+fib = 
 ```
