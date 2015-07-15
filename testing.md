@@ -32,9 +32,20 @@ Version for curious
     [(),(),(),()]
     ...
     Passed:
-    [(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),()]
-    +++OK,passed100tests.
+    [(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),(),()]
+    +++ OK, passed 100 tests.
 
 Also try
 
     verboseCheck (prop_reverse :: [Int] -> Bool)
+
+## Non-abstract example
+
+    sumAbs = sum . map abs
+    prop_sumAbs xs = sumAbs xs == sum xs
+
+It fails, who knew...
+
+    quickCheck prop_sumAbs
+    *** Failed! Falsifiable (after 4 tests and 2 shrinks):    
+    [-1]
