@@ -1,28 +1,24 @@
-Haskell 101
-======
+# Haskell 101
 
-What is Haskell
----
+
+## What is Haskell
+
 
 * Functional (functions are first-class entities)
 * Strong- and Statically-typed
 * Lazy
 * Pure
 
-GHCI
----
+## GHCI
 Interactive console!
 Useful commands:
 * `:set +t` - print type after evaluation
 * `:set +s` - print time/memory stats after each evaluation
-* `:i <module>` - import a module
 
-Hello world
----
+## Hello world
     main = putStrLn "Hello, world!"
 
-Type system
----
+## Type system
 Basics
 
     -- a value
@@ -40,16 +36,14 @@ Advanced
     reverse :: [a] -> [a]
 
     -- constraints (context)
-    sort :: (Ord a) => [a] -> [a]
+    find :: (Eq a) => [a] -> a
 
-Function calls
----
+## Function calls
 Common
 Operators
 Lambdas
 Currying
 
-Life without loops
----
+## Life without loops
 Tail recursion
 `map`, `filter`, `fold`
