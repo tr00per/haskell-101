@@ -43,7 +43,3 @@ Common
 Operators
 Lambdas
 Currying
-
-## Life without loops
-Tail recursion
-`map`, `filter`, `fold`
