@@ -2,12 +2,14 @@
 
 ## Hello world
 Mandatory example
-
-    main = putStrLn "Hello, world!"
+```haskell
+main = putStrLn "Hello, world!"
+```
 
 The I/O action
-
-    main :: IO ()
+```haskell
+main :: IO ()
+```
 
 ## Imperative example
 
