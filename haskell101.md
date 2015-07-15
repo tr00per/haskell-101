@@ -38,6 +38,7 @@ Values
 2 :: Int
 [1,2,3] :: [Int]
 "abc" :: [Char]
+4:5:6:[] :: [Int]
 ['a', 'b', 'c'] :: [Char]
 (1, 'a', True) :: (Int, Char, Bool)
 ```
@@ -65,21 +66,23 @@ sort :: Ord a => [a] -> [a]
 ```
 
 ## Function calls
-Regular
+### Regular
 ```haskell
-sumInts [1, 2, 3]
+sum [1, 2, 3]
 add 4 (-5)
 (+) 6 1
+head "abc"
+tail "abc"
 ```
 
-Operators
+### Operators
 ```haskell
 2 - 4
 3.4 / 2
 6 `add` 1
 ```
 
-Lambdas
+### Lambdas
 ```haskell
 square = \x -> x * x
 ```
@@ -89,7 +92,7 @@ Prelude> :t square
 square :: Num a => a -> a
 ```
 
-Currying, partial application
+### Currying, partial application
 ```haskell
 add x y = x + y
 add' x = \y -> x + y
@@ -97,9 +100,10 @@ add'' = \x -> \y -> x + y
 -- add, add', add'' :: Int -> Int -> Int
 
 add5 = add 5
+realAdd = (+)
 ```
 
-## Functions everywhere
+### Functions everywhere
 Collection of functions
 ```haskell
 Prelude> :t [add'', (+)]
@@ -110,12 +114,21 @@ Higher-order functions
 ```haskell
 Prelude> filter odd [1,2,3,4,5]
 [1,3,5]
+Prelude> :t filter
+filter :: (a -> Bool) -> [a] -> [a]
 ```
 
+```haskell
+Prelude> zip [1,3..100] "abcdef"
+[(1,'a'),(3,'b'),(5,'c'),(7,'d'),(9,'e'),(11,'f')]
+Prelude> :t zip
+zip :: [a] -> [b] -> [(a, b)]
+```
 ## Laziness
 Infinite lists
 ```haskell
-Prelude> [1..]
+[1..]
+[1,3..]
 ```
 ```haskell
 Prelude> take 3 [1..]
@@ -133,13 +146,27 @@ Prelude> (take 3 . filter odd) [1..]
 ```
 
 ## Pattern matching
+```haskell
+take 0 _  = []
+take _ [] = []
+take n (x:xs) = x:take (n-1) xs
+```
+
+## Gaurds
+```haskell
+take _ [] = []
+take n (x:xs)
+    | n <= 0    = []
+    | otherwise = x:take (n-1) xs
+```
 
 ## List comprehension
 ```haskell
+oddNaturals = [ x | x <- [1..], odd x ]
 
 ```
 
 ### Mandatory Fibonacci sequence
 ```haskell
-fib = 
+fib = 0:1:[ x+y | (x,y) <- zip fib (tail fib) ]
 ```
