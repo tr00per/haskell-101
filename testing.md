@@ -7,10 +7,14 @@ import Test.QuickCheck
 ```
 
 #### Function under test
-    reverse :: [a] -> [a]
+```haskell
+reverse :: [a] -> [a]
+```
 
 ### Property of the function
-    double_reverse xs = reverse (reverse xs) == xs
+```haskell
+double_reverse xs = reverse (reverse xs) == xs
+```
 
 ### Run it
 Standard run
