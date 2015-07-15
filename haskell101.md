@@ -34,7 +34,7 @@ Advanced
 reverse :: [a] -> [a]
 
 -- constraints (context)
-find :: (Eq a) => [a] -> a
+find :: (Eq a) => a -> [a] -> a
 ```
 
 ## Function calls
