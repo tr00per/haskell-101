@@ -17,23 +17,25 @@ Useful commands:
 
 ## Type system
 Basics
+```haskell
+-- a value
+days :: Int
 
-    -- a value
-    days :: Int
+-- function with one argument
+sumInts :: [Int] -> Int
 
-    -- function with one argument
-    sumInts :: [Int] -> Int
-
-    -- function with two arguments
-    add :: Int -> Int -> Int
+-- function with two arguments
+add :: Int -> Int -> Int
+```
 
 Advanced
+```haskell
+-- polymorphic function
+reverse :: [a] -> [a]
 
-    -- polymorphic function
-    reverse :: [a] -> [a]
-
-    -- constraints (context)
-    find :: (Eq a) => [a] -> a
+-- constraints (context)
+find :: (Eq a) => [a] -> a
+```
 
 ## Function calls
 Common
