@@ -23,7 +23,7 @@ Prelude Test.QuickCheck> quickCheck double_reverse
 +++ OK, passed 100 tests.
 ```
 
-Version for curious
+Version for the curious
 ```haskell
 Prelude Test.QuickCheck> verboseCheck double_reverse
 Passed:
