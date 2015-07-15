@@ -4,18 +4,22 @@
 
 ## Abstraction
 Mapping
-
-    map
+```haskell
+map
+```
 
 Filtering    
-
-    filter
+```haskell
+filter
+```
 
 ## Swiss knife
 Right fold
-
-    foldr
+```haskell
+foldr
+```
 
 Left fold
-
-    foldl
+```haskell
+foldl
+```
