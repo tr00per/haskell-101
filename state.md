@@ -12,3 +12,6 @@ The I/O action
 ## Imperative example
 
 ## Functional example
+
+## Error handling
+Exceptions
