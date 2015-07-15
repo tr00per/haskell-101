@@ -15,9 +15,6 @@ Useful commands:
 * `:set +t` - print type after evaluation
 * `:set +s` - print time/memory stats after each evaluation
 
-## Hello world
-    main = putStrLn "Hello, world!"
-
 ## Type system
 Basics
 
