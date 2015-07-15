@@ -1,6 +1,5 @@
 # Haskell 101
 
-
 ## What is Haskell
 
 * Functional (functions are first-class entities)
