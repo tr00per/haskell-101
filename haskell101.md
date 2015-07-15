@@ -1,6 +1,6 @@
 # Haskell 101
 
-## What is Haskell
+## Haskell is...
 
 * Functional (functions are first-class entities)
 * Strong- and Statically-typed
@@ -52,10 +52,23 @@ add :: Int -> Int -> Int
 ```
 
 ### Advanced
-Polymorphic functions
+Generic functions
 ```haskell
 length :: [a] -> Int
 reverse :: [a] -> [a]
+```
+
+Generic addition in C++
+```c++
+template <typename T> T add(T x, T y) {
+    return x + y;
+}
+```
+
+Generic addition in Haskell
+```haskell
+add :: Num a => a -> a -> a
+add x y = x + y
 ```
 
 Constraints (context)
