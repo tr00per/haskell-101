@@ -5,13 +5,13 @@ Property-based testing
 
     import Test.QuickCheck
 
-## Function under test
+#### Function under test
     reverse :: [a] -> [a]
 
-## Property of the function
+### Property of the function
     double_reverse xs = reverse (reverse xs) == xs
 
-## Run it
+### Run it
 Standard run
 
     Prelude Test.QuickCheck> quickCheck double_reverse 
@@ -39,7 +39,7 @@ Also try
 
     verboseCheck (prop_reverse :: [Int] -> Bool)
 
-## Non-abstract example
+### Non-abstract example
 
     sumAbs = sum . map abs
     prop_sumAbs xs = sumAbs xs == sum xs
@@ -49,3 +49,7 @@ It fails, who knew...
     quickCheck prop_sumAbs
     *** Failed! Falsifiable (after 4 tests and 2 shrinks):    
     [-1]
+
+## HUnit
+
+## Tasty
