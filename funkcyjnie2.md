@@ -1,0 +1,1 @@
+# Myśleć funkcyjnie #2
