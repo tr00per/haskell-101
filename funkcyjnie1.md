@@ -1,2 +1,2 @@
-# Myśleć funkcyjnie
+# Myśleć funkcyjnie #1
 ## Listy
