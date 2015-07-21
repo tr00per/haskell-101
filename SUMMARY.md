@@ -1,5 +1,6 @@
 # Summary
 
+* [Myśleć Funkcyjnie](funkcyjnie.md)
 * [Haskell 101](haskell101.md)
 * [Real Examples](examples.md)
 * [Testing](testing.md)
