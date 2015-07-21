@@ -115,6 +115,18 @@ add5 = add 5
 realAdd = (+)
 ```
 
+## Laziness
+Infinite lists
+```haskell
+[1..]
+[1,3..]
+```
+Evaluated only as far as needed
+```haskell
+Prelude> take 3 [1..]
+[1,3,5]
+```
+
 ### Functions everywhere
 Collection of functions
 ```haskell
@@ -131,20 +143,10 @@ filter :: (a -> Bool) -> [a] -> [a]
 ```
 
 ```haskell
-Prelude> zip [1,3..100] "abcdef"
-[(1,'a'),(3,'b'),(5,'c'),(7,'d'),(9,'e'),(11,'f')]
-Prelude> :t zip
-zip :: [a] -> [b] -> [(a, b)]
-```
-## Laziness
-Infinite lists
-```haskell
-[1..]
-[1,3..]
-```
-```haskell
-Prelude> take 3 [1..]
-[1,3,5]
+Prelude> zipWith (+) [1,3..] [4..10]
+[5,8,11,14,17,20,23]
+Prelude> :t zipWith
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 ```
 
 ## Function chaining
@@ -159,6 +161,10 @@ Prelude> (take 3 . filter odd) [1..]
 
 ## Pattern matching
 ```haskell
+head' (x:xs) = x
+
+head'' (x:_) = x
+
 take 0 _  = []
 take _ [] = []
 take n (x:xs) = x:take (n-1) xs
@@ -174,6 +180,7 @@ take n (x:xs)
 
 ## List comprehension
 ```haskell
+pairs = [ (x,y) | x <- [1..3], y <- [x+1,x+3..7] ]
 oddNaturals = [ x | x <- [1..], odd x ]
 
 ```
