@@ -35,6 +35,7 @@ Unit, czyli bezwartościowa wartość
 ```haskell
 [1..]
 ```
+
 ## Filtrowanie
 ```haskell
 [1,3..10]
@@ -55,9 +56,13 @@ __Zadanie #1__: napisać funckję, która posłuży do odfiltrowania liczb, któ
 
 __Zadanie #2__: napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
 
-Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. Zdefiniowane funkcje muszą przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być `Bool`.
+Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. Zdefiniowane funkcje muszą przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
 ## Mapowanie
+W językach funkcyjnych nie ma pętli.
+
+![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
+
 ## Składanie
 ## Lambda
 ## Currying
