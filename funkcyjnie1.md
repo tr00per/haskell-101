@@ -27,15 +27,18 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 -- lista krotek
 [(1,1), (1,2)]
 ```
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast *krotki* mogą *mieszać typy elementów*, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+
 Przy okazji: unit, czyli bezwartościowa wartość
 ```haskell
 ()
 ```
-
-![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
+Nieskończone listy
 ```haskell
 [1..]
 ```
+
+![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
 
 ---
 
@@ -50,16 +53,18 @@ filter odd [1..10]
 ```
 `filter` jest funkcją wyższego rzędu, przyjmuje jako jeden ze swoich argumentów inną funkcję!
 
-Definiowanie własnej funkcji (w GHCI)
+Definiowanie własnej funkcji w GHCI
 ```haskell
 let myfunc x = x * x
 ```
+
+Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
 __Zadanie #1__: napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4
 
 __Zadanie #2__: napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
 
-Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. Zdefiniowane funkcje muszą przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
+Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. 
 
 ---
 
