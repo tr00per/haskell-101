@@ -60,9 +60,17 @@ let myfunc x = x * x
 
 Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
-__Zadanie #1__: napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4
+### GHCI i typy
 
-__Zadanie #2__: napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
+Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
+
+
+
+### Zadania
+
+__Zadanie #1__: Zdefiniować własną funckję `odd` albo `even` i użyć jej do przefiltrowania listy.
+
+__Zadanie #2__: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
 
 Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. 
 
