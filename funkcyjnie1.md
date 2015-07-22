@@ -12,7 +12,7 @@ W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 -- Lista znaków
 ['H','a','s','k','e','l']
 "Curry" -- w Haskellu typ String jest aliasem dla tablicy znaków
-"Wąchock" -- w UTF-8!
+"Wąchock & 漢字" -- Unicode!
 
 -- Generatory
 [1..10]
@@ -32,6 +32,8 @@ even 1
 filter odd [1..10]
 ```
 `filter` jest funkcją wyższego rzędu, przyjmuje jako jeden ze swoich argumentów inną funkcję!
+
+
 
 ## Mapowanie
 ## Składanie
