@@ -61,6 +61,8 @@ Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. Zdefiniowane funkcje mu
 ## Mapowanie
 W językach funkcyjnych nie ma pętli.
 
+A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej nam nie brakowało!
+
 ![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
 
 ## Składanie
