@@ -3,7 +3,7 @@ Cała przyjemność polega na tym, żeby małą ilością kodu wyrazić możliwi
 
 $$SNR = P_{signal}/P_{noise}$$
 
-## Listy (i krotki)
+## Listy i krotki
 W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 ```haskell
 -- Lista liczb
@@ -20,14 +20,14 @@ W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 ```
 Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typy można użyć krotki
 ```haskell
-(10, "Lukrecja")
+(10, "Karmel")
 (True, -1)
 (40, 255, 0)
 
 -- lista krotek
 [(1,1), (1,2)]
 ```
-Unit, czyli bezwartościowa wartość
+Przy okazji: unit, czyli bezwartościowa wartość
 ```haskell
 ()
 ```
