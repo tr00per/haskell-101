@@ -1,7 +1,7 @@
 # Myśleć funkcyjnie #1
 Cała przyjemność polega na tym, żeby małą ilością kodu wyrazić możliwie dużo. Na usuwaniu szumu z kodu.
 
-![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
+![SNR](https://upload.wikimedia.org/math/f/0/e/f0e032777062c3f945554f1c63d9c864.png)
 
 ## Listy (i krotki)
 W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
