@@ -31,10 +31,13 @@ Unit, czyli bezwartościowa wartość
 ```haskell
 ()
 ```
+
 ![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
 ```haskell
 [1..]
 ```
+
+---
 
 ## Filtrowanie
 ```haskell
@@ -58,6 +61,8 @@ __Zadanie #2__: napisać funckję, która posłuży do odfiltrowania liczb, któ
 
 Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. Zdefiniowane funkcje muszą przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
+---
+
 ## Mapowanie
 W językach funkcyjnych nie ma pętli.
 
@@ -66,9 +71,21 @@ A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej na
 ![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
 
 ## Składanie
+
+---
+
 ## Lambda
+
+---
+
 ## Currying
+
+---
+
 ## Łączenie
+
+---
+
 ## Podsumowanie
 Zasada pojedyńczej odpowiedzialności i utrzymywania krótkich blokóœ kodu są uniwersalnymi zasadami. Brak szumu pozwala skupić się na istotnych aspektach.
 
