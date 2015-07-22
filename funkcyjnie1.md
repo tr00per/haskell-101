@@ -24,8 +24,12 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 (True, -1)
 (40, 255, 0)
 
--- lista krotek 
+-- lista krotek
 [(1,1), (1,2)]
+```
+Unit, czyli bezwartościowa wartość
+```haskell
+()
 ```
 ![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
 ```haskell
