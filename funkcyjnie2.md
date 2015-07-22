@@ -1,5 +1,7 @@
 # Myśleć funkcyjnie #2
 ## System typów
+![](http://imgs.xkcd.com/comics/types.png)
+
 ### Retrospekcja
 ### Dane
 ### Klasy
