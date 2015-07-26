@@ -42,13 +42,20 @@ Nieskończone listy
 
 ![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
 
+### Leniwe obliczanie
+Spróbujcie tego
+```haskell
+take 10 [1..]
+head [1..]
+```
+
+Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle generowana, która na pewno będzie potrzebna.
+
 ---
 
 ## Filtrowanie
 ```haskell
-[1,3..10]
-
-odd 1
+dd 1
 even 1
 
 filter odd [1..10]
@@ -84,6 +91,7 @@ A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej na
 Filtrowanie jest bardzo popularną operacją na liście elementów. Równie powszechną, jeśli nie wszechobecną, operacją jest transformacja wartości w liście na nowe wartości. W Haskellu taka operacja wytwarza nową listę.
 ```haskell
 map odd [1..5]
+map sqrt [1..5]
 ```
 
 ## Łączenie
@@ -98,58 +106,7 @@ h x = f (g x)
 h' x = (f . g) x
 ```
 
-Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej. Jak w matematycznym odpowiedniku.
-
----
-
-## Składanie
-Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
-
-Składanie, występuje w dwóch odmianach
-* prawostronne
-
-```haskell
-foldr (+) 0 [1..10]
---- 0 + (1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + 10)))))))))
-
-foldr (:) [] [1..10]
---- 1:(2:(3:(4:(5:(6:(7:(8:(9:(10:[])))))))))
---- ==> [1,2,3,4,5,6,7,8,9,10]
-```
-* lewostronne
-
-```haskell
-foldl (+) 0 [1..10]
---- (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9) + 10
-
-let (>:) = flip (:)
-foldl (>:) [] [1..10]
---- ((((((((([]>:1)>:2)>:3)>:4)>:5)>:6)>:7)>:8)>:9)>:10
---- ==> [10,9,8,7,6,5,4,3,2,1]
-```
-
-Za pomocą składania można wyrazić obie poprzednie operacje
-```haskell
-map f xs = foldr ((:) . f) [] xs
-
-```
-
-### GHCI i statystyki
-Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
-
-### Leniwe obliczanie
-Pamiętacie, co stało się, kiedy próbowaliśmy wyświetlić nieskończoną listę?
-```haskell
-[1..]
-```
-
-To teraz spróbujcie tego
-```haskell
-take 10 [1..]
-head [1..]
-```
-
-Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle generowana, która na pewno będzie potrzebna.
+Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej - tak jak w matematycznym odpowiedniku.
 
 ---
 
@@ -170,6 +127,7 @@ Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
 Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" (_pointfree_, dla złośliwych _pointless_).
 ```haskell
 add''' = (+)
+(>:) = flip (:)
 
 h x = f (g x)
 h' x = (f . g) x
@@ -210,6 +168,44 @@ add'' = \x -> \y -> x + y
 Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry, który z kolei był amerykaninem, rozwinął koncepcję Schönfinkela.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
+
+---
+
+## Składanie
+Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
+
+Składanie w Haskellu, występuje w dwóch odmianach
+* prawostronne
+
+```haskell
+foldr (+) 0 [1..10]
+--- 0 + (1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + 10)))))))))
+
+foldr (:) [] [1..10]
+--- 1:(2:(3:(4:(5:(6:(7:(8:(9:(10:[])))))))))
+--- ==> [1,2,3,4,5,6,7,8,9,10]
+```
+* lewostronne
+
+```haskell
+foldl (+) 0 [1..10]
+--- (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9) + 10
+
+let (>:) = flip (:)
+foldl (>:) [] [1..10]
+--- ((((((((([]>:1)>:2)>:3)>:4)>:5)>:6)>:7)>:8)>:9)>:10
+--- ==> [10,9,8,7,6,5,4,3,2,1]
+```
+
+Za pomocą składania można wyrazić obie poprzednie operacje
+```haskell
+map f xs = foldr ((:) . f) [] xs
+filter p xs = foldr (pred p) [] xs
+    where pred f x acc = if f x then x:acc else acc
+```
+
+### GHCI i statystyki
+Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
 
 ---
 
