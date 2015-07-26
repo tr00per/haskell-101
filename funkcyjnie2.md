@@ -16,19 +16,21 @@ class Functor f where
 
 Dla list implementacja `fmap` to po prostu `map`. `fmap` jest ogólniejszą koncepcją.
 ```haskell
+
 ```
 
 ---
 ## Aplikatory
--Funkcje zamknięte w instancji tej klasy można zaaplikować na wartościach w niej zamkniętych
+Funkcje zamknięte w instancji tej klasy można zaaplikować na wartościach w niej zamkniętych
 ```haskell
 class Functor f => Applicative f where
     pure :: a -> f a
     (<*>) :: f (a -> b) -> f a -> f b
 ```
-Dodatkowo jest też zdefiniowany alias: `(<$>) = fmap`.
 
+Dodatkowo jest też zdefiniowany alias: `(<$>) = fmap`.
 ```haskell
+
 ```
 
 ---
