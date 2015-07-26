@@ -93,6 +93,7 @@ Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, poniewa�
 
 Składanie, występuje w dwóch odmianach
 * prawostronne
+
 ```haskell
 foldr (+) 0 [1..10]
 --- 0 + (1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + 10)))))))))
@@ -102,6 +103,7 @@ foldr (:) [] [1..10]
 --- ==> [1,2,3,4,5,6,7,8,9,10]
 ```
 * lewostronne
+
 ```haskell
 foldl (+) 0 [1..10]
 --- (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9) + 10
