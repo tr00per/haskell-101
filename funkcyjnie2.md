@@ -7,6 +7,10 @@
 ![](http://imgs.xkcd.com/comics/types.png)
 
 ### Retrospekcja
+```haskell
+
+```
+
 ### Dane
 ### Klasy
 
