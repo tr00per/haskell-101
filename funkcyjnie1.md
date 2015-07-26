@@ -61,13 +61,9 @@ let myfunc x = x * x
 Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
 ### GHCI i typy
-
 Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
 
-
-
 ### Zadania
-
 __Zadanie #1__: Zdefiniować własną funckję `odd` albo `even` i użyć jej do przefiltrowania listy.
 
 __Zadanie #2__: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
@@ -83,7 +79,36 @@ A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej na
 
 ![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
 
+Filtrowanie jest bardzo popularną operacją na liście elementów. Równie powszechną, jeśli nie wszechobecną, operacją jest transformacja wartości w liście na nowe wartości. W Haskellu taka operacja wytwarza nową listę.
+```haskell
+map odd [1..5]
+```
+
+## Łączenie
+
+---
+
 ## Składanie
+Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż dwie poprzednie.
+
+Składanie, występuje w dwóch odmianach
+* lewostronne
+```haskell
+foldl (+) [1
+```
+* prawostronne
+```haskell
+```
+
+Za pomocą składania można wyrazić obie poprzednie funkcje
+```haskell
+map f xs = foldr ((:) . f) [] xs
+```
+
+### GHCI i statystyki
+Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
+
+### Leniwe obliczanie
 
 ---
 
@@ -92,10 +117,13 @@ A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej na
 ---
 
 ## Currying
+Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
 
----
-
-## Łączenie
+Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_. W Haskellu częściowa aplikacja jest powszechnie używana.
+```haskell
+map f xs = foldr ((:) . f) [] xs
+map' f = foldr ((:) . f) []
+```
 
 ---
 
