@@ -217,6 +217,8 @@ __Zadanie__: Dobrać tak liczby zakresu, aż zaczną pojawia się różnice mię
 
 __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
 
+__Zadanie__: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl')` i porównać ten wariant z pozostałymi dwoma
+
 ---
 ## Interludium
 
