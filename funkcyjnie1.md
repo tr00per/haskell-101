@@ -5,6 +5,7 @@ $$
 SNR = P_{signal}/P_{noise}
 $$
 
+---
 ## Listy i krotki
 W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 ```haskell
@@ -52,7 +53,6 @@ head [1..]
 Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle generowana, która na pewno będzie potrzebna.
 
 ---
-
 ## Filtrowanie
 ```haskell
 dd 1
@@ -73,14 +73,13 @@ Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument,
 Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
 
 ### Zadania
-__Zadanie #1__: Zdefiniować własną funckję `odd` albo `even` i użyć jej do przefiltrowania listy.
+__Zadanie__: Zdefiniować własną funckję `odd` albo `even` i użyć jej do przefiltrowania listy.
 
-__Zadanie #2__: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
+__Zadanie__: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
 
 Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. 
 
 ---
-
 ## Mapowanie
 W językach funkcyjnych nie ma pętli.
 
@@ -94,6 +93,7 @@ map odd [1..5]
 map sqrt [1..5]
 ```
 
+---
 ## Łączenie
 Pamiętacie z matematyki łączenie funkcji?
 $$
@@ -109,7 +109,6 @@ h' x = (f . g) x
 Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej - tak jak w matematycznym odpowiedniku.
 
 ---
-
 ## Lambda
 Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdą nazywamy funkcję, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
 ```haskell
@@ -143,7 +142,6 @@ map f . filter (p . f) == filter p . map f
 ```
 
 ---
-
 ## Currying
 ![](https://wiki.haskell.org/wikiupload/8/86/HaskellBCurry.jpg)
 
@@ -170,7 +168,6 @@ Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
 
 ---
-
 ## Składanie
 Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
 
@@ -207,8 +204,15 @@ filter p xs = foldr (pred p) [] xs
 ### GHCI i statystyki
 Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
 
----
+### Zadania
 
+__Zadanie__: Wywołać wymienione wyżej złożenia z włączonymi statystykami
+
+__Zadanie__: Dobrać tak liczby zakresu, aż zaczną pojawia się różnice między lewo- i prawostronnym składaniem
+
+__Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
+
+---
 ## Interludium
 Brak szumu pozwala skupić się na istotnych aspektach programowania.
 
