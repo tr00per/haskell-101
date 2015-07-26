@@ -170,7 +170,7 @@ take _ [] = []
 take n (x:xs) = x:take (n-1) xs
 ```
 
-## Gaurds
+## Guards
 ```haskell
 take _ [] = []
 take n (x:xs)
