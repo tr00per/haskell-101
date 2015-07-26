@@ -1,4 +1,8 @@
 # Myśleć funkcyjnie #2
+
+## Wzorcowanie i strażnicy
+
+---
 ## System typów
 ![](http://imgs.xkcd.com/comics/types.png)
 
@@ -15,8 +19,17 @@ class Functor f where
 ```
 
 Dla list implementacja `fmap` to po prostu `map`. `fmap` jest ogólniejszą koncepcją.
-```haskell
 
+### Maybe
+```haskell
+fmap (\x -> x*x) (Just 5)
+fmap (\x -> x*x) Nothing
+```
+
+### Either
+```haskell
+fmap (\x -> x*x) (Right 5)
+fmap (\x -> x*x) (Left "Failed")
 ```
 
 ---
@@ -30,7 +43,8 @@ class Functor f => Applicative f where
 
 Dodatkowo jest też zdefiniowany alias: `(<$>) = fmap`.
 ```haskell
-
+pure (+) <*> [1,2,3] <*> [1,2,3]
+(+) <$> [1,2,3] <*> [1,2,3]
 ```
 
 ---
@@ -40,7 +54,7 @@ Dodatkowo jest też zdefiniowany alias: `(<$>) = fmap`.
 ---
 
 ## Stan
-### Monada stanu
+### State
 ### I/O
 
 ---
