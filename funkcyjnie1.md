@@ -92,7 +92,7 @@ $$
 f(g(x)) = (f \circ g)(x)
 $$
 
-W Haskellu też można łączyć funkcje (duh...), a nawet jest do tego specjalny operator!
+W Haskellu też można łączyć funkcje (duh...), a nawet jest udostępniony do tego specjalny operator!
 ```haskell
 h x = f (g x)
 h' x = (f . g) x
@@ -138,11 +138,28 @@ map f xs = foldr ((:) . f) [] xs
 Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
 
 ### Leniwe obliczanie
+Pamiętacie, co stało się, kiedy próbowaliśmy wyświetlić nieskończoną listę?
+```haskell
+[1..]
+```
+
+To teraz spróbujcie tego
+```haskell
+take 10 [1..]
+head [1..]
+```
+
+Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle generowana, która na pewno będzie potrzebna.
 
 ---
 
 ## Lambda
-Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdy
+Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdą nazywamy funkcję, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
+```haskell
+myfilter = filter (\x -> x % 4 == 0 && x % 3 \= 3)
+mysum' = foldr (\x acc -> x + acc) 0
+mysum'' = foldl (\acc x -> x + acc) 0
+```
 
 ### Żargon i nerdowanie
 Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
@@ -159,6 +176,12 @@ h'' = f . g
 ```
 
 Styl ten jest czasm pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
+
+Ciekawostki
+```haskell
+map f . map g == map (f . g)
+map f . filter (p . f) == filter p . map f
+```
 
 ---
 
@@ -189,7 +212,7 @@ Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę 
 
 ---
 
-## Podsumowanie
-Zasada pojedyńczej odpowiedzialności i utrzymywania krótkich bloków kodu są uniwersalnymi zasadami. Brak szumu pozwala skupić się na istotnych aspektach programowania.
+## Interludium
+Brak szumu pozwala skupić się na istotnych aspektach programowania.
 
 ![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
