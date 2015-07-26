@@ -1,7 +1,9 @@
 # Myśleć funkcyjnie #1
 Cała przyjemność polega na tym, żeby małą ilością kodu wyrazić możliwie dużo. Na usuwaniu szumu z kodu.
 
-$$SNR = P_{signal}/P_{noise}$$
+$$
+SNR = P_{signal}/P_{noise}
+$$
 
 ## Listy i krotki
 W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
@@ -85,11 +87,23 @@ map odd [1..5]
 ```
 
 ## Łączenie
+Pamiętacie z matematyki łączenie funkcji?
+$$
+f(g(x)) = (f \circ g)(x)
+$$
+
+W Haskellu też można łączyć funkcje (duh...), a nawet jest do tego specjalny operator!
+```haskell
+h x = f (g x)
+h' x = (f . g) x
+```
+
+Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej. Jak w matematycznym odpowiedniku.
 
 ---
 
 ## Składanie
-Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż dwie poprzednie.
+Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
 
 Składanie, występuje w dwóch odmianach
 * prawostronne
@@ -128,11 +142,28 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 ---
 
 ## Lambda
+Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdy
+
+### Żargon i nerdowanie
+Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
+* Eta-redukcja: `\x -> abs x` => `abs`
+* Eta-abstrakcja: `abs` => `\x -> abs x`
+ 
+Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" (_pointfree_, dla złośliwych _pointless_).
+```haskell
+add''' = (+)
+
+h x = f (g x)
+h' x = (f . g) x
+h'' = f . g
+```
+
+Styl ten jest czasm pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
 
 ---
 
 ## Currying
-![](http://www-history.mcs.st-andrews.ac.uk/BigPictures/Curry.jpeg)
+![](https://wiki.haskell.org/wikiupload/8/86/HaskellBCurry.jpg)
 
 Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
 
@@ -148,24 +179,13 @@ Można pomyśleć, że wszystkie funkcje w Haskellu tak naprawdę pod spodem sk�
 ```haskell
 add x y = x + y
 add' x = \y -> x + y
-add'' = \x -> \y -> x + y 
+add'' = \x -> \y -> x + y
 ```
 
 ### Żargon i nerdowanie
-Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry rozwinął koncepcję Schönfinkela.
+Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry, który z kolei był amerykaninem, rozwinął koncepcję Schönfinkela.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
-
-Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
-* Eta-redukcja: `\x -> abs x` => `abs`
-* Eta-abstrakcja: `abs` => `\x -> abs x`
- 
-Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" (_pointfree_, dla złośliwych _pointless_).
-```haskell
-add''' = (+)
-```
-
-Styl ten jest czasm pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
 
 ---
 
