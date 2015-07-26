@@ -214,6 +214,5 @@ __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończone
 
 ---
 ## Interludium
-Brak szumu pozwala skupić się na istotnych aspektach programowania.
 
 ![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
