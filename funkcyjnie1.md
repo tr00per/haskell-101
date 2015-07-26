@@ -92,17 +92,30 @@ map odd [1..5]
 Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż dwie poprzednie.
 
 Składanie, występuje w dwóch odmianach
-* lewostronne
-```haskell
-foldl (+) [1
-```
 * prawostronne
 ```haskell
+foldr (+) 0 [1..10]
+--- 0 + (1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + 10)))))))))
+
+foldr (:) [] [1..10]
+--- 1:(2:(3:(4:(5:(6:(7:(8:(9:(10:[])))))))))
+--- ==> [1,2,3,4,5,6,7,8,9,10]
+```
+* lewostronne
+```haskell
+foldl (+) 0 [1..10]
+--- (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9) + 10
+
+let (>:) = flip (:)
+foldl (>:) [] [1..10]
+--- ((((((((([]>:1)>:2)>:3)>:4)>:5)>:6)>:7)>:8)>:9)>:10
+--- ==> [10,9,8,7,6,5,4,3,2,1]
 ```
 
 Za pomocą składania można wyrazić obie poprzednie funkcje
 ```haskell
 map f xs = foldr ((:) . f) [] xs
+
 ```
 
 ### GHCI i statystyki
