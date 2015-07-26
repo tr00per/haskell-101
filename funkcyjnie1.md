@@ -157,6 +157,7 @@ Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle gener
 Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdą nazywamy funkcję, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
 ```haskell
 myfilter = filter (\x -> x % 4 == 0 && x % 3 \= 3)
+
 mysum' = foldr (\x acc -> x + acc) 0
 mysum'' = foldl (\acc x -> x + acc) 0
 ```
