@@ -110,13 +110,19 @@ Co może być na początku nieintuicyjne, funkcje połączone za pomocą operato
 
 ---
 ## Lambda
-Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to wiecie, że lambdą nazywamy funkcję, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
+![](http://vignette1.wikia.nocookie.net/half-life/images/c/c9/Half-Life_Wiki_Logo.png/revision/20130801093040?path-prefix=en)
+
+Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to słyszeliście o funkcjach lambda.
+
+To taka funkcja, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
 ```haskell
 myfilter = filter (\x -> x % 4 == 0 && x % 3 \= 3)
 
 mysum' = foldr (\x acc -> x + acc) 0
 mysum'' = foldl (\acc x -> x + acc) 0
 ```
+
+Haskell udostępnie też dwa inne mechanizmy do definiowania lokalnych nazwanych funkcji, więc w produkcyjnych warunkach możecie zobaczyć ich znacznie mniej, niż w podręcznikach czy tutaj.
 
 ### Żargon i nerdowanie
 Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
