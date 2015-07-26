@@ -10,7 +10,7 @@ W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 [1,2,3,4,5]
 
 -- Lista znaków
-['H','a','s','k','e','l']
+['H','a','s','k','e','l','l']
 "Curry" -- w Haskellu typ String jest aliasem dla tablicy znaków
 "Wąchock & 漢字" -- Unicode!
 
@@ -27,7 +27,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 -- lista krotek
 [(1,1), (1,2)]
 ```
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast *krotki* mogą *mieszać typy elementów*, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast *__krotki__* mogą *__mieszać typy elementów__*, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 ```haskell
@@ -114,7 +114,7 @@ foldl (>:) [] [1..10]
 --- ==> [10,9,8,7,6,5,4,3,2,1]
 ```
 
-Za pomocą składania można wyrazić obie poprzednie funkcje
+Za pomocą składania można wyrazić obie poprzednie operacje
 ```haskell
 map f xs = foldr ((:) . f) [] xs
 
@@ -139,6 +139,18 @@ Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można
 map f xs = foldr ((:) . f) [] xs
 map' f = foldr ((:) . f) []
 ```
+
+Można pomyśleć, że wszystkie funkcje w Haskellu tak naprawdę pod spodem składają się z serrii jednoargumentowych funkcji
+```haskell
+add x y = x + y
+add' x = \y -> x + y
+add'' = \x -> \y -> x + y 
+```
+
+### Żargon i nerdowanie
+Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Moses Schönfinkel. Haskell Curry rozwinął koncepcję Schönfinkela.
+
+
 
 ---
 
