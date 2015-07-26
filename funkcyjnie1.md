@@ -132,9 +132,13 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 ---
 
 ## Currying
+![](http://www-history.mcs.st-andrews.ac.uk/BigPictures/Curry.jpeg)
+
 Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
 
-Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_. W Haskellu częściowa aplikacja jest powszechnie używana.
+Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_.
+
+W Haskellu częściowa aplikacja jest powszechnie używana.
 ```haskell
 map f xs = foldr ((:) . f) [] xs
 map' f = foldr ((:) . f) []
@@ -148,13 +152,24 @@ add'' = \x -> \y -> x + y
 ```
 
 ### Żargon i nerdowanie
-Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Moses Schönfinkel. Haskell Curry rozwinął koncepcję Schönfinkela.
+Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry rozwinął koncepcję Schönfinkela.
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
 
+Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
+* Eta-redukcja: `\x -> abs x` => `abs`
+* Eta-abstrakcja: `abs` => `\x -> abs x`
+ 
+Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" (_pointfree_, dla złośliwych _pointless_).
+```haskell
+add''' = (+)
+```
+
+Styl ten jest czasm pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
 
 ---
 
 ## Podsumowanie
-Zasada pojedyńczej odpowiedzialności i utrzymywania krótkich blokóœ kodu są uniwersalnymi zasadami. Brak szumu pozwala skupić się na istotnych aspektach.
+Zasada pojedyńczej odpowiedzialności i utrzymywania krótkich bloków kodu są uniwersalnymi zasadami. Brak szumu pozwala skupić się na istotnych aspektach programowania.
 
 ![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
