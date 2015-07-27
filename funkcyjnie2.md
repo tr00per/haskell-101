@@ -12,7 +12,23 @@
 ```
 
 ### Dane
+```haskell
+-- alias
+type String = [Char]
+
+-- "bardziej skryty" alias
+newtype Money = Money Integer
+
+-- własne dane
+data Kolory = Czerwony | Zielony | Niebieski
+
+data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
+```
+
 ### Klasy
+```haskell
+
+```
 
 ---
 ## Funktory
