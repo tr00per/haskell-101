@@ -19,6 +19,9 @@ type String = [Char]
 -- "bardziej skryty" alias
 newtype Money = Money Integer
 
+-- typ parametryzowany
+data Maybe a = Nothing | Just a
+
 -- własne dane
 data Kolory = Czerwony | Zielony | Niebieski
 
@@ -27,7 +30,7 @@ data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
 
 ### Klasy
 ```haskell
-
+data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a) deriving (Eq, Show)
 ```
 
 ---
@@ -70,13 +73,26 @@ pure (+) <*> [1,2,3] <*> [1,2,3]
 ---
 ## Monady
 ### Maybe
-### Writer
----
+```haskell
 
+```
+
+### Writer
+```haskell
+
+```
+
+---
 ## Stan
 ### State
+```haskell
+
+```
+
 ### I/O
+```haskell
+
+```
 
 ---
-
 ## Embeded Domain-Specific Langage
