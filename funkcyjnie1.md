@@ -156,6 +156,12 @@ Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można
 
 W Haskellu częściowa aplikacja jest powszechnie używana.
 ```haskell
+add x y = x + y
+add5 = add 5
+
+add' = (+)
+add5' = (5+)
+
 map f xs = foldr ((:) . f) [] xs
 map' f = foldr ((:) . f) []
 ```
