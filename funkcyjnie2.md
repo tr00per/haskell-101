@@ -67,11 +67,14 @@ class Functor f => Applicative f where
 Dodatkowo jest też zdefiniowany alias: `(<$>) = fmap`.
 ```haskell
 pure (+) <*> [1,2,3] <*> [1,2,3]
+(+) `fmap` [1,2,3] <*> [1,2,3]
 (+) <$> [1,2,3] <*> [1,2,3]
 ```
 
 ---
 ## Monady
+Aby co
+
 ### Maybe
 ```haskell
 
