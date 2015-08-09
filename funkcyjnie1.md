@@ -230,8 +230,8 @@ map f . filter (p . f) == filter p . map f
 Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
 
 ```scala
-def modNuncurried(n: Int, x: Int) = x % n == 0
-def modNcurried(n: Int)(x: Int) = x % n == 0
+def modN_uncurried(n: Int, x: Int) = x % n == 0
+def modN_curried(n: Int)(x: Int) = x % n == 0
 ```
 
 Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_.
