@@ -63,7 +63,7 @@ filter odd [1..10]
 `filter` jest funkcją wyższego rzędu, przyjmuje jako jeden ze swoich argumentów inną funkcję!
 
 Dla porównania w C++:
-```c++
+```cpp
 List<Integer> inputList = new ArrayList<Integer>();
 
 ```
