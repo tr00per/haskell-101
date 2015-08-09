@@ -2,7 +2,7 @@
 
 ## Haskell is...
 
-* Functional (functions are first-class entities)
+* Functional (functions are data)
 * Strong- and Statically-typed
 * Lazy
 * Pure
