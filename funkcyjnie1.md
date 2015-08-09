@@ -64,8 +64,54 @@ filter odd [1..10]
 
 Dla porównania w C++:
 ```cpp
-List<Integer> inputList = new ArrayList<Integer>();
+#include <iostream>
+#include <list>
 
+std::list<int> filter(bool (*predicate)(int), const std::list<int>& input_list)
+{
+    std::list<int> output_list;
+    for (const int entry : input_list)
+    {
+        if (predicate(entry))
+        {
+            output_list.push_back(entry);
+        }
+    }
+    return std::move(output_list);
+}
+
+int main()
+{
+    std::list<int> my_data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    auto odd = [](int x) -> bool {return x % 2 != 0;};
+    std::list<int> filtered_data = filter(odd, my_data);
+    for (auto a : filtered_data)
+    {
+        std::cout << a << ", ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
+}
+```
+
+![](http://i1.kym-cdn.com/photos/images/original/000/000/681/what-you-did-there-i-see-it.thumbnail.jpg)
+
+Ok, to nie było do końca uczciwe, pełny program w Haskellu wyglądałby tak:
+```haskell
+main = print $ filter odd [1..10]
+```
+
+![](http://i3.kym-cdn.com/entries/icons/original/000/001/987/fyeah.jpg)
+
+To jeszcze w Scali:
+```scala
+object Main extends App {
+	val data = (1 to 10).toList
+	def odd = (x : Int) => x % 2 != 0
+	val filtered = data.filter(odd)
+	System.out.println(filtered);
+}
 ```
 
 ### Definiowanie własnej funkcji w GHCI
