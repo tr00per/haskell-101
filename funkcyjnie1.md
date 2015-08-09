@@ -50,19 +50,24 @@ take 10 [1..]
 head [1..]
 ```
 
-Interpreter się nie zawiesza, ponieważ tylko taka część jest w ogóle generowana, która na pewno będzie potrzebna.
+Interpreter się nie zawiesza, ponieważ generowane jest tylko tyle, ile potrzeba do zaspokojenia żądania.
 
 ---
 ## Filtrowanie
 ```haskell
-dd 1
+odd 1
 even 1
 
 filter odd [1..10]
 ```
 `filter` jest funkcją wyższego rzędu, przyjmuje jako jeden ze swoich argumentów inną funkcję!
 
-Definiowanie własnej funkcji w GHCI
+Dla porównania w Javie:
+```java
+
+```
+
+### Definiowanie własnej funkcji w GHCI
 ```haskell
 let myfunc x = x * x
 ```
