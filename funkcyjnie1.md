@@ -171,6 +171,8 @@ h' x = (f . g) x
 
 Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej - tak jak w matematycznym odpowiedniku.
 
+Nie wszystkie funkcje da się ze sobą łączyć - na styku typy wartości zwracanej i argumentu muszą się zgadzać.
+
 ---
 ## Lambda
 ![](http://vignette1.wikia.nocookie.net/half-life/images/c/c9/Half-Life_Wiki_Logo.png/revision/20130801093040?path-prefix=en)
