@@ -188,6 +188,18 @@ squares xs = map (\x -> x * x) xs
 
 Haskell udostępnie też dwa inne mechanizmy do definiowania lokalnych nazwanych funkcji, więc w produkcyjnych warunkach możecie zobaczyć ich znacznie mniej, niż w podręcznikach czy tutaj.
 
+C++
+```cpp
+auto sqr = [](int x) -> int {return x * x;};
+auto sqr_tpl = [](auto x) -> decltype(x) {return x * x;};
+```
+
+Scala
+```scala
+def sqr = (x : Int) => x * x
+def sqr_tpl[A](x: A)(implicit numeric: Numeric[A]): A = numeric.times(x, x)
+```
+
 ### Żargon i nerdowanie
 Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
 * Eta-redukcja: `\x -> abs x` => `abs`
@@ -216,6 +228,11 @@ map f . filter (p . f) == filter p . map f
 ![](https://wiki.haskell.org/wikiupload/8/86/HaskellBCurry.jpg)
 
 Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
+
+```scala
+def modNuncurried(n: Int, x: Int) = x % n == 0
+def modNcurried(n: Int)(x: Int) = x % n == 0
+```
 
 Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_.
 
