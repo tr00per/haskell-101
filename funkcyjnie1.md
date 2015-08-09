@@ -107,10 +107,10 @@ main = print $ filter odd [1..10]
 To jeszcze w Scali:
 ```scala
 object Main extends App {
-	val data = (1 to 10).toList
+	val data = (1 to 10) toList
 	def odd = (x : Int) => x % 2 != 0
-	val filtered = data.filter(odd)
-	System.out.println(filtered);
+	val filtered = data filter odd
+	System.out.println(filtered)
 }
 ```
 
@@ -143,6 +143,16 @@ Filtrowanie jest bardzo popularną operacją na liście elementów. Równie pows
 ```haskell
 map odd [1..5]
 map sqrt [1..5]
+```
+
+C++ (samo gęste)
+```cpp
+
+```
+
+Scala
+```scala
+
 ```
 
 ---
