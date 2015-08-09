@@ -147,12 +147,13 @@ map sqrt [1..5]
 
 C++ (samo gęste)
 ```cpp
-
+std::list<double> somelist = {1, 2, 3, 4, 5}, outlist(5);
+std::transform(somelist.begin(), somelist.end(), outlist.begin(), (double(*)(double))std::sqrt);
 ```
 
 Scala
 ```scala
-
+(1.0 to 5.0 by 1.0).toList.map(Math.sqrt)
 ```
 
 ---
