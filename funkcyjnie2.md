@@ -73,7 +73,9 @@ pure (+) <*> [1,2,3] <*> [1,2,3]
 
 ---
 ## Monady
-Aby co
+Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacje:
+* `return :: a -> m a` operacja, która umieszcza wartość w pojemniku, działa jak `pure`
+* `(>>=) :: m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
 
 ### Maybe
 ```haskell
@@ -87,6 +89,8 @@ Aby co
 
 ---
 ## Stan
+Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stanem.
+
 ### State
 ```haskell
 
@@ -99,3 +103,6 @@ Aby co
 
 ---
 ## Embeded Domain-Specific Langage
+Algorytmy + struktury danych = programy
+
+Z EDSL mamy doczynienia wtedy, kiedy wykorzystując elementy języka tworzymy w nim zestaw narządzi, którymi łatwiej jest operować w danej dziedzinie wiedzy.
