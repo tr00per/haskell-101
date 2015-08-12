@@ -129,7 +129,7 @@ __Zadanie__: Zdefiniować własną funckję `odd` albo `even` i użyć jej do pr
 
 __Zadanie__: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
 
-Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `\=`. 
+Przydatne funkcje: `div`, `mod`, `&&`, `||`, `==`, `/=`. 
 
 ---
 ## Mapowanie
@@ -172,6 +172,23 @@ h' x = (f . g) x
 Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej - tak jak w matematycznym odpowiedniku.
 
 Nie wszystkie funkcje da się ze sobą łączyć - na styku typy wartości zwracanej i argumentu muszą się zgadzać.
+
+### Łączenie i mapowanie
+```haskell
+let sqr x = x * x
+let lessthan8 x = x < 8
+
+:t sqr
+-- sqr :: Num a => a -> a
+:t lessthan8
+-- lessthan8 :: (Num a, Ord a) => a -> Bool
+
+:t (lessthan8 . sqr)
+-- (lessthan8 . sqr) :: (Num a, Ord a) => a -> Bool
+
+map (lessthan8 . sqr) [1..5]
+-- [True,True,False,False,False]
+```
 
 ---
 ## Lambda
@@ -259,6 +276,17 @@ add'' = \x -> \y -> x + y
 Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry, który z kolei był amerykaninem, rozwinął koncepcję Schönfinkela.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
+
+### Bliżej rzeczywistości
+```haskell
+wybierz polityka dostępne rządane = if polityka dostępne rządane
+                                    then dostępne - rządane
+                                    else dostępne
+
+polityka1 dostępne rządane = dostępne >= rządane
+
+bank1_wybierz = wybierz polityka1
+```
 
 ---
 ## Składanie
