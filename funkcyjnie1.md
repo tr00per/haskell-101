@@ -279,12 +279,15 @@ Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę 
 
 ### Bliżej rzeczywistości
 ```haskell
+wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
 wybierz polityka dostępne rządane = if polityka dostępne rządane
                                     then dostępne - rządane
                                     else dostępne
 
+polityka1 :: Ord a => a -> a -> Bool
 polityka1 dostępne rządane = dostępne >= rządane
 
+bank1_wybierz :: (Num a, Ord a) => a -> a -> a
 bank1_wybierz = wybierz polityka1
 ```
 
