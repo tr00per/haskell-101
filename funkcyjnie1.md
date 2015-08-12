@@ -27,8 +27,8 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 (True, -1)
 (40, 255, 0)
 
--- lista krotek
-[(1,1), (1,2)]
+-- lista krotek, lista asocjacyjna
+[(1,"San Francisco"), (2, "New York")]
 ```
 **Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast *__krotki__* mogą *__mieszać typy elementów__*, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
@@ -99,7 +99,7 @@ int main()
 
 Ok, to nie było do końca uczciwe, pełny program w Haskellu wyglądałby tak:
 ```haskell
-main = print $ filter odd [1..10]
+main = print (filter odd [1..10])
 ```
 
 ![](http://i3.kym-cdn.com/entries/icons/original/000/001/987/fyeah.jpg)
@@ -143,6 +143,7 @@ Filtrowanie jest bardzo popularną operacją na liście elementów. Równie pows
 ```haskell
 map odd [1..5]
 map sqrt [1..5]
+map toUpper "Amsterdam" -- wymaga modułu Data.Char
 ```
 
 C++ (samo gęste)
