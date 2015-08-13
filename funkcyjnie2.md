@@ -50,7 +50,37 @@ legal x = case x of
 
 ### Retrospekcja
 ```haskell
-
+[1,2,3,4,5] :: Num t => [t]
+"Wąchock & 漢字" :: [Char]
+(10, "Karmel") :: Num t => (t, [Char])
+(True, -1) :: Num t => (Bool, t)
+[(1,"San Francisco"), (2, "New York")] :: Num t => [(t, [Char])]
+() :: ()
+take
+head
+filter
+odd
+even
+print
+div
+mod
+(&&)
+(||)
+(==)
+(/=)
+map
+sqrt
+sqr
+lessthan8
+myfilter
+squares
+(>:)
+add5
+wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
+polityka1 :: Ord a => a -> a -> Bool
+bank1_wybierz :: (Num a, Ord a) => a -> a -> a
+foldr
+foldl
 ```
 
 ### Dane
