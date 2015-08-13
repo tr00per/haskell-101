@@ -113,12 +113,23 @@ data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
 ```
 
 ### Klasy
-Klasy grupują operacje, które można wykonać na danych:
+Klasy grupują operacje, które można wykonać na danych (może zawierać domyślną implementację):
 ```haskell
 class Eq a where
     (==) :: a -> a -> Bool
-    (/=)
+    (/=) :: a -> a -> Bool
+    x /= y = not (x == y)
 ```
+
+Klasy mogą zależeć od siebie:
+```haskell
+class (Eq a) => Ord a where
+    (<) :: a -> a -> Bool
+    (>=) :: a -> a -> Bool
+    -- itd.
+```
+
+
 
 Automatyczna implementacja niektórych klas:
 ```haskell
