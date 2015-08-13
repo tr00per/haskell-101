@@ -168,6 +168,16 @@ Scala
 (1.0 to 5.0 by 1.0).toList.map(Math.sqrt)
 ```
 
+### W głąb mapy
+Jak mogłaby wyglądać implementacja funkcji `map`?
+```haskell
+map f xs = if null xs
+           then f (head xs) : map f (tail xs)
+           else map f (tail xs)
+```
+
+Mamy przykład "rekurencji ogonowej" (tail recursion).
+
 ---
 ## Łączenie
 Pamiętacie z matematyki łączenie funkcji?
@@ -232,8 +242,8 @@ def sqr_tpl[A](x: A)(implicit numeric: Numeric[A]): A = numeric.times(x, x)
 
 ### Żargon i nerdowanie
 Konwersja Eta (η) - proces dodawania albo ujmowania abstrakcji od funkcji.
-* Eta-redukcja: `\x -> abs x` => `abs`
-* Eta-abstrakcja: `abs` => `\x -> abs x`
+* Eta-redukcja: `\x -> abs x` zamieniamy w `abs`
+* Eta-abstrakcja: `abs` zamieniamy w `\x -> abs x`
  
 Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" (_pointfree_, dla złośliwych _pointless_).
 ```haskell
