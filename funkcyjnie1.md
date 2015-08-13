@@ -121,9 +121,8 @@ main = print (filter odd [1..10])
 To jeszcze w Scali:
 ```scala
 object Main extends App {
-	val data = (1 to 10) toList
 	def odd = (x : Int) => x % 2 != 0
-	val filtered = data filter odd
+	val filtered = (1 to 10) filter odd
 	System.out.println(filtered)
 }
 ```
