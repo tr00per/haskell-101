@@ -129,6 +129,9 @@ class (Eq a) => Ord a where
     -- itd.
 ```
 
+### GHCI i typy raz jeszcze
+Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
+Aby wyświetlić więcej informacji, np. zobaczyć zdefiniowane instancje klas, w GHCI trzeba poprzedzić je komendą `:i`.
 
 
 Automatyczna implementacja niektórych klas:
