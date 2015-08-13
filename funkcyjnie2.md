@@ -196,16 +196,14 @@ mapMaybe :: (a -> Maybe b) -> [a] -> [b]
 
 Przykład użycia
 ```haskell
-type Ident = Int
+newtype Ident = Ident Int
 type Login = String
 data Użytkownik = Niezarejestrowany | Znany Login
 
-użytkownicy :: [(Ident, Login])
-
 -- lookup :: Eq a => a -> [(a, b)] -> Maybe b
-znajdź = maybe Niezarejestrowany Znany . lookup (3::Ident)
+znajdź (Ident ident) = maybe Niezarejestrowany Znany . lookup ident
 
--- znajdź :: [(Ident, Login)] -> Użytkownik
+-- znajdź :: Ident -> [(Int, Login)] -> Użytkownik
 ```
 
 ### Either
