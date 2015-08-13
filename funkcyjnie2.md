@@ -109,6 +109,7 @@ data Maybe a = Nothing | Just a
 -- własne dane
 data Kolory = Czerwony | Zielony | Niebieski
 
+-- mogą być parametryzowane i rekurencyjne
 data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
 ```
 
@@ -133,11 +134,33 @@ class (Eq a) => Ord a where
 Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
 Aby wyświetlić więcej informacji, np. zobaczyć zdefiniowane instancje klas, w GHCI trzeba poprzedzić je komendą `:i`.
 
+Np. aby zobaczyć wszystkie typy danych, którym można sprawdzać równość, wystarczy wywołać:
+```haskell
+:i Eq
+```
+
+### Implementowanie klasy
 
 Automatyczna implementacja niektórych klas:
 ```haskell
 data Maybe a = Nothing | Just a deriving (Eq, Ord, Read, Show)
 ```
+
+Ręczna implementacja klas:
+```haskell
+instance Num a => Num (Maybe a) where
+    Nothing + _ = Nothing
+    _ + Nothing = Nothing
+    (Just x) + (Just y) = Just (x + y)
+    -- uwaga: niepełna definicja, tylko jedna operacja jest zdefiniowana!
+
+Just 1 + Just 2
+-- Just 3
+Nothing + Just 4
+-- Nothing
+```
+
+Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w praktyce unika się tego i stosuje ograniczenia wyłącznie na funkcjach, które go potrzebują lub w definicjach klas.
 
 ---
 ## Funktory
@@ -151,12 +174,17 @@ Dla list implementacja `fmap` to po prostu `map`. `fmap` jest ogólniejszą konc
 
 ### Maybe
 ```haskell
+data Maybe a = Nothing | Just a
+
 fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
 
 ### Either
+"You `Either` have a `Right` answer or you're `Left` with an error."
 ```haskell
+data Either a b = Left a | Right b
+
 fmap (\x -> x*x) (Right 5)
 fmap (\x -> x*x) (Left "Failed")
 ```
