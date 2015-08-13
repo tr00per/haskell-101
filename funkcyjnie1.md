@@ -280,21 +280,28 @@ Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę 
 
 ### Bliżej rzeczywistości
 ```haskell
-wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
+-- wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
 wybierz polityka dostępne rządane = if polityka dostępne rządane
                                     then dostępne - rządane
                                     else dostępne
 
-polityka1 :: Ord a => a -> a -> Bool
-polityka1 dostępne rządane = dostępne >= rządane
+-- polityka1 :: Ord a => a -> a -> Bool
+polityka1 ma chce = ma >= chce
 
-bank1_wybierz :: (Num a, Ord a) => a -> a -> a
+-- bank1_wybierz :: (Num a, Ord a) => a -> a -> a
 bank1_wybierz = wybierz polityka1
 ```
 
 ---
 ## Składanie
 Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
+
+```haskell
+map f xs = foldr ((:) . f) [] xs
+
+filter p xs = foldr (pred p) [] xs
+    where pred f x acc = if f x then x:acc else acc
+```
 
 Składanie w Haskellu, występuje w dwóch odmianach
 * prawostronne
@@ -317,13 +324,6 @@ let (>:) = flip (:)
 foldl (>:) [] [1..10]
 -- ((((((((([]>:1)>:2)>:3)>:4)>:5)>:6)>:7)>:8)>:9)>:10
 -- ==> [10,9,8,7,6,5,4,3,2,1]
-```
-
-Za pomocą składania można wyrazić obie poprzednie operacje
-```haskell
-map f xs = foldr ((:) . f) [] xs
-filter p xs = foldr (pred p) [] xs
-    where pred f x acc = if f x then x:acc else acc
 ```
 
 ### GHCI i statystyki
