@@ -233,7 +233,6 @@ Przykład z wcześniej, czyli dlaczego nie ma domyślnej implementacji `Num (May
 (+) <$> Nothing <*> Just 4
 ```
 
-
 ### Zadania
 __Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
