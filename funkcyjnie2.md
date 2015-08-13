@@ -189,8 +189,8 @@ fmap (\x -> x*x) Nothing
 
 `Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych, które siedzą w module `Data.Maybe`, np.:
 ```haskell
-lookup :: Eq a => a -> [(a, b)] -> Maybe b
 maybe :: b -> (a -> b) -> Maybe a -> b
+lookup :: Eq a => a -> [(a, b)] -> Maybe b
 catMaybes :: [Maybe a] -> [a]
 mapMaybe :: (a -> Maybe b) -> [a] -> [b]
 ```
