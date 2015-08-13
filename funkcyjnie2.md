@@ -249,6 +249,9 @@ Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacj
 Druga operacja nazywa się "bind" i przyrzymy jej się bliżej.
 ### (>>=)
 Przypomnijmy operator łączenia `(.)`:
+$$
+f(g(x)) = (f \circ g)(x)
+$$
 ```haskell
 (.) :: (b -> c) -> (a -> b) -> a -> c
 
