@@ -240,11 +240,58 @@ __Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` i
 
 ---
 ## Monady
+![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
+
 Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacje:
 * `return :: a -> m a` operacja, która umieszcza wartość w pojemniku, działa jak `pure`
 * `(>>=) :: m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
 
-Druga operacja nazywa się "bind" i przyrzymy jej się bliżej
+Druga operacja nazywa się "bind" i przyrzymy jej się bliżej.
+### (>>=)
+Przypomnijmy operator łączenia (.):
+```haskell
+(.) :: (b -> c) -> (a -> b) -> a -> c
+
+-- użycie
+(f . g) x
+```
+
+Typ binda jest nieco inny:
+```haskell
+(>>=) :: Monad m => m a -> (a -> m b) -> m b
+
+-- użycie
+g x >>= f
+```
+
+Niepodobny do niczego. Jest jednak jeszcze jeden, podobny operator:
+```haskell
+(<=<) :: Monad m => (b -> m c) -> (a -> m b) -> a -> m c
+
+-- użycie
+(f <=< g) x
+```
+
+To już jest znacznie bardziej podobne do łączenia funkcji przez `(.)`. `(<=<)` jest operatorem łączącym funkcje działające na monadach (monadowe).
+
+Teraz jeden dodatkowy krok:
+```haskell
+(=<<) :: Monad m => (a -> m b) -> m a -> m b
+
+-- użycie
+f =<< g x
+```
+
+Teraz już widać, co jest grane. `(>>=)` jest odwróconym operatorem `(=<<)` (jest też `(>=>)`).
+
+`(>>=)` jest bardziej praktyczny w użyciu, niż `(<=<)`, więc w praktyce ten pierwszy jest użyty do implementacji drugiego.
+
+### Żargon i nerdowanie
+Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Heinrich-Kleisli-1987.jpeg/220px-Heinrich-Kleisli-1987.jpeg)
+
+Heinrich Kleisli był szwajcarskim matematykiem, którego nazwisko nosi kilka tworów w teorii kategorii, np. kategoria Kleisli lub trójka Kleisli.
 
 ### Maybe
 ```haskell
