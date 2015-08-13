@@ -201,9 +201,10 @@ type Login = String
 data Użytkownik = Niezarejestrowany | Znany Login
 
 -- lookup :: Eq a => a -> [(a, b)] -> Maybe b
-znajdź (Ident ident) = maybe Niezarejestrowany Znany . lookup ident
+znajdź :: Ident -> [(Int, Login)] -> Użytkownik
+znajdź ident = maybe Niezarejestrowany Znany . lookup ident
 
--- znajdź :: Ident -> [(Int, Login)] -> Użytkownik
+-- 
 ```
 
 ### Either
