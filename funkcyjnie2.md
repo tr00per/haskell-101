@@ -180,6 +180,12 @@ fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
 
+`Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych
+```haskell
+maybe :: b -> (a -> b) -> Maybe a -> b
+
+```
+
 ### Either
 "You `Either` have a `Right` answer or you're `Left` with an error."
 ```haskell
