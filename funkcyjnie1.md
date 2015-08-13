@@ -171,6 +171,7 @@ Scala
 ---
 ## Łączenie
 Pamiętacie z matematyki łączenie funkcji?
+
 $$
 f(g(x)) = (f \circ g)(x)
 $$
