@@ -180,10 +180,11 @@ fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
 
-`Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych
+`Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych, które siedzą w module `Data.Maybe`, np.:
 ```haskell
 maybe :: b -> (a -> b) -> Maybe a -> b
-
+catMaybes :: [Maybe a] -> [a]
+mapMaybe :: (a -> Maybe b) -> [a] -> [b]
 ```
 
 ### Either
@@ -193,6 +194,14 @@ data Either a b = Left a | Right b
 
 fmap (\x -> x*x) (Right 5)
 fmap (\x -> x*x) (Left "Failed")
+```
+
+`Either` również posiada zestaw funkcji pomocniczych, analogicznie w `Data.Either`, np.:
+```haskell
+either :: (a -> c) -> (b -> c) -> Either a b -> c
+lefts :: [Either a b] -> [a]
+rights :: [Either a b] -> [b]
+partitionEithers :: [Either a b] -> ([a], [b])
 ```
 
 ---
