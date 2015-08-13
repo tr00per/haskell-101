@@ -244,6 +244,8 @@ Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacj
 * `return :: a -> m a` operacja, która umieszcza wartość w pojemniku, działa jak `pure`
 * `(>>=) :: m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
 
+Druga operacja nazywa się "bind" i przyrzymy jej się bliżej
+
 ### Maybe
 ```haskell
 
