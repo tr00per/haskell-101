@@ -27,7 +27,7 @@ map f xs = case xs of
                x:xs -> f x : map f xs
 ```
 
-Mechanizmem, który często towarzyszy wzorcowaniu, są strażnicy:
+Mechanizmem, który często towarzyszy wzorcowaniu, są strażnicy (guards):
 ```haskell
 legal 0             = False
 legal x | x < -5    = False
