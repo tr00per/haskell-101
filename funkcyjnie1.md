@@ -167,7 +167,7 @@ std::transform(somelist.begin(), somelist.end(), outlist.begin(), (double(*)(dou
 
 Scala
 ```scala
-(1.0 to 5.0 by 1.0).toList.map(Math.sqrt)
+(1.0 to 5.0 by 1.0) map (Math.sqrt)
 ```
 
 ### W głąb mapy
