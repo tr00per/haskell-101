@@ -91,13 +91,18 @@ bank1_wybierz :: (Num a, Ord a) => a -> a -> a
 ```
 
 ### Dane
+Aliasy
+
 ```haskell
 -- alias
 type String = [Char]
 
 -- "bardziej skryty" alias
 newtype Money = Money Integer
+```
 
+"Dane"
+```
 -- typ parametryzowany
 data Maybe a = Nothing | Just a
 
@@ -108,8 +113,16 @@ data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
 ```
 
 ### Klasy
+Klasy grupują operacje, które można wykonać na danych:
 ```haskell
-data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a) deriving (Eq, Show)
+class Eq a where
+    (==) :: a -> a -> Bool
+    (/=)
+```
+
+Automatyczna implementacja niektórych klas:
+```haskell
+data Maybe a = Nothing | Just a deriving (Eq, Ord, Read, Show)
 ```
 
 ---
