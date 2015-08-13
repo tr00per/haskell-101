@@ -162,6 +162,11 @@ Nothing + Just 4
 
 Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w praktyce unika się tego i stosuje ograniczenia wyłącznie na funkcjach, które go potrzebują lub w definicjach klas.
 
+### Zadania
+__Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
+
+__Zadanie__: Zaimplementować klasę `Num` dla tego nowego typu przechowującego kolory
+
 ---
 ## Funktory
 Na instancjach tej klasy można wywoływać "gołe" funkcje za pomocą `fmap`
@@ -227,6 +232,12 @@ Przykład z wcześniej, czyli dlaczego nie ma domyślnej implementacji `Num (May
 (+) <$> Just 1 <*> Just 2
 (+) <$> Nothing <*> Just 4
 ```
+
+
+### Zadania
+__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego interfejs funktora
+
+__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego interfejs aplikatora
 
 ---
 ## Monady
