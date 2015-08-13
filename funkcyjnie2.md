@@ -50,37 +50,44 @@ legal x = case x of
 
 ### Retrospekcja
 ```haskell
+() :: ()
 [1,2,3,4,5] :: Num t => [t]
 "Wąchock & 漢字" :: [Char]
 (10, "Karmel") :: Num t => (t, [Char])
-(True, -1) :: Num t => (Bool, t)
+(True, -1)     :: Num t => (Bool, t)
 [(1,"San Francisco"), (2, "New York")] :: Num t => [(t, [Char])]
-() :: ()
-take :: Int -> [a] -> [a]
+
+(:) :: a -> [a] -> [a]
+[]  :: [a]
+
 head :: [a] -> a
 tail :: [a] -> [a]
+take :: Int -> [a] -> [a]
+
 filter :: (a -> Bool) -> [a] -> [a]
-odd :: Integral a => a -> Bool
+map    :: (a -> b) -> [a] -> [b]
+foldr  :: (a -> b -> b) -> b -> [a] -> b
+foldl  :: (a -> b -> a) -> a -> [b] -> a
+
+odd  :: Integral a => a -> Bool
 even :: Integral a => a -> Bool
-print :: Show a => a -> IO ()
-div :: Integral a => a -> a -> a
-mod :: Integral a => a -> a -> a
+div  :: Integral a => a -> a -> a
+mod  :: Integral a => a -> a -> a
 (&&) :: Bool -> Bool -> Bool
 (||) :: Bool -> Bool -> Bool
 (==) :: Eq a => a -> a -> Bool
 (/=) :: Eq a => a -> a -> Bool
-map :: (a -> b) -> [a] -> [b]
 sqrt :: Floating a => a -> a
-sqr :: Num a => a -> a
-lessthan8 :: (Num a, Ord a) => a -> Bool
-(:) :: a -> [a] -> [a]
+
+print :: Show a => a -> IO ()
+
+sqr  :: Num a => a -> a
 (>:) :: [a] -> a -> [a]
-(5+) :: Num a => a -> a
-wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
-polityka1 :: Ord a => a -> a -> Bool
+lessthan8 :: (Num a, Ord a) => a -> Bool
+(5+)      :: Num a => a -> a
+wybierz       :: Num a => (a -> a -> Bool) -> a -> a -> a
+polityka1     :: Ord a => a -> a -> Bool
 bank1_wybierz :: (Num a, Ord a) => a -> a -> a
-foldr :: (a -> b -> b) -> b -> [a] -> b
-foldl :: (a -> b -> a) -> a -> [b] -> a
 ```
 
 ### Dane
