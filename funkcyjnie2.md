@@ -235,9 +235,9 @@ Przykład z wcześniej, czyli dlaczego nie ma domyślnej implementacji `Num (May
 
 
 ### Zadania
-__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego interfejs funktora
+__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
-__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego interfejs aplikatora
+__Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
 ---
 ## Monady
