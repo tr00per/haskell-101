@@ -211,6 +211,11 @@ let lessthan8 x = x < 8
 :t (lessthan8 . sqr)
 -- (lessthan8 . sqr) :: (Num a, Ord a) => a -> Bool
 
+let pośrednia = map sqr [1..5]
+-- [1,4,9,16,25]
+map lessthan8 pośrednia
+-- [True,True,False,False,False]
+
 map (lessthan8 . sqr) [1..5]
 -- [True,True,False,False,False]
 ```
