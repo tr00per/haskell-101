@@ -30,7 +30,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 (True, -1)
 (40, 255, 0)
 
--- lista krotek, lista asocjacyjna
+-- lista krotek - lista asocjacyjna
 [(1,"San Francisco"), (2, "New York")]
 ```
 **Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast *__krotki__* mogą *__mieszać typy elementów__*, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
@@ -39,6 +39,15 @@ Przy okazji: unit, czyli bezwartościowa wartość
 ```haskell
 ()
 ```
+
+Listy dzielą się na "głowę" i "ogon":
+```haskell
+head [1..5]
+-- 1
+tail [1..5]
+-- [2,3,4,5]
+```
+
 Nieskończone listy
 ```haskell
 [1..]
