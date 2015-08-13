@@ -58,6 +58,7 @@ legal x = case x of
 () :: ()
 take
 head
+tail
 filter
 odd
 even
