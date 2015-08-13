@@ -1,5 +1,7 @@
 # Myśleć funkcyjnie #2
 
+![](http://imgs.xkcd.com/comics/haskell.png)
+
 ## Wzorcowanie i strażnicy
 Ignorując na chwilę, że mapowanie jest tak naprawdę reprezentowane prez złożenie, funkcję `map` można zapisać w taki sposób:
 ```haskell
@@ -190,6 +192,20 @@ fmap (\x -> x*x) Nothing
 maybe :: b -> (a -> b) -> Maybe a -> b
 catMaybes :: [Maybe a] -> [a]
 mapMaybe :: (a -> Maybe b) -> [a] -> [b]
+```
+
+Przykład użycia
+```haskell
+type Ident = Int
+type Login = String
+data Użytkownik = Niezarejestrowany | Znany Login
+
+użytkownicy :: [(Ident, Login])
+
+-- lookup :: Eq a => a -> [(a, b)] -> Maybe b
+znajdź = maybe Niezarejestrowany Znany . lookup (3::Ident)
+
+-- znajdź :: [(Ident, Login)] -> Użytkownik
 ```
 
 ### Either
