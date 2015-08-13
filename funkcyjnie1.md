@@ -12,6 +12,9 @@ W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 -- Lista liczb
 [1,2,3,4,5]
 
+-- "Odcukrzona" wersja
+1:2:3:4:5:[]
+
 -- Lista znaków
 ['H','a','s','k','e','l','l']
 "Curry" -- w Haskellu typ String jest aliasem dla tablicy znaków
