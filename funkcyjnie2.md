@@ -189,6 +189,10 @@ fmap (f . g)  ==  fmap f . fmap g
 ```haskell
 data Maybe a = Nothing | Just a
 
+instance Functor Maybe where
+    fmap _ Nothing  = Nothing
+    fmap f (Just x) = Just (f x)
+
 fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
