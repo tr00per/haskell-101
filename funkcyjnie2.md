@@ -112,7 +112,7 @@ data Maybe a = Nothing | Just a
 data Kolory = Czerwony | Zielony | Niebieski
 
 -- mogą być parametryzowane i rekurencyjne
-data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)
+data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 ```
 
 ### Klasy
@@ -249,7 +249,7 @@ Przykład z wcześniej, czyli dlaczego nie ma domyślnej implementacji `Num (May
 ```
 
 ### Zadania
-__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
+__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
 __Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
