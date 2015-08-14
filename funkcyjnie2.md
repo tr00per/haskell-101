@@ -248,7 +248,15 @@ pure (+) <*> [1,2,3] <*> [1,2,3]
 
 Implementacja aplikatora zapewnia nam, że możemy komponować funkcje z danymi zamkniętymi w "pudełkach" bez wcześniejszego ich "odpakowywania". Wygode i precyzyjne rozwiązanie.
 
-Przykład z wcześniej, czyli dlaczego nie ma domyślnej implementacji `Num (Maybe a)`:
+Oczywiście aplikatory również powinny posiadać pewne właściwości:
+```haskell
+pure id <*> v = v
+pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
+pure f <*> pure x = pure (f x)
+u <*> pure y = pure ($ y) <*> u
+```
+
+Przykład z wcześniej, czyli dlaczego nie potrzebujemy domyślnej implementacji `Num (Maybe a)`:
 ```haskell
 (+) <$> Just 1 <*> Just 2
 (+) <$> Nothing <*> Just 4
