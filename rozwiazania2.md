@@ -3,8 +3,11 @@ Stworzyć własny typ danych, który reprezentuje kolory
 
 ```haskell
 data RGB = RGB (Int, Int, Int)
+
 data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
-data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja | Biały | Czarny
+
+data Kolor = Czerwony | Zółty | Zielony | Cyjan |
+             Niebieski | Fuksja | Biały | Czarny
 ```
 
 ![](https://i.chzbgr.com/maxW500/8547829760/hFEDF9230/)
