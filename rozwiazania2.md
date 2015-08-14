@@ -35,6 +35,12 @@ instance Num Kolor where
 ### Rozwiązanie
 Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
+Właściwości funktorów:
+```haskell
+fmap id  ==  id
+fmap (f . g)  ==  fmap f . fmap g
+```
+
 ```haskell
 data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 
