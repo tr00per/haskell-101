@@ -20,6 +20,7 @@ instance Num Kanały where
     p + q = Kanały {czerwony p +% czerwony q, zielony p +% zielony q, niebieski p +% niebieski q}
 
 instance Num Kolor where
+    (RGB (r1, g1, b1)) + (RGB (r2, g2, b2)) = RGB (r1 +% r2, g1 +% g2, b1 +% b2)
 
 ```
 
