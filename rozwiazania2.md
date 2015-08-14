@@ -55,6 +55,14 @@ instance Functor (Drzewo a) where
 ### Rozwiązanie
 Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
+Właściwości aplikatorów:
+```haskell
+pure id <*> v = v
+pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
+pure f <*> pure x = pure (f x)
+u <*> pure y = pure ($ y) <*> u
+```
+
 ```haskell
 instance Applicative (Drzewo a) where
     pure x = Węzeł x Nic Nic
