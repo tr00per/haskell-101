@@ -3,7 +3,7 @@ Stworzyć własny typ danych, który reprezentuje kolory
 
 ```haskell
 data RGB = RGB (Int, Int, Int)
-data Kanały = RGB { czerwony::Int, zielony::Int, niebieski::Int }
+data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
 data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja
 ```
 
@@ -11,11 +11,16 @@ data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja
 Zaimplementować operacją dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ```haskell
-instance Num Kolor where
-    
+x +% y = (x + y) `mod` 256
+infixl 6 +%
+
 instance Num RGB where
     
-data Kanały = RGB { czerwony::Int, zielony::Int, niebieski::Int }
+instance Num Kanały where
+    p + q = Kanały {czerwony p +% czerwony q, zielony p +% zielony q, niebieski p +% niebieski q}
+
+instance Num Kolor where
+
 ```
 
 ### Zadanie
