@@ -33,10 +33,14 @@ instance Num Kolor where
 ![](https://i.chzbgr.com/maxW500/8548211712/hF0537D89/)
 
 ### Rozwiązanie
-Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
+Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
 ```haskell
+data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 
+instance Functor (Drzewo a) where
+    fmap _ Nic = Nic
+    fmap f 
 ```
 
 ![](https://i.chzbgr.com/maxW500/8549208320/hD46DDB7B/)
@@ -45,6 +49,7 @@ Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplem
 Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
 ```haskell
+
 
 ```
 
