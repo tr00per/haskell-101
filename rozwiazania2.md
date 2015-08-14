@@ -50,7 +50,9 @@ instance Functor (Drzewo a) where
 Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
 ```haskell
-
+instance Applicative (Drzewo a) where
+    pure x = Węzeł x Nic Nic
+    
 
 ```
 
