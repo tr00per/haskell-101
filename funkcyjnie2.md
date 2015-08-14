@@ -205,7 +205,6 @@ znajdź :: Ident -> [(Ident, Login)] -> Użytkownik
 znajdź ident = maybe Niezarejestrowany Znany . lookup ident
 
 main = print $ znajdź (Ident 3) [(Ident 3,"Ala")]
--- 
 ```
 
 ### Either
