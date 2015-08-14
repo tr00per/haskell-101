@@ -75,8 +75,8 @@ u <*> pure y = pure ($ y) <*> u
 ```haskell
 instance Applicative (Drzewo a) where
     pure x = Węzeł x Nic Nic
-    
-
+    (Węzeł f f1 f2) <*> (Węzeł x x1 x2) =
+        Węzeł (f x) (f1 <*> x1) (f2 <*> x2)
 ```
 
 ![](https://i.chzbgr.com/maxW500/8431718656/h1E8B69B5/)
