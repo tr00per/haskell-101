@@ -167,7 +167,7 @@ Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w prakt
 ### Zadania
 __Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
 
-__Zadanie__: Zaimplementować klasę `Num` dla tego nowego typu przechowującego kolory
+__Zadanie__: Zaimplementować operacją dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ---
 ## Funktory
