@@ -179,6 +179,12 @@ class Functor f where
 
 Dla list implementacja `fmap` to po prostu `map`. `fmap` jest ogólniejszą koncepcją.
 
+Implementacja funktorów powinna spełnić pewne właściwości, które jednak są wymagane jedynie przez konwencję
+```haskell
+fmap id  ==  id
+fmap (f . g)  ==  fmap f . fmap g
+```
+
 ### Maybe
 ```haskell
 data Maybe a = Nothing | Just a
