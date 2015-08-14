@@ -53,7 +53,7 @@ fmap (f . g)  ==  fmap f . fmap g
 ```haskell
 data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 
-instance Functor (Drzewo a) where
+instance Functor Drzewo where
     fmap _ Nic                  = Nic
     fmap f (Węzeł x left right) =
         Węzeł (f x) (fmap f left) (fmap f right)
@@ -73,7 +73,7 @@ u <*> pure y = pure ($ y) <*> u
 ```
 
 ```haskell
-instance Applicative (Drzewo a) where
+instance Applicative Drzewo where
     pure x = Węzeł x Nic Nic
     (Węzeł f f1 f2) <*> (Węzeł x x1 x2) =
         Węzeł (f x) (f1 <*> x1) (f2 <*> x2)
