@@ -4,7 +4,7 @@ Stworzyć własny typ danych, który reprezentuje kolory
 ```haskell
 data RGB = RGB (Int, Int, Int)
 data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
-data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja
+data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja | Biały | Czarny
 ```
 
 ![](https://i.chzbgr.com/maxW500/8547829760/hFEDF9230/)
@@ -27,7 +27,13 @@ instance Num Kanały where
                 (niebieski p +% niebieski q)
 
 instance Num Kolor where
-
+    Czerowny + Zielony = Zółty
+    Zielony + Czerowny = Zółty
+    Zielony + Niebieski = Cyjan
+    Niebieski + Zielony = Cyjan
+    Czerwony + Niebieski = Fuksja
+    Niebieski + Czerwony = Fuksja
+    _ + _ = Czarny
 ```
 
 ![](https://i.chzbgr.com/maxW500/8548211712/hF0537D89/)
