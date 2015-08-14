@@ -39,8 +39,9 @@ Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimpl
 data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 
 instance Functor (Drzewo a) where
-    fmap _ Nic = Nic
-    fmap f 
+    fmap _ Nic                  = Nic
+    fmap f (Węzeł x left right) =
+        Węzeł (f x) (fmap f left) (fmap f right)
 ```
 
 ![](https://i.chzbgr.com/maxW500/8549208320/hD46DDB7B/)
