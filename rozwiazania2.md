@@ -1,4 +1,4 @@
-### Zadanie
+### Rozwiązanie
 Stworzyć własny typ danych, który reprezentuje kolory
 
 ```haskell
@@ -7,7 +7,9 @@ data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
 data Kolor = Czerwony | Zółty | Zielony | Cyjan | Niebieski | Fuksja
 ```
 
-### Zadanie
+![](https://i.chzbgr.com/maxW500/8547829760/hFEDF9230/)
+
+### Rozwiązanie
 Zaimplementować operacją dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ```haskell
@@ -24,16 +26,22 @@ instance Num Kolor where
 
 ```
 
-### Zadanie
+![](https://i.chzbgr.com/maxW500/8548211712/hF0537D89/)
+
+### Rozwiązanie
 Mając typ danych `data Drzewo a = Nic | Węzeł (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
 ```haskell
 
 ```
 
-### Zadanie
+![](https://i.chzbgr.com/maxW500/8549208320/hD46DDB7B/)
+
+### Rozwiązanie
 Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
 ```haskell
 
 ```
+
+![](https://i.chzbgr.com/maxW500/8431718656/h1E8B69B5/)
