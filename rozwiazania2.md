@@ -82,3 +82,8 @@ instance Applicative Drzewo where
 ```
 
 ![](https://i.chzbgr.com/maxW500/8431718656/h1E8B69B5/)
+
+### Rozwiązanie
+```haskell
+
+```
