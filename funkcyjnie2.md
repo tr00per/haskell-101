@@ -354,16 +354,43 @@ fun x = do
     return przemienione
 ```
 
-### Maybe
+### Either
 Propagowanie błędu
+
+Nie używam tu prawdziwych funkcji, żeby skupić się jedynie na istocie problemu
 ```haskell
 
 ```
 
 ### Writer
 Logowanie
-```haskell
 
+Użyłem fragmentu ze s
+```haskell
+battle :: Player -> Creature -> Writer [String] (Player, BattleResult)
+battle player@(toCreature -> pc) enemy
+    | health pc <= 0 && health enemy <= 0 = do
+        tell ["You're both dead."]
+        return (player, Draw)
+    | health pc <= 0    = do
+        tell ["You're dead."]
+        return (player, CreatureWon)
+    | health enemy <= 0 = do
+        tell ["You won!"]
+        return (player, PlayerWon)
+    | otherwise         = do
+        newPlayer <- enemy `attack` pc
+        newEnemy  <- pc `attack` enemy
+        if pc == newPlayer && enemy == newEnemy
+            then do tell ["Your attacks have no effect!"]
+                    return (player, NoEffect)
+            else battle (Player newPlayer) newEnemy
+
+attack :: Creature -> Creature -> Writer [String] Creature
+attacker `attack` defender = do
+    let damage = max 0 (power attacker - armor defender)
+    tell [getName attacker ++ " deals " ++ show damage ++ " damage to " ++ getName defender]
+    return (reduceHealth defender damage)
 ```
 
 ---
