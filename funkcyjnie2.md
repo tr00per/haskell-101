@@ -356,7 +356,6 @@ fun x = do
 
 ### Maybe
 Propagowanie błędu
-
 ```haskell
 import Data.Char
 upper = map toUpper
@@ -372,8 +371,6 @@ getUppercaseUserName ident = do
 
 ### Writer
 Logowanie
-
-Użyłem fragmentu ze s
 ```haskell
 battle :: Player -> Creature -> Writer [String] (Player, BattleResult)
 battle player@(toCreature -> pc) enemy
@@ -406,6 +403,7 @@ attacker `attack` defender = do
 Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stanem.
 
 ### State
+Przechowywanie stanu między akcjami
 ```haskell
 
 ```
@@ -417,6 +415,7 @@ Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stan
 
 ### Zadania
 __Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
+
 ---
 ## Embeded Domain-Specific Langage
 Algorytmy + struktury danych = programy
