@@ -271,7 +271,6 @@ __Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drze
 
 __Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
 
-```haskell
 ---
 ## Monady
 ![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
