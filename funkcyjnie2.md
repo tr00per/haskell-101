@@ -428,8 +428,7 @@ calculate = do
         Op op  -> do
             x <- calculate
             y <- calculate
-            let result = op x y
-            return result
+            return (op x y)
     where
         pop :: State [PPN] PPN
         pop = do
