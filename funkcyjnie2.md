@@ -449,6 +449,7 @@ createStack tokens = map parse tokens where
 ```
 
 ### I/O
+Kilka prostych przykładów
 ```haskell
 hello = putStrLn "Hello, world!"
 
@@ -456,6 +457,22 @@ answer = putStrLn $ show 42
 answer' = print 42
 
 copy fin fout = readFile fin >>= writeFile fout
+```
+
+Jeszcze raz kawałek kodu wyciągnięty z mojej gry
+```haskell
+saveAdventure :: Player -> DungeonState -> IO GameStatus
+saveAdventure player dstate = bracket (openFile saveGameName WriteMode) hClose storeData
+    where storeData handle = do playerWritten <- tryEither (hPrint handle player)
+                                dstateWritten <- tryEither (hPrint handle dstate)
+                                return $ statusChanged playerWritten dstateWritten (\_ _ -> GameSaved)
+
+loadAdventure :: IO GameStatus
+loadAdventure = bracket (openFile saveGameName ReadMode) hClose loadData
+    where loadData handle = do player <- readEither `liftM` hGetLine handle
+                               dstate <- readEither `liftM` hGetLine handle
+                               return $ statusChanged player dstate (curry GameLoaded)
+
 ```
 
 ### Zadania
