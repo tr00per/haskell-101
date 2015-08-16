@@ -370,7 +370,9 @@ getUppercaseUserName ident = do
 ```
 
 ### Writer
-Logowanie
+Logowanie.
+
+Wyrwałem fragment ze swojej gry tekstowej. Nie będę twierdził, że to najpiękniejszy kod na świecie, ale za to ładnie ilustruje przypadek użycia monady `Writer`. Przechowuję `[String]`, bo każdy ciąg w tablicy to jedna linia.
 ```haskell
 battle :: Player -> Creature -> Writer [String] (Player, BattleResult)
 battle player@(toCreature -> pc) enemy
@@ -402,7 +404,9 @@ attacker `attack` defender = do
 ## Stan
 
 ### State
-Przechowywanie stanu między akcjami
+Przechowywanie stanu między akcjami.
+
+Poniżej niedoskonały, ale działający kalkulator parsujący Polish Prefix Notation.
 ```haskell
 import Control.Monad.State
 
@@ -446,7 +450,12 @@ createStack tokens = map parse tokens where
 
 ### I/O
 ```haskell
+hello = putStrLn "Hello, world!"
 
+answer = putStrLn $ show 42
+answer' = print 42
+
+copy fin fout = readFile fin >>= writeFile fout
 ```
 
 ### Zadania
