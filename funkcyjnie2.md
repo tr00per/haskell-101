@@ -354,12 +354,20 @@ fun x = do
     return przemienione
 ```
 
-### Either
+### Maybe
 Propagowanie błędu
 
-Nie używam tu prawdziwych funkcji, żeby skupić się jedynie na istocie problemu
 ```haskell
+import Data.Char
+upper = map toUpper
+users = [(1,"tr00per"), (2,"morlas"), (3,"sindagma")]
 
+lookup 1 users >>= \user -> return (upper user)
+lookup 10 users >>= \user -> return (upper user)
+
+getUppercaseUserName ident = do
+    user <- lookup ident users
+    return (upper xs)
 ```
 
 ### Writer
