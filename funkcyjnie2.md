@@ -329,12 +329,31 @@ Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
 
 Heinrich Kleisli był szwajcarskim matematykiem, którego nazwisko nosi kilka tworów w teorii kategorii, np. kategoria Kleisli lub trójka Kleisli.
 
+### Notacja `do`
+```haskell
+fun x =
+    zapytanie x                          >>= \wynik ->
+    let przemienione = transformuj wynik
+    in zapisz przemienione               >>= \_ ->
+    return przemienione
+```
+
+```haskell
+fun x = do
+    wynik <- zapytanie x
+    let przemienione = transformuj wynik
+    zapisz przemienione
+    return przemienione
+```
+
 ### Maybe
+Propagowanie błędu
 ```haskell
 
 ```
 
 ### Writer
+Logowanie
 ```haskell
 
 ```
