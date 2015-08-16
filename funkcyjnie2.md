@@ -181,8 +181,8 @@ Dla list implementacja `fmap` to po prostu `map`. `fmap` jest ogólniejszą konc
 
 Implementacja funktorów powinna spełnić pewne właściwości, które jednak są wymagane jedynie przez konwencję
 ```haskell
-fmap id  ==  id
-fmap (f . g)  ==  fmap f . fmap g
+fmap id == id
+fmap (f . g) == fmap f . fmap g
 ```
 
 ### Maybe
