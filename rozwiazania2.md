@@ -85,5 +85,29 @@ instance Applicative Drzewo where
 
 ### Rozwiązanie
 ```haskell
+import Data.Char
 
+data Ident a = Ident a deriving Show
+
+main = do
+    print (Ident 42)
+    print $ upper `fmap` (Ident "abc")
+    print $ (+) <$> (Ident 3) <*> (Ident 2)
+    print $ return "def" >>= upperIdent
+
+upper :: String -> String
+upper = map toUpper
+
+upperIdent :: String -> Ident String
+upperIdent x = return (upper x)
+
+instance Functor Ident where
+    fmap f (Ident x) = Ident (f x)
+
+instance Applicative Ident where
+    pure x = Ident x
+    (Ident f) <*> (Ident x) = Ident (f x)
+
+instance Monad Ident where
+    (Ident x) >>= f = f x
 ```
