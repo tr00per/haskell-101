@@ -111,3 +111,5 @@ instance Applicative Ident where
 instance Monad Ident where
     (Ident x) >>= f = f x
 ```
+
+![](http://www.timemachinego.com/linkmachinego/wordpress/wp-content/uploads/2009/02/techcatpreview.jpg)
