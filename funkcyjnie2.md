@@ -415,6 +415,8 @@ Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stan
 
 ```
 
+### Zadania
+__Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
 ---
 ## Embeded Domain-Specific Langage
 Algorytmy + struktury danych = programy
