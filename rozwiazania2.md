@@ -46,8 +46,8 @@ Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimpl
 
 Właściwości funktorów:
 ```haskell
-fmap id  ==  id
-fmap (f . g)  ==  fmap f . fmap g
+fmap id == id
+fmap (f . g) == fmap f . fmap g
 ```
 
 ```haskell
@@ -66,10 +66,10 @@ Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję apl
 
 Właściwości aplikatorów:
 ```haskell
-pure id <*> v = v
-pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
-pure f <*> pure x = pure (f x)
-u <*> pure y = pure ($ y) <*> u
+pure id <*> v == v
+pure (.) <*> u <*> v <*> w == u <*> (v <*> w)
+pure f <*> pure x == pure (f x)
+u <*> pure y == pure ($ y) <*> u
 ```
 
 ```haskell
