@@ -400,7 +400,6 @@ attacker `attack` defender = do
 
 ---
 ## Stan
-Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stanem.
 
 ### State
 Przechowywanie stanu między akcjami
