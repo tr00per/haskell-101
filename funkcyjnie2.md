@@ -459,9 +459,9 @@ answer' = print 42
 copy fin fout = readFile fin >>= writeFile fout
 ```
 
-Jeszcze raz kawałek kodu wyciągnięty z mojej gry
+Jeszcze raz kawałek kodu wyciągnięty z mojej gry tekstowej.
 ```haskell
-saveAdventure :: Player -> DungeonState -> IO GameStatus
+saveAdventure :: Player -> DungeonState -> IO GameStatus.
 saveAdventure player dstate = bracket (openFile saveGameName WriteMode) hClose storeData
     where storeData handle = do playerWritten <- tryEither (hPrint handle player)
                                 dstateWritten <- tryEither (hPrint handle dstate)
