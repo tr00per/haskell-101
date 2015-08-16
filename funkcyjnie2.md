@@ -478,8 +478,6 @@ loadAdventure = bracket (openFile saveGameName ReadMode) hClose loadData
 ### Zadania
 __Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
 
-__Zadanie__: 
-
 ---
 ## Embeded Domain-Specific Langage
 Algorytmy + struktury danych = programy
