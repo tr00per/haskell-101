@@ -405,7 +405,45 @@ Innym przydatnym zastosowaniem monad jest ukrywanie machinerii zarządzania stan
 ### State
 Przechowywanie stanu między akcjami
 ```haskell
+import Control.Monad.State
 
+main = do
+    print $ calc "- 4 + 2 3"
+    print $ calc "+ + + 1 1 1 1"
+    print $ calc "- * / 15 - 7 + 1 1 3 + 2 + 1 1"
+
+data PPN = Data Double | Op (Double -> Double -> Double)
+
+calc :: String -> Double
+calc input =
+    let tokens = words input
+        stack = createStack tokens
+    in evalState calculate stack
+
+calculate :: State [PPN] Double
+calculate = do
+    it <- pop
+    case it of
+        Data r -> return r
+        Op op  -> do
+            x <- calculate
+            y <- calculate
+            let result = op x y
+            return result
+    where
+        pop :: State [PPN] PPN
+        pop = do
+            (it:rest) <- get
+            put rest
+            return it
+
+createStack :: [String] -> [PPN]
+createStack tokens = map parse tokens where
+    parse "+" = Op (+)
+    parse "-" = Op (-)
+    parse "/" = Op (/)
+    parse "*" = Op (*)
+    parse  x  = Data (read x)
 ```
 
 ### I/O
