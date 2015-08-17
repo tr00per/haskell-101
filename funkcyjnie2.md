@@ -370,6 +370,13 @@ getUppercaseUserName ident = do
     return (upper xs)
 ```
 
+Prostszy przykład
+```haskell
+half :: Integral a => a -> Maybe a
+half x | even x    = Just (x `div` 2)
+       | otherwise = Nothing
+```
+
 ### Writer
 Logowanie.
 
@@ -485,6 +492,7 @@ __Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a 
 
 ![](http://adit.io/imgs/functors/recap.png)
 
+Ilustrację pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io/](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 
 ---
 ## Embeded Domain-Specific Langage
