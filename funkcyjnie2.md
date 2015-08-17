@@ -117,7 +117,7 @@ data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 ```
 
 ### Klasy
-Klasy grupują operacje, które można wykonać na danych (może zawierać domyślną implementację):
+Klasy grupują operacje, które można wykonać na danych (mogą zawierać domyślną implementację):
 ```haskell
 class Eq a where
     (==) :: a -> a -> Bool
@@ -168,7 +168,7 @@ Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w prakt
 ### Zadania
 __Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
 
-__Zadanie__: Zaimplementować operacją dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
+__Zadanie__: Zaimplementować operację dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ---
 ## Funktory
