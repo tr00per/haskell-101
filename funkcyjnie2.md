@@ -458,6 +458,8 @@ answer = putStrLn $ show 42
 answer' = print 42
 
 copy fin fout = readFile fin >>= writeFile fout
+
+readSomeFile = getLine >>= readFile >>= putStrLn
 ```
 
 Jeszcze raz kawałek kodu wyciągnięty z mojej gry tekstowej.
