@@ -13,7 +13,7 @@ data Kolor = Czerwony | Żółty | Zielony | Cyjan |
 ![](https://i.chzbgr.com/maxW500/8547829760/hFEDF9230/)
 
 ### Rozwiązanie
-Zaimplementować operacją dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
+Zaimplementować operację dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ```haskell
 x +% y = (x + y) `mod` 256
