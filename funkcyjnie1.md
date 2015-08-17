@@ -323,11 +323,11 @@ wybierz polityka dostępne żądane = if polityka dostępne żądane
                                    then dostępne - żądane
                                    else dostępne
 
--- polityka1 :: Ord a => a -> a -> Bool
-polityka1 ma chce = ma >= chce
+-- polityka_prosta :: Ord a => a -> a -> Bool
+polityka_prosta ma chce = ma >= chce
 
 -- bank1_wybierz :: (Num a, Ord a) => a -> a -> a
-bank1_wybierz = wybierz polityka1
+bank1_wybierz = wybierz polityka_prosta
 ```
 
 ---
