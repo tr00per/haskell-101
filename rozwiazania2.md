@@ -6,7 +6,7 @@ data RGB = RGB (Int, Int, Int)
 
 data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
 
-data Kolor = Czerwony | Zółty | Zielony | Cyjan |
+data Kolor = Czerwony | Żółty | Zielony | Cyjan |
              Niebieski | Fuksja | Biały | Czarny
 ```
 
@@ -30,8 +30,8 @@ instance Num Kanały where
                 (niebieski p +% niebieski q)
 
 instance Num Kolor where
-    Czerowny + Zielony = Zółty
-    Zielony + Czerowny = Zółty
+    Czerowny + Zielony = Żółty
+    Zielony + Czerowny = Żółty
     Zielony + Niebieski = Cyjan
     Niebieski + Zielony = Cyjan
     Czerwony + Niebieski = Fuksja
