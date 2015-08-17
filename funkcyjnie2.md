@@ -21,6 +21,7 @@ A nawet jeszcze lepiej:
 map _ []     = []
 map f (x:xs) = f x : map f xs
 ```
+Symbol `_` we wzorcu oznacza, że nie będziemy używać wartości znajdującej się na tej pozycji.
 
 Mechanizm wzorcowania (pattern matching) znajduje zastosowanie w wielu miejscach w Haskellu. Zamiast bezpośrendio w nagłówku funkcji można go tez użyć wewnątrz:
 ```haskell
