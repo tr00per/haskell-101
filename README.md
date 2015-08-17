@@ -4,6 +4,9 @@ Yet another introduction to Haskell and functional programming.
 
 ### Inspirations
 
+List of very useful resources
+* [World Domination with Haskell](https://gibbon.co/wunki/world-domination-with-haskell) @ Gibbon
+
 Books
 * [Thinking Functionally with Haskell](http://www.amazon.com/Thinking-Functionally-Haskell-Richard-Bird/dp/1107452643/)
 * [Real World Haskell](http://www.amazon.com/Real-World-Haskell-Bryan-OSullivan/dp/0596514980/) - [available online!](http://book.realworldhaskell.org/read/)
