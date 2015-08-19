@@ -23,16 +23,17 @@ data Pair a = MkPair a a
 Można wyjąć z nich typ wyższego rzędu:
 ```haskell
 data Tree f a = Leaf a | Node (f (Tree f a))
--- a - typ liścia
--- f - konstruktor typu kontenera gałęzi
 
 type RoseTree a = Tree [] a
 type BinTree  a = Tree Pair a
-type AnnTree  a = Tree AnnPari a
+type AnnTree  a = Tree AnnPair a
 
 data Pair a = P a a
 data AnnPair a = AP String a a
 ```
+
+* a - typ liścia
+* f - konstruktor typu kontenera gałęzi
 ```haskell
 a    :: *
 f    :: * -> *
