@@ -17,7 +17,7 @@ data Kolor = Czerwony | Żółty | Zielony | Cyjan |
 Zaimplementować operację dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
 
 ```haskell
-x +% y = (x + y) `mod` 256
+x +% y = max 255 (x + y)
 infixl 6 +%
 
 instance Num RGB where
@@ -90,8 +90,6 @@ instance Applicative Drzewo where
 ```haskell
 import Data.Char
 
-data Ident a = Ident a deriving Show
-
 main = do
     print (Ident 42)
     print $ upper `fmap` (Ident "abc")
@@ -103,6 +101,8 @@ upper = map toUpper
 
 upperIdent :: String -> Ident String
 upperIdent x = return (upper x)
+
+data Ident a = Ident a deriving Show
 
 instance Functor Ident where
     fmap f (Ident x) = Ident (f x)
