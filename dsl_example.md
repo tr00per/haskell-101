@@ -10,34 +10,47 @@ type Account = String
 type Instrument = String
 type Money = Integer
 type DateTime = (String, String)
+type TaxId = Int
 
 newtype Tax = Tax (TaxId, Rational)
 
-data Trade = {
-    account    :: Account,
-    instrument :: Instrument,
-    refNo      :: String,
-    market     :: Market,
-    unitPrice  :: Money,
-    quantity   :: Int,
-    tradeDate  :: DateTime,
-    valueDate  :: Maybe DateTime,
-    taxFees    :: [Tax]
-    netAmount  :: Maybe Money
+data Trade = Trade {
+    getAccount    :: Account,
+    getInstrument :: Instrument,
+    getRefNo      :: String,
+    getMarket     :: Market,
+    getUnitPrice  :: Money,
+    getQuantity   :: Int,
+    getTradeDate  :: DateTime,
+    getValueDate  :: Maybe DateTime,
+    getTaxFees    :: [Tax],
+    getNetAmount  :: Maybe Money
 }
 
 data Market = HongKong | Singapore | NewYork | Tokyo
 
-class StockMarket a where
-    cashValue :: Trade -> Money
+class RealTrade a where
+    market :: a -> Market
 
-instance StockMarket Market where
+class StockMarket a where
+    cashValue :: RealTrade a => a -> Money
+
+instance RealTrade Trade where
+    market = getMarket
+
+instance StockMarket Trade where
     cashValue trade@(market -> HongKong) =
-        undefined
+        let qty   = fromIntegral $ getQuantity trade
+            price = getUnitPrice trade 
+        in qty * price
 
     cashValue trade@(market -> Singapore) =
         undefined
 
     cashValue trade =
         undefined
+
+main :: IO ()
+main = print $ cashValue
+    (Trade "123" "A" "AV2/3" HongKong 10 2 ("2015-08-19","10:03:44") Nothing [] Nothing)
 ```
