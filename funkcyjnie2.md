@@ -158,7 +158,7 @@ instance Functor Maybe where
 fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
-
+#### Więcej `Maybe`
 `Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych, które siedzą w module `Data.Maybe`, np.:
 ```haskell
 maybe :: b -> (a -> b) -> Maybe a -> b
@@ -188,6 +188,7 @@ fmap (\x -> x*x) (Right 5)
 fmap (\x -> x*x) (Left "Failed")
 ```
 
+#### Więcej `Either`
 `Either` również posiada zestaw funkcji pomocniczych, analogicznie w `Data.Either`, np.:
 ```haskell
 either :: (a -> c) -> (b -> c) -> Either a b -> c
@@ -216,9 +217,16 @@ Implementacja aplikatora zapewnia nam, że możemy komponować funkcje z danymi 
 
 Oczywiście aplikatory również powinny posiadać pewne właściwości:
 ```haskell
+-- identity
 pure id <*> v == v
+
+-- composition
 pure (.) <*> u <*> v <*> w == u <*> (v <*> w)
+
+-- homomorphism
 pure f <*> pure x == pure (f x)
+
+-- interchange
 u <*> pure y == pure ($ y) <*> u
 ```
 
