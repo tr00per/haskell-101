@@ -1,5 +1,7 @@
 # Typy wyższego rzędu
-Tak jak typy służą m. in. weryfikacji wyrażeń, tak rodzaje służą weryfikacji poprawności typów.
+Skąd wiadomo, że funkcja `maybeToList` musi mieć typ `Maybe a -> [a]`, a nie może mieć np. `Maybe -> [a]`?
+
+Tak jak typy służą m. in. weryfikacji wyrażeń, tak rodzaje (kinds) służą weryfikacji poprawności typów.
 
 ```haskell
 Int :: *
@@ -10,7 +12,7 @@ Maybe Int :: *
 
 Można, podobnie jak z funkcjami, stwożyć parametryczne typy wyższego rzędu. Przykład pochodzi z [wykładu Simona Peytona Jonesa](https://www.youtube.com/watch?v=brE_dyedGm0) o typach w Haskellu.
 
-Drzewo "wielogałęziowe" vs. drzewo binarne:
+Drzewo "wielogałęziowe" ("różane") vs. drzewo binarne:
 ```haskell
 data BinTree a = BLeaf a | BNode (Pair (BinTree a))
 
