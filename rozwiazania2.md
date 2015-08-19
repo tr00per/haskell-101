@@ -90,17 +90,17 @@ instance Applicative Drzewo where
 ```haskell
 import Data.Char
 
-main = do
-    print (Ident 42)
-    print $ upper `fmap` (Ident "abc")
-    print $ (+) <$> (Ident 3) <*> (Ident 2)
-    print $ return "def" >>= upperIdent
-
 upper :: String -> String
 upper = map toUpper
 
 upperIdent :: String -> Ident String
 upperIdent x = return (upper x)
+
+main = do
+    print (Ident 42)
+    print $ upper `fmap` (Ident "abc")
+    print $ (+) <$> (Ident 3) <*> (Ident 2)
+    print $ return "def" >>= upperIdent
 
 data Ident a = Ident a deriving Show
 
