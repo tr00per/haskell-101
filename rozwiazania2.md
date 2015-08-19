@@ -77,6 +77,8 @@ instance Applicative Drzewo where
     pure x = Węzeł x Nic Nic
     Nic <*> _ = Nic
     _ <*> Nic = Nic
+    (Węzeł f Nic Nic) <*> (Węzeł x x1 x2) =
+        Węzeł (f x) (f <$> x1) (f <$> x2)
     (Węzeł f f1 f2) <*> (Węzeł x x1 x2) =
         Węzeł (f x) (f1 <*> x1) (f2 <*> x2)
 ```
