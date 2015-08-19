@@ -165,6 +165,15 @@ Nothing + Just 4
 
 Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w praktyce unika się tego i stosuje ograniczenia wyłącznie na funkcjach, które go potrzebują lub w definicjach klas.
 
+### Standardowe klasy Haskela 98
+Ilustracja prosto z [Haskell 98 Online Report](https://www.haskell.org/onlinereport/basic.html).
+
+![](https://www.haskell.org/onlinereport/classes.gif)
+
+Historycznie Funktory i Aplikatory, o których za chwilę, zostały wprowadzone do języka później, niż Monady, dlatego hierarchia wyglądała inaczej.
+
+W GHC 7.10 (27 marca 2015) została wprowadzona propozycja [Applicative Monad](https://wiki.haskell.org/Functor-Applicative-Monad_Proposal), która ma wejść do języka w raporcie Haskell 2014.
+
 ### Zadania
 __Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
 
@@ -502,6 +511,6 @@ Z EDSL mamy doczynienia wtedy, kiedy wykorzystując elementy języka tworzymy w 
 
 Jednym podejściem jest stworzenie lub dołączenie zewnętrznego języka skryptowego. 
 
-Przykładem zewnętrznego języka domenowego, o którym prawdopodobnie wszyscy słyszeliście, jest SQL. Jest to język domenowy do manipulacji obszernymi zbiorami danych z bazie relacynej.
+Przykładem zewnętrznego języka domenowego, o którym prawdopodobnie wszyscy słyszeliście, jest **SQL**. Jest to język domenowy do manipulacji obszernymi zbiorami danych z bazie relacynej.
 
-Można tez pod tę definicję podciągnąć języki skryptowe używane w grach do programowania zachowań przeciwników (np. wybór najlepszej ścieżki; sam algorytm jej wyznaczania będzie zaimplementowany w głównym języku) lub modelowania zachowań środowiska (np.,, kiedy ma zacząć padać deszcz). Lua jest przykładem języka, który został zastosowany w wielu grach własnie do tego celu (Wikipedia wymienia 151 gier, które go wykorzystują).
+Można tez pod tę definicję podciągnąć języki skryptowe używane w grach do programowania zachowań przeciwników (np. wybór najlepszej ścieżki; sam algorytm jej wyznaczania będzie zaimplementowany w głównym języku) lub modelowania zachowań środowiska (np.,, kiedy ma zacząć padać deszcz). **Lua** jest przykładem języka, który został zastosowany w wielu grach własnie do tego celu (Wikipedia wymienia 151 gier, które go wykorzystują).
