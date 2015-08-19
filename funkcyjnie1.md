@@ -378,6 +378,52 @@ __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończone
 __Zadanie__: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl')` i porównać ten wariant z pozostałymi dwoma
 
 ---
+## Wzorcowanie i strażnicy
+Ignorując na chwilę, że mapowanie jest tak naprawdę reprezentowane prez złożenie, funkcję `map` można zapisać w taki sposób:
+```haskell
+map f xs = if not null xs
+           then f (head xs) : map f (tail xs)
+           else []
+```
+
+Istnieje przejrzystszy sposób wyrażenia jej:
+```haskell
+map f []     = []
+map f (x:xs) = f x : map f xs
+```
+
+A nawet jeszcze lepiej:
+```haskell
+map _ []     = []
+map f (x:xs) = f x : map f xs
+```
+Symbol `_` we wzorcu oznacza, że nie będziemy używać wartości znajdującej się na tej pozycji.
+
+Mechanizm wzorcowania (pattern matching) znajduje zastosowanie w wielu miejscach w Haskellu. Zamiast bezpośrendio w nagłówku funkcji można go tez użyć wewnątrz:
+```haskell
+map f xs = case xs of
+               []   -> []
+               x:xs -> f x : map f xs
+```
+
+Mechanizmem, który często towarzyszy wzorcowaniu, są strażnicy (guards):
+```haskell
+legal 0             = False
+legal x | x < -5    = False
+        | x > 0     = True
+        | otherwise = True
+```
+
+Również i w tym wypadku da się zastosować ten mechanizm wewnątrz ciała funkcji:
+```haskell
+legal x = case x of
+              0             -> False
+              x | x < -5    -> False
+                | x > 0     -> True
+                | otherwise -> True
+```
+
+---
 ## Interludium
 
 ![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
