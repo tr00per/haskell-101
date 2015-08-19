@@ -498,4 +498,10 @@ Ilustrację pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.i
 ## Embeded Domain-Specific Langage
 Algorytmy + struktury danych = programy
 
-Z EDSL mamy doczynienia wtedy, kiedy wykorzystując elementy języka tworzymy w nim zestaw narządzi, którymi łatwiej jest operować w danej dziedzinie wiedzy.
+Z EDSL mamy doczynienia wtedy, kiedy wykorzystując elementy języka tworzymy w nim zestaw narzędzi, którymi łatwiej jest operować w danej dziedzinie wiedzy. Idea jest taka, żeby analityk biznesowy mógł razem z programistą stworzyć wspólny język, który będzie zrozumiały dla obu stron. Kompilowane zasady biznesowe.
+
+Jednym podejściem jest stworzenie lub dołączenie zewnętrznego języka skryptowego. 
+
+Przykładem zewnętrznego języka domenowego, o którym prawdopodobnie wszyscy słyszeliście, jest SQL. Jest to język domenowy do manipulacji obszernymi zbiorami danych z bazie relacynej.
+
+Można tez pod tę definicję podciągnąć języki skryptowe używane w grach do programowania zachowań przeciwników (np. wybór najlepszej ścieżki; sam algorytm jej wyznaczania będzie zaimplementowany w głównym języku) lub modelowania zachowań środowiska (np.,, kiedy ma zacząć padać deszcz). Lua jest przykładem języka, który został zastosowany w wielu grach własnie do tego celu (Wikipedia wymienia 151 gier, które go wykorzystują).
