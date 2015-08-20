@@ -244,4 +244,4 @@ __Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` i
 ---
 # Interludium
 
-!()[]
+![](http://m.lm.pl/media/news_foto/100182_przerwa-techniczna.jpg)
