@@ -1,5 +1,13 @@
 # Myśleć funkcynie #3
 
+## Funktory i Aplikatory
+
+![](http://adit.io/imgs/functors/fmap.png)
+
+![](http://adit.io/imgs/functors/applicative.png)
+
+Ilustracje pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io/](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
+
 ## Monady
 ![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
 
@@ -222,7 +230,7 @@ __Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a 
 
 ![](http://adit.io/imgs/functors/recap.png)
 
-Ilustrację pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io/](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
+Ilustrację znowu pożyczyłem z [http://adit.io/](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 
 ---
 ## Embeded Domain-Specific Langage
