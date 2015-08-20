@@ -300,7 +300,7 @@ Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
 Heinrich Kleisli był szwajcarskim matematykiem, którego nazwisko nosi kilka tworów w teorii kategorii, np. kategoria Kleisli lub trójka Kleisli.
 
 Monoid to po angielsku półgrupa. Półgrupa to zbiór wartości, operacja zdefiniowana na nim i element neutralny, np. $$(ℝ, +, 0)$$.
-Zbiór funkcji `a -> m a`, operator Kleisli `>=>` (albo `<=<`) i funkcja `return` (albo `pure`) tworzą monoid (półgrupę).
+Zbiór funkcji `a -> m a`, operator Kleisli `>=>` (albo `<=<`) i funkcja `return` (albo `pure`) tworzą półgrupę.
 
 ### Notacja `do`
 Zwykłyt zapis
