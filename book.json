@@ -1,4 +1,4 @@
 {
     "gitbook": ">=2.2.0",
-    "plugins": ["gitbook-plugin-autocover@1.2.1", "katex@1.0.2"]
+    "plugins": ["gitbook-plugin-autocover@1.2.1", "mathjax@1.0.0"]
 }
