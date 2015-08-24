@@ -33,7 +33,13 @@ Prelude> foldl (>:) [] [1..10]
 
 ### Rozwiązanie
 ```haskell
+Prelude> foldr (:) [] [1..10000]
+[1,2,3,4,5,6,7,8,9,10,...
+(0.18 secs, 49,959,032 bytes)
 
+Prelude> foldl (>:) [] [1..10000]
+[10000,9999,9998,9997,9996,9995,...
+(0.18 secs, 47,884,840 bytes)
 ```
 
 ### Rozwiązanie
