@@ -57,7 +57,7 @@ Unicestwiony
 ```haskell
 Prelude> foldr (:) [] [1..]
 [1,2,3,4,5,6,7,8,9,10,...
-
+(2956.48 secs, 822,753,274,392 bytes)
 -- W czasie wypisywania wyników: 0.2% pamięci mojego laptopa
 
 Prelude> foldl (>:) [] [1..]
@@ -72,6 +72,6 @@ Prelude Data.List> let (>:) = flip (:)
 
 Prelude Data.List> Prelude> foldl' (>:) [] [1..100000000]
 [100000000,99999999,99999998,99999997,999999996,99999995,...
-
+(2980.50 secs, 819,459,440,184 bytes)
 -- W czasie wypisywania wyników: 69.5% pamięci mojego laptopa
 ```
