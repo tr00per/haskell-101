@@ -381,9 +381,9 @@ __Zadanie__: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl
 ## Wzorcowanie i strażnicy
 Ignorując na chwilę, że mapowanie jest tak naprawdę reprezentowane prez złożenie, funkcję `map` można zapisać w taki sposób:
 ```haskell
-map f xs = if not null xs
-           then f (head xs) : map f (tail xs)
-           else []
+map f xs = if null xs
+           then []
+           else f (head xs) : map f (tail xs)
 ```
 
 Istnieje przejrzystszy sposób wyrażenia jej:
