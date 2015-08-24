@@ -10,7 +10,9 @@ filter even [1..10]
 
 ### Rozwiązanie
 ```haskell
+let myfilter x = x `mod` 4 == 0 && x `mod` 3 /= 0
 
+filter myfilter [1..20]
 ```
 
 ### Rozwiązanie
