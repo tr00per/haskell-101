@@ -183,8 +183,8 @@ Scala
 Jak mogłaby wyglądać implementacja funkcji `map`?
 ```haskell
 map f xs = if null xs
-           then f (head xs) : map f (tail xs)
-           else map f (tail xs)
+           then []
+           else f (head xs) : map f (tail xs)
 ```
 
 Mamy przykład "rekurencji ogonowej" (tail recursion).
