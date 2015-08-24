@@ -33,6 +33,8 @@ Prelude> foldl (>:) [] [1..10]
 
 ### Rozwiązanie
 ```haskell
+Prelude> let (>:) = flip (:)
+
 Prelude> foldr (:) [] [1..10000]
 [1,2,3,4,5,6,7,8,9,10,...
 (0.18 secs, 49,959,032 bytes)
@@ -50,10 +52,18 @@ Unicestwiony
 
 ### Rozwiązanie
 ```haskell
+Prelude> foldr (:) [] [1..]
+[1,2,3,4,5,6,7,8,9,10,...
 
+Prelude> foldl (>:) [] [1..]
+-- ...
 ```
 
 ### Rozwiązanie
 ```haskell
+import Data.List
 
+Prelude> let (>:) = flip (:)
+
+Prelude> foldl' (>:) [] [1..100000000]
 ```
