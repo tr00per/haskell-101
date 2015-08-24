@@ -58,6 +58,7 @@ Unicestwiony
 Prelude> foldr (:) [] [1..]
 [1,2,3,4,5,6,7,8,9,10,...
 
+-- W czasie wypisywania wyników: 0.2% pamięci mojego laptopa
 Prelude> foldl (>:) [] [1..]
 -- ...
 ```
@@ -69,4 +70,7 @@ Prelude> import Data.List
 Prelude Data.List> let (>:) = flip (:)
 
 Prelude Data.List> Prelude> foldl' (>:) [] [1..100000000]
+[100000000,99999999,99999998,99999997,999999996,99999995,...
+
+-- W czasie wypisywania wyników: 69.5% pamięci mojego laptopa
 ```
