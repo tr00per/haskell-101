@@ -64,9 +64,9 @@ Prelude> foldl (>:) [] [1..]
 
 ### Rozwiązanie
 ```haskell
-import Data.List
+Prelude> import Data.List
 
-Prelude> let (>:) = flip (:)
+Prelude Data.List> let (>:) = flip (:)
 
-Prelude> foldl' (>:) [] [1..100000000]
+Prelude Data.List> Prelude> foldl' (>:) [] [1..100000000]
 ```
