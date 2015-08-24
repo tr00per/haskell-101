@@ -40,6 +40,12 @@ Prelude> foldr (:) [] [1..10000]
 Prelude> foldl (>:) [] [1..10000]
 [10000,9999,9998,9997,9996,9995,...
 (0.18 secs, 47,884,840 bytes)
+
+Prelude> foldr (:) [] [1..100000000]
+[1,2,3,4,5,6,7,8,9,10,...
+
+Prelude> foldl (>:) [] [1..100000000]
+Unicestwiony
 ```
 
 ### Rozwiązanie
