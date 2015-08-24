@@ -59,6 +59,7 @@ Prelude> foldr (:) [] [1..]
 [1,2,3,4,5,6,7,8,9,10,...
 
 -- W czasie wypisywania wyników: 0.2% pamięci mojego laptopa
+
 Prelude> foldl (>:) [] [1..]
 -- ...
 ```
