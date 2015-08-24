@@ -8,12 +8,16 @@ filter odd [1..10]
 filter even [1..10]
 ```
 
+![]()
+
 ### Rozwiązanie
 ```haskell
 let myfilter x = x `mod` 4 == 0 && x `mod` 3 /= 0
 
 filter myfilter [1..20]
 ```
+
+![]()
 
 ### Rozwiązanie
 ```haskell
@@ -33,6 +37,8 @@ Prelude> foldl (>:) [] [1..10]
 [10,9,8,7,6,5,4,3,2,1]
 (0.00 secs, 0 bytes)
 ```
+
+![]()
 
 ### Rozwiązanie
 ```haskell
@@ -55,6 +61,8 @@ Prelude> foldl (>:) [] [1..100000000]
 Unicestwiony
 ```
 
+![]()
+
 ### Rozwiązanie
 ```haskell
 Prelude> foldr (:) [] [1..]
@@ -63,6 +71,8 @@ Prelude> foldr (:) [] [1..]
 Prelude> foldl (>:) [] [1..]
 -- ...
 ```
+
+![]()
 
 ### Rozwiązanie
 ```haskell
@@ -94,3 +104,5 @@ Prelude Data.List> foldl' (+) 0 [1..10000000]
 50000005000000
 (0.58 secs, 955,685,392 bytes)
 ```
+
+![]()
