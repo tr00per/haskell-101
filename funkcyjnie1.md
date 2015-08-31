@@ -161,7 +161,16 @@ A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej na
 
 ![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
 
-Filtrowanie jest bardzo popularną operacją na liście elementów. Równie powszechną, jeśli nie wszechobecną, operacją jest transformacja wartości w liście na nowe wartości. W Haskellu taka operacja wytwarza nową listę.
+Filtrowanie jest bardzo popularną operacją na liście elementów. Równie powszechną, jeśli nie wszechobecną, operacją jest transformacja wartości w liście na nowe wartości.
+```C++
+double somearr[] = {1, 2, 3, 4, 5}, outarr[5];
+for (int i = 0; i < 5; ++i)
+{
+    outarr[i] = std::sqrt(somearr[i]);
+}
+```
+
+W Haskellu taka operacja wytwarza nową listę.
 ```haskell
 map odd [1..5]
 map sqrt [1..5]
