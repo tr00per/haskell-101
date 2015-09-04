@@ -133,6 +133,9 @@ O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier skład
 
 ```
 
+Wszystko to prowadzi nas do flagowego przykładu na leniwe obliczanie, czyli ciąg Fibonacciego!
+
+
 ### Writer
 Logowanie.
 
