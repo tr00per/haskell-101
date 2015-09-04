@@ -161,6 +161,9 @@ O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier skład
 Wszystko to prowadzi nas do flagowego przykładu na leniwe obliczanie, czyli ciąg Fibonacciego!
 ```haskell
 fib = 0:1:[ x + y | (x,y) <- zip fib (tail fib) ]
+
+take 20 fib
+-- [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181]
 ```
 
 Oto nieskończona lista wyrazów ciągu Fibonacciego, która oblicza samą siebie w miarę jak się ją oblicza ;)
