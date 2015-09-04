@@ -118,14 +118,32 @@ half x | even x    = Just (x `div` 2)
 ### List
 Lista również jest monadą, a operacja na niej zdefiniowana dotyczy łączenia ze sobą dwóch list.
 
-Nie chodzi jednak o łączenie w krotki, do tego służą funckję z rodziny `zip`:
+Nie chodzi jednak o łączenie w krotki, do tego służą funckje z rodziny `zip`:
 ```haskell
+zip [1,2,3] "abc"
+-- [(1,'a'),(2,'b'),(3,'c')]
 
+zip3 [1,2,3] "abc" [10..]
+-- [(1,'a',10),(2,'b',11),(3,'c',12)]
+
+zipWith (*) [3,4,5] [4,2,1]
+-- [12,8,5]
+
+zipWith3 (\x y z -> x+y*z) [1..] [2..] [5,4,3]
+-- [11,14,15]
 ```
 
-Operacja zaimplementowana za pomocą operatora `>>=` to iloczyn dwóch list:
+Implementacja `>>=` zapewnia nam wywołanie przekazanej funkcji dla każdego elementu wejściowej listy
 ```haskell
+Prelude> :t ("abc" >>=)
+-- ("abc" >>=) :: (Char -> [b]) -> [b]
 
+import Data.Char
+"abc" >>= \x -> [toUpper x]
+-- "ABC"
+
+[3,4,5] >>= \x -> [4,5,6] >>= \y -> [x * y]
+-- [12,15,18,16,20,24,20,25,30]
 ```
 
 O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (list comprehension)
