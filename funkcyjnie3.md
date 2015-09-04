@@ -115,6 +115,24 @@ half x | even x    = Just (x `div` 2)
        | otherwise = Nothing
 ```
 
+### List
+Lista również jest monadą, a operacja na niej zdefiniowana dotyczy łączenia ze sobą dwóch list.
+
+Nie chodzi jednak o łączenie w krotki, do tego służą funckję z rodziny `zip`:
+```haskell
+
+```
+
+Operacja zaimplementowana za pomocą operatora `>>=` to iloczyn dwóch list:
+```haskell
+
+```
+
+O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (list comprehension)
+```haksell
+
+```
+
 ### Writer
 Logowanie.
 
