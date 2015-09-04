@@ -134,7 +134,11 @@ O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier skład
 ```
 
 Wszystko to prowadzi nas do flagowego przykładu na leniwe obliczanie, czyli ciąg Fibonacciego!
+```haskell
+fib = 0:1:[ x+y | (x,y) <- zip fib (tail fib) ]
+```
 
+Oto nieskończona lista wyrazów ciągu Fibonacciego, która oblicza samą siebie w miarę jak się ją oblicza ;)
 
 ### Writer
 Logowanie.
