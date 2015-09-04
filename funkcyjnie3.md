@@ -148,12 +148,16 @@ import Data.Char
 
 O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (list comprehension)
 ```haksell
+[ x * y | x <- [3,4,5], y <- [4,5,6]]
+-- [12,15,18,16,20,24,20,25,30]
 
+[ x * y | x <- [3,4,5], y <- [4,5,6], x > y]
+-- [20]
 ```
 
 Wszystko to prowadzi nas do flagowego przykładu na leniwe obliczanie, czyli ciąg Fibonacciego!
 ```haskell
-fib = 0:1:[ x+y | (x,y) <- zip fib (tail fib) ]
+fib = 0:1:[ x + y | (x,y) <- zip fib (tail fib) ]
 ```
 
 Oto nieskończona lista wyrazów ciągu Fibonacciego, która oblicza samą siebie w miarę jak się ją oblicza ;)
