@@ -146,7 +146,7 @@ import Data.Char
 -- [12,15,18,16,20,24,20,25,30]
 ```
 
-O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (list comprehension)
+O ile taka forma zapisu jest mało intuicyjna, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (_list comprehension_)
 ```haksell
 [ x * y | x <- [3,4,5], y <- [4,5,6]]
 -- [12,15,18,16,20,24,20,25,30]
