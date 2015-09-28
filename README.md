@@ -1,6 +1,6 @@
 # Functional thinking
 
-Yet another introduction to Haskell and functional programming.
+Yet another introduction to Haskell and functional programming. 95% in Polish.
 
 ### Inspirations
 
