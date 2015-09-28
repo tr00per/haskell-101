@@ -8,7 +8,7 @@ filter odd [1..10]
 filter even [1..10]
 ```
 
-![]()
+![](http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg)
 
 ### Rozwiązanie
 ```haskell
@@ -17,7 +17,7 @@ let myfilter x = x `mod` 4 == 0 && x `mod` 3 /= 0
 filter myfilter [1..20]
 ```
 
-![]()
+![](http://dothash.buzz/wp-content/uploads/2015/06/lolcat-4.jpg)
 
 ### Rozwiązanie
 ```haskell
@@ -38,7 +38,7 @@ Prelude> foldl (>:) [] [1..10]
 (0.00 secs, 0 bytes)
 ```
 
-![]()
+![](http://images.andrej3000.com/upload/2012/07/20/20120720140325-0002cca8.png)
 
 ### Rozwiązanie
 ```haskell
@@ -61,7 +61,7 @@ Prelude> foldl (>:) [] [1..100000000]
 Unicestwiony
 ```
 
-![]()
+![](http://new1.fjcdn.com/pictures/Lolcats_b0a5ec_147272.jpg)
 
 ### Rozwiązanie
 ```haskell
@@ -72,7 +72,7 @@ Prelude> foldl (>:) [] [1..]
 -- ...
 ```
 
-![]()
+![](http://cdn.sheknows.com/articles/2013/12/lolcats1.jpg)
 
 ### Rozwiązanie
 ```haskell
@@ -105,4 +105,4 @@ Prelude Data.List> foldl' (+) 0 [1..10000000]
 (0.58 secs, 955,685,392 bytes)
 ```
 
-![]()
+![](https://c1.staticflickr.com/9/8217/8361000871_53de696e2d.jpg)
