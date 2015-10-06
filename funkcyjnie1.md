@@ -143,6 +143,31 @@ let myfunc x = x * x
 
 Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
+### Funkcje i funkcje
+Haskell pod względem składniowym wyróżnia dwa typy operacji:
+* funkcje prefiksowe (zapisane literami itp.)
+```haskell
+myfunc x
+filter myfunc [1..10]
+elem 3 [1..10]
+```
+* operatory (funkcje infiksowe; zapisane symbolami)
+```haskell
+1 + 1
+4.5 * 8
+1:2:[]
+```
+
+W obu wypadkach domyślną konwencję wywołania możemy zmienić:
+```haskell
+(+) 4.5 8
+(:) 1 ((:) 2 [])
+-- albo (:) 1 $ (:) 2 []
+
+3 `elem` [1..10]
+128 `div` 3
+```
+
 ### GHCI i typy
 Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
 
