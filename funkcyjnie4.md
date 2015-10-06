@@ -10,4 +10,4 @@
 
 ## Komunikacja sieciowa
 
-## Web service
+## RESTowe usługi sieciowe
