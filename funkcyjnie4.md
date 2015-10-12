@@ -10,4 +10,6 @@
 
 ## Komunikacja sieciowa
 
+## Template Haskell
+
 ## RESTowe usługi sieciowe
