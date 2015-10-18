@@ -403,9 +403,7 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 
 ### Zadania
 
-__Zadanie__: Wywołać wymienione wyżej złożenia z włączonymi statystykami
-
-__Zadanie__: Dobrać tak liczby zakresu, aż zaczną pojawia się różnice między lewo- i prawostronnym składaniem
+__Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: (`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
 
 __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
 
