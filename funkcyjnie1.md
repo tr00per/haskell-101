@@ -455,7 +455,7 @@ legal x = case x of
 
 ### Zadania
 
-__Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: (`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
+__Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: (`sum` albo `product`), `length`, `(++)`, `reverse`, (`take` albo `drop`).
 
 ---
 ## Interludium
