@@ -39,7 +39,7 @@ sum = foldl' (+) 0
 product = foldl' (*) 0
 
 -- length
-length = foldl' (\acc _ -> acc+1) 0
+length = foldl' (\acc _ -> acc + 1) 0
 
 -- map
 map f = foldr (\x acc -> f x : acc) []
