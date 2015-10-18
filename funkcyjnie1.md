@@ -403,8 +403,6 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 
 ### Zadania
 
-__Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: (`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
-
 __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
 
 __Zadanie__: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl')` i porównać ten wariant z pozostałymi dwoma
@@ -454,6 +452,10 @@ legal x = case x of
                 | x > 0     -> True
                 | otherwise -> True
 ```
+
+### Zadania
+
+__Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: (`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
 
 ---
 ## Interludium
