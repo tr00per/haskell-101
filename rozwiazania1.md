@@ -54,6 +54,16 @@ xs ++ [] = xs
 -- reverse
 reverse [] = []
 reverse (x:xs) = xs ++ [x]
+
+-- take
+take _ [] = []
+take n (x:xs) | n <= 0    = []
+              | otherwise = x : take (n-1) xs
+
+-- drop
+drop _ [] = []
+drop n xxs@(_:xs) | n <= 0    = xxs
+                  | otherwise = drop (n-1) xs
 ```
 
 ![](https://c1.staticflickr.com/9/8217/8361000871_53de696e2d.jpg)
