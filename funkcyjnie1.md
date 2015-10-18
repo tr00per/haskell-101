@@ -64,13 +64,13 @@ head [1..]
 
 Interpreter się nie zawiesza, ponieważ generowane jest tylko tyle, ile potrzeba do zaspokojenia żądania.
 
-Przykład, kiedy przyda się leniwa ewaluacja - pisząc funkcję, która generuje ciąg możliwych rozwiązań problemu (np. wypełnione plansze do sudoku) nie musimy przejmować się, żeby w tej samej funkcji sprawdzać poprawność wypełnień. Możemy zrobić to w osobnej funkcji, a na koniec stwierdzić tylko "chcę pierwsze, co wyjdzie".
+Przykład #1: separacja generowania potencjalnych rozwiązań od sprawdzania poprawności:
 ```haskell
 head $ filter correct_solution $ generate_values data
 -- albo: head (filter correct_solution (generate_values data))
 ```
 
-Inny przykład - separacja IO od obliczeń. Zamiast samemu troszczyć się o to, by jak najszybciej wyświetlać wygenerowane modele, tworzymy funkcję, które je konstruuje, a potem mówimy "wyświetl wszystko". Leniwa ewaluacja zapewni nam, że modele będą tworzone dopiero wtedy, kiedy będą faktycznie potrzebne (nie będzie wielkiej pauzy na początku), a każdy będzie wyświetlony jak tylko będzie gotowy.
+Przykład #2: separacja wyświetlania od obliczeń:
 ```haskell
 display $ prepare_geometry source
 ```
