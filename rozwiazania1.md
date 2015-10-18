@@ -64,7 +64,24 @@ Prelude Data.List> foldl' (+) 0 [1..10000000]
 
 ### Rozwiązanie
 ```haskell
-(`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
+-- sum
+sum = foldl' (+) 0
+
+-- product
+product = foldl' (*) 0
+
+-- length
+length = foldl' (\acc _ -> acc+1) 0
+
+-- ++
+
+-- reverse
+reverse
+
+-- take
+
+-- drop
+
 ```
 
 ![](https://c1.staticflickr.com/9/8217/8361000871_53de696e2d.jpg)
