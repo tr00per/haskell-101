@@ -40,6 +40,11 @@ product = foldl' (*) 0
 
 -- length
 length = foldl' (\acc _ -> acc+1) 0
+
+-- map
+map f = foldr (\x acc -> f x : acc) []
+
+map f = foldr ((:) . f) []
 ```
 
 ![](http://new1.fjcdn.com/pictures/Lolcats_b0a5ec_147272.jpg)
