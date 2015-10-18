@@ -72,16 +72,6 @@ product = foldl' (*) 0
 
 -- length
 length = foldl' (\acc _ -> acc+1) 0
-
--- ++
-
--- reverse
-reverse
-
--- take
-
--- drop
-
 ```
 
 ![](https://c1.staticflickr.com/9/8217/8361000871_53de696e2d.jpg)
