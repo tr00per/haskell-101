@@ -67,7 +67,4 @@ Prelude Data.List> foldl' (+) 0 [1..10000000]
 (`sum` albo `product`), `length`, `reverse`, (`take` albo `drop`).
 ```
 
-![](http://cdn.sheknows.com/articles/2013/12/lolcats1.jpg)
-
-
 ![](https://c1.staticflickr.com/9/8217/8361000871_53de696e2d.jpg)
