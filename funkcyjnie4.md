@@ -6,10 +6,14 @@
 
 ## Parsowanie
 
+## Template Haskell
+### Soczewki
+
 ## Wielowątkowość
+### Współbieżność
+
+### Zrównoleglanie
 
 ## Komunikacja sieciowa
-
-## Template Haskell
 
 ## RESTowe usługi sieciowe
