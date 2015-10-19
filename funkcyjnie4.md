@@ -15,11 +15,15 @@
 ### Zrównoleglanie
 
 ## Komunikacja sieciowa
+Czat? IRC?
+
 ### Klient
 
 ### Serwer
 
 ## RESTowe usługi sieciowe
 ### Klient
+Oauth?
 
 ### Serwer
+HTTP?
