@@ -15,5 +15,11 @@
 ### Zrównoleglanie
 
 ## Komunikacja sieciowa
+### Klient
+
+### Serwer
 
 ## RESTowe usługi sieciowe
+### Klient
+
+### Serwer
