@@ -3,8 +3,10 @@
 ## Testowanie
 
 ## Transformatory Monad
+StateT, ReaderT, WriterT
 
 ## Parsowanie
+Parsec
 
 ## Template Haskell
 ### Soczewki
