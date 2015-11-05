@@ -36,7 +36,7 @@ Prelude> foldl (>:) [] [1..]
 sum = foldl' (+) 0
 
 -- product
-product = foldl' (*) 0
+product = foldl' (*) 1
 
 -- length
 length = foldl' (\acc _ -> acc + 1) 0
