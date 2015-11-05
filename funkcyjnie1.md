@@ -305,7 +305,7 @@ h' x = (f . g) x
 h'' = f . g
 ```
 
-Styl ten jest czasm pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
+Styl ten jest czasem pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
 
 Ciekawostki
 ```haskell
@@ -408,6 +408,9 @@ __Zadanie__: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego
 __Zadanie__: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
 
 __Zadanie__: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl')` i porównać ten wariant z pozostałymi dwoma
+
+### Wnioski
+Jeśli przetwarzamy stumień danych, nie wiadomo ile będzie elementów i tworzymy z niego nowy strumień, użyjmy `foldr`. Jeśli przetwarzamy skończoną liczbę elementów, która zmieści się w pamięci, a do tego faktycznie składmy je w wszystkie jedną wartość, użyjmy `foldl'` (z apostrofem).
 
 ---
 ## Wzorcowanie i strażnicy
