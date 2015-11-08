@@ -101,6 +101,9 @@ Np. aby zobaczyć wszystkie typy danych, którym można sprawdzać równość, w
 Automatyczna implementacja niektórych klas:
 ```haskell
 data Maybe a = Nothing | Just a deriving (Eq, Ord, Read, Show)
+
+-- wymaga :set -XGeneralizedNewtypeDeriving
+newtype Money = Money Integer deriving (Eq, Ord, Num)
 ```
 
 Ręczna implementacja klas:
