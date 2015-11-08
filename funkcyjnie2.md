@@ -218,7 +218,7 @@ pure (+) <*> [1,2,3] <*> [1,2,3]
 (+) <$> [1,2,3] <*> [1,2,3]
 ```
 
-Implementacja aplikatora zapewnia nam, że możemy komponować funkcje z danymi zamkniętymi w "pudełkach" bez wcześniejszego ich "odpakowywania". Wygode i precyzyjne rozwiązanie.
+Implementacja aplikatora zapewnia nam, że możemy komponować funkcje z danymi zamkniętymi w "pudełkach" bez wcześniejszego ich "odpakowywania".
 
 Oczywiście aplikatory również powinny posiadać pewne właściwości:
 ```haskell
