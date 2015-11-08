@@ -204,7 +204,7 @@ partitionEithers :: [Either a b] -> ([a], [b])
 
 ---
 ## Aplikatory
-Funkcje zamknięte w instancji tej klasy można zaaplikować na wartościach w niej zamkniętych
+Aplikator rozszerza koncepcje zamkniętą w Funktorze. Teraz można również funkcje zamknięte w instancji tej klasy zaaplikować na wartościach w niej zamkniętych
 ```haskell
 class Functor f => Applicative f where
     pure :: a -> f a
