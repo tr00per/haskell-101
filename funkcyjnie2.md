@@ -61,6 +61,8 @@ newtype Money = Money Integer
 -- typ parametryzowany
 data Maybe a = Nothing | Just a
 
+data Either a b = Left a | Right b
+
 -- własne dane
 data Kolory = Czerwony | Zielony | Niebieski
 
