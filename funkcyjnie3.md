@@ -15,7 +15,7 @@ Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacj
 * `return :: a -> m a` operacja, która umieszcza wartość w pojemniku, synonim `pure`
 * `(>>=) :: m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
 
-Druga operacja nazywa się "bind" i przyrzymy jej się bliżej.
+Druga operacja nazywa się "bind" i przyjrzymy jej się bliżej.
 ### (>>=)
 Przypomnijmy operator łączenia `(.)`:
 $$
@@ -56,7 +56,14 @@ f =<< g x
 
 Teraz już widać, co jest grane. `(>>=)` jest odwróconym operatorem `(=<<)` (jest też `(>=>)`).
 
-`(>>=)` jest bardziej praktyczny w użyciu, niż `(<=<)`, więc w praktyce ten pierwszy jest użyty do implementacji drugiego.
+Możemy też napisać:
+```haskell
+bindrl f = join . fmap f
+-- jak (=<<)
+
+bindlr ma f = join . fmap f $ ma
+-- jak (>>=)
+```
 
 ### Żargon i nerdowanie
 Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
@@ -66,7 +73,7 @@ Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
 Heinrich Kleisli był szwajcarskim matematykiem, którego nazwisko nosi kilka tworów w teorii kategorii, np. kategoria Kleisli lub trójka Kleisli.
 
 Monoid to inaczej półgrupa z jedynką. Półgrupa z jedynką to zbiór wartości, wewnętrzna operacja zdefiniowana na nim i element neutralny ("jedynka"), np. $$(\mathbb{R}, *, 1)$$, $$(\mathbb{R}, +, 0)$$.
-Zbiór funkcji `a -> m a`, operator Kleisli `>=>` (albo `<=<`) i funkcja `return` (albo `pure`) tworzą półgrupę z jedynką.
+Zbiór funkcji `a -> m b`, operator Kleisli `>=>` (albo `<=<`) i funkcja `return` (albo `pure`) tworzą półgrupę z jedynką.
 
 ### Notacja `do`
 Zwykłyt zapis
