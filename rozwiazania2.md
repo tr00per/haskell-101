@@ -5,7 +5,7 @@ Stworzyć własny typ danych, który reprezentuje kolory
 data RGB = RGB (Int, Int, Int)
 
 data Kanały = Kanały { czerwony::Int, zielony::Int, niebieski::Int }
--- data Kanały = Kanały Int Int Int
+-- bez stylu rekordowego: data Kanały = Kanały Int Int Int
 
 data Kolor = Czerwony | Żółty | Zielony | Cyjan |
              Niebieski | Fuksja | Biały | Czarny
