@@ -58,7 +58,7 @@ xs ++ [] = xs
 
 -- reverse
 reverse [] = []
-reverse (x:xs) = xs ++ [x]
+reverse (x:xs) = reverse xs ++ [x]
 
 -- take
 take _ [] = []
