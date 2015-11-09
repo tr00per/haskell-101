@@ -65,7 +65,7 @@ take _ [] = []
 take n (x:xs) | n <= 0    = []
               | otherwise = x : take (n-1) xs
 
--- drop
+-- drop ("as" pattern)
 drop _ [] = []
 drop n xxs@(_:xs) | n <= 0    = xxs
                   | otherwise = drop (n-1) xs
