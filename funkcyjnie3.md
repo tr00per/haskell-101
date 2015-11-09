@@ -100,6 +100,8 @@ fun x = do
     return przemienione
 ```
 
+Dlatego monady nazywa się też "programowalnym średnikiem".
+
 ### Maybe
 Propagowanie błędu
 ```haskell
