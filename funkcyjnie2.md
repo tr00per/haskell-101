@@ -227,12 +227,14 @@ pure id <*> v == v
 
 -- composition
 pure (.) <*> u <*> v <*> w == u <*> (v <*> w)
+-- Bez aplikatora: (u . v) w == u (v w)
 
 -- homomorphism
 pure f <*> pure x == pure (f x)
 
 -- interchange
 u <*> pure y == pure ($ y) <*> u
+-- Bez aplikatora: u y == ($ y) u
 ```
 
 Przykład z wcześniej, czyli dlaczego nie potrzebujemy domyślnej implementacji `Num (Maybe a)`:
