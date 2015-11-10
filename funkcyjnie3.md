@@ -142,7 +142,7 @@ half x | even x    = Just (x `div` 2)
 ### List
 Lista również jest monadą, a operacja na niej zdefiniowana dotyczy łączenia ze sobą dwóch list.
 
-Nie chodzi jednak o łączenie w krotki, do tego służą funckje z rodziny `zip`:
+Nie chodzi jednak o łączenie w krotki, do tego służą funckje z rodziny `zip` albo aplikator `ZipList`:
 ```haskell
 zip [1,2,3] "abc"
 -- [(1,'a'),(2,'b'),(3,'c')]
@@ -155,6 +155,10 @@ zipWith (*) [3,4,5] [4,2,1]
 
 zipWith3 (\x y z -> x+y*z) [1..] [2..] [5,4,3]
 -- [11,14,15]
+
+import Control.Applicative
+(\x y -> x*y) <$> ZipList [1..3] <*> ZipList [1..]
+-- ZipList {getZipList = [1,4,9]}
 ```
 
 Implementacja `>>=` zapewnia nam wywołanie przekazanej funkcji dla każdego elementu wejściowej listy
