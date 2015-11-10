@@ -433,7 +433,7 @@ appMain = do
     limit <- maxValue <$> ask
     tell ["Odczytałem limit " ++ show limit]
     putStrLn' $ "Limit to " ++ show limit
-    put [limit * 10]
+    put (limit * 10 : oldValue)
     newValue <- get
     putStrLn' $ "Wartość stanu: " ++ show newValue
     tell ["Kończymy..."]
