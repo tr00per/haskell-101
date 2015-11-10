@@ -507,6 +507,21 @@ bigPut = lift . lift . put
 ### Zadania
 __Zadanie__: Stworzyć implementację transformatora `MaybeT`, który dodaje do naszego stosu możliwość porażki.
 
+Szablon na dobry początek:
+```haskell
+newtype MaybeT m a = MaybeT {
+    runMaybeT :: m (Maybe a)
+}
+
+bindMT :: (Monad m) => MaybeT m a -> (a -> MaybeT m b) -> MaybeT m b
+
+pureMT :: (Monad m) => a -> MaybeT m a
+
+failMT :: (Monad m) => t -> MaybeT m a
+
+instance 
+```
+
 ---
 
 ![](http://vignette2.wikia.nocookie.net/looneytunes/images/e/e1/All.jpg/revision/latest?cb=20150313020828)
