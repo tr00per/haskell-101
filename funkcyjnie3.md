@@ -298,8 +298,8 @@ createStack tokens = map parse tokens where
     parse  x  = Data (read x)
 ```
 
-### I/O
-Dowolne efekty uboczne. Komunikacja ze światem zewnętrznym.
+### IO
+Dowolne efekty uboczne. Komunikacja ze światem zewnętrznym, współbieżność, wyświetlanie, manipulacja plikami, kontrolowanie Matriksa.
 
 Imaginacja definicji
 ```haskell
