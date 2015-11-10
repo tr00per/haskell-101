@@ -381,12 +381,20 @@ run :: WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) () -> AppConfig -
 
 Nie da się tego normalnie używać... Ale od czego są aliasy!
 ```haskell
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 newtype Application a = Application (WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) a)
+    deriving (Functor, Applicative, Monad, MonadIO, MonadWriter AppLog, MonadReader AppConfig, MonadState AppState)
 newtype AppResult a = AppResult (IO ((a, AppLog), AppState))
 
 run :: Application () -> AppConfig -> AppState -> AppResult ()
 run (Application app) config initState = AppResult (runStateT (runReaderT (runWriterT app) config) initState)
 
 appMain :: Application ()
-appMain = ?
+appMain = ...
+```
+
+To teraz jeszcze krótkie ciało programu, żeby zaprezentować, że mamy dostęp do wszystkich potrzebnych rzeczy
+```haksell
+
 ```
