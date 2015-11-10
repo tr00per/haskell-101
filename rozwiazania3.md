@@ -28,3 +28,21 @@ instance Monad Ident where
 ```
 
 ![](http://www.timemachinego.com/linkmachinego/wordpress/wp-content/uploads/2009/02/techcatpreview.jpg)
+
+```haskell
+newtype MaybeT m a = MaybeT {
+    runMaybeT :: m (Maybe a)
+}
+
+fmapMT :: (Functor m) => (a -> b) -> MaybeT m a -> MaybeT m b
+
+pureMT :: (Applicative m) => a -> MaybeT m a
+
+apMT :: (Applicative m) => MaybeT m (a -> b) -> MaybeT m a -> MaybeT m b
+
+bindMT :: (Monad m) => MaybeT m a -> (a -> MaybeT m b) -> MaybeT m b
+
+failMT :: (Monad m) => t -> MaybeT m a
+```
+
+![](http://new4.fjcdn.com/pictures/Cat+racing_d7cac3_4877215.jpg)
