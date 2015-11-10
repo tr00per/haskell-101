@@ -316,3 +316,8 @@ Ilustrację znowu pożyczyłem z [http://adit.io/](http://adit.io/posts/2013-04-
 
 ## Transformatory Monad
 
+### ReaderT
+
+### WriterT
+
+### StateT
