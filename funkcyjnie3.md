@@ -182,8 +182,16 @@ O ile taka forma zapisu jest mało intuicyjna na pierwszy rzut oka, to istnieje 
 [ x * y | x <- [3,4,5], y <- [4,5,6] ]
 -- [12,15,18,16,20,24,20,25,30]
 
-[ x * y | x <- [3,4,5], y <- [4,5,6], x > y ]
+v1 = [ x * y | x <- [3,4,5], y <- [4,5,6], x > y ]
 -- [20]
+
+import Control.Monad
+v2 = do
+   x <- [3,4,5]
+   y <- [4,5,6]
+   guard (x > y)
+   return (x * y)
+-- v1 == v2
 ```
 
 Wszystko to prowadzi nas do flagowego przykładu na leniwe obliczanie, czyli ciąg Fibonacciego!
