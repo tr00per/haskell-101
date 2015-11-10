@@ -366,6 +366,9 @@ Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, kt�
 
 ![](monadowa_matrioszka.jpg)
 
+### Przykład użycia stosu transformatorów
+Wzorowane na przykłądach z [Real World Haskell](http://book.realworldhaskell.org/read/monad-transformers.html).
+
 ```haskell
 type AppLog = [String]
 type AppState = [Integer]
@@ -415,6 +418,8 @@ appMain = do
     where
         putStrLn' = liftIO . putStrLn
 ```
+
+![](https://refugeestrength.files.wordpress.com/2013/12/shock25.jpg)
 
 I jeszcze main, żeby to wszystko ze sobą połączyć:
 ```haskell
@@ -470,3 +475,40 @@ import Control.Monad.Reader
 import Control.Monad.Writer
 import Control.Monad.State
 ```
+
+### Przypadek szczególny
+
+Jeśli przyjdzie nam nałożyć na siebie dwie monady tego samego typu, to zaczyna się robić nieco ślisko. System typów będzie nas trzymał w pionie, ale troską trzeba otoczyć zdrowie psychiczne.
+
+Przykład prostego homozłożenia:
+```haskell
+type DoubleState = StateT Int (State String)
+```
+
+Teraz żeby dobrać się do zewnętrzenego stanu wystarczy wywołać `get` albo `set`. Jak natomiast dobrać się do wewnątrz?
+
+```haskell
+innerPut :: String -> DoubleState ()
+innerPut = lift . put
+```
+
+Jednak na tym zabawa się nie kończy, bo jeśli zechcemy dołączyć więcej informacji i wciąż mieć dostęp do głębszego stanu, to znów musimy zrobić to jawnie.
+
+
+```haskell
+type BigStack = ReaderT Bool DoubleState
+
+bigPut :: String -> BigStack ()
+bigPut = lift . lift . put
+```
+
+![](http://queenofthenerds.net/wp-content/uploads/2013/12/safe_image.php_.jpeg)
+
+### Zadania
+__Zadanie__: Stworzyć implementację transformatora `MaybeT`, który dodaje do naszego stosu możliwość porażki.
+
+---
+
+![](http://vignette2.wikia.nocookie.net/looneytunes/images/e/e1/All.jpg/revision/latest?cb=20150313020828)
+
+![](https://cdn2.hubspot.net/hub/300222/file-666003009-jpg/images/better-breathing-track-and-field-powerlung.jpg)
