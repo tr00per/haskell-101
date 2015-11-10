@@ -1,8 +1,5 @@
 # Myśleć funkcynie #4
 
-## Transformatory Monad
-StateT, ReaderT, WriterT
-
 ## Testowanie
 Tasty
 
