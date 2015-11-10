@@ -9,7 +9,7 @@
 Ilustracje pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io/](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 
 ## Monady
-Zastrzeżenie: pojawi się tu za chwilę lista monad, która jednak nie aspiruje do bycia kompletną i definitywną. Pomijamy chociażby monadę ST, która daje nam m. in. jednowątkowe zmienne.
+**Zastrzeżenie:** pojawi się tu za chwilę lista monad, która jednak nie aspiruje do bycia kompletną i definitywną. Pomijamy chociażby monadę ST, która daje nam m. in. jednowątkowe zmienne.
 
 ![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
 
