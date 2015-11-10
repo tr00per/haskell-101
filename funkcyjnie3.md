@@ -415,3 +415,50 @@ appMain = do
     where
         putStrLn' = liftIO . putStrLn
 ```
+
+I jeszcze main, żeby to wszystko ze sobą połączyć:
+```haskell
+
+main :: IO ()
+main = do
+    putStrLn "Hi"
+    args <- getArgs
+    let config = AppConfig $ case args of
+                     []    -> 10
+                     (x:_) -> read x
+    print config
+    result <- getResult $ run appMain config 300
+    let ((_, logs), finalState) = result
+    putStrLn $ "\nLogi: " ++ unlines logs
+    putStrLn $ "\nOstatni stan: " ++ show finalState
+    putStrLn "Bye"
+```
+
+Efekt działania programu:
+```bash
+$ ./monad_transformers 18
+Hi
+AppConfig {maxValue = 18}
+Zaczynam!
+Początkowa wartość stanu: 300
+Limit to 18
+Wartość stanu: 180
+Skończyłem!
+
+Logi: Zaczęło się...
+Odczytałem limit 18
+Kończymy...
+
+
+Ostatni stan: 180
+Bye
+```
+
+bez argumentu też działa:
+```bash
+$ ./monad_transformers
+Hi
+AppConfig {maxValue = 10}
+Zaczynam!
+...
+```
