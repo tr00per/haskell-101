@@ -11,11 +11,16 @@ Ilustracje pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io
 ## Monady
 ![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
 
-Aby coś było Monadą - wystarczy, że będzie miało zdefiniowane dwie operacje:
-* `return :: a -> m a` operacja, która umieszcza wartość w pojemniku, synonim `pure`
-* `(>>=) :: m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
+Aby coś było Monadą wystarczy, że będzie miało zdefiniowane dwie operacje:
+* `return :: Monad m => a -> m a` operacja, która umieszcza wartość w pojemniku, synonim `pure`
+* `(>>=) :: Monad m => m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
 
-Druga operacja nazywa się "bind" i przyjrzymy jej się bliżej.
+Druga operacja nazywa się "bind" i za moment przyjrzymy jej się bliżej.
+
+Klasa monady udostępnia jeszcze dwie operacje:
+* `(>>) :: Monad m => m a -> m b -> m b` tylko zaznacza następstwo akcji, nie przekazuje rezultatu pierwszej akcji do drugiej
+* `fail :: Monad m => String -> m a` służy przerwaniu akcji z komunikatem błędu. Ostrożnie z używaniem!
+
 ### (>>=)
 Przypomnijmy operator łączenia `(.)`:
 $$
@@ -337,6 +342,9 @@ loadAdventure = bracket (openFile saveGameName ReadMode) hClose loadData
                                return $ statusChanged player dstate (curry GameLoaded)
 
 ```
+
+### Co z tym `fail`em?
+Dlaczego trzeba uważać z funkcją `fail`? Ponieważ w monadzie `IO` rzuci nam wyjątkiem, który nieprzechwycony położy całą aplikację. Musimy o tym pamiętać, jeśli będziemy wchodzić w interakcje z monadą, która nie ma swojej reprezentacji błędu.
 
 ### Zadania
 __Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
