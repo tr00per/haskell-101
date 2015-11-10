@@ -15,8 +15,7 @@ Parsec
 ### Zrównoleglanie
 
 ## Komunikacja sieciowa
-Czat? IRC?
-
+Czat?
 ### Klient
 
 ### Serwer
