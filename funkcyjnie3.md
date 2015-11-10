@@ -241,7 +241,7 @@ Przechowywanie stanu między akcjami.
 
 Uproszczona definicja
 ```haskell
-data State w a = State { runState :: s -> (a, s) }
+newtype State s a = State { runState :: s -> (a, s) }
 ```
 
 Operacja zawarte w `MonadState`, a najważniejsze z nich to `set` i `get`. Dla tej monady mamy również zestaw funkcji "uruchamiających":
@@ -299,6 +299,15 @@ createStack tokens = map parse tokens where
 ```
 
 ### I/O
+Dowolne efekty uboczne. Komunikacja ze światem zewnętrznym.
+
+Imaginacja definicji
+```haskell
+newtype IO realWorld a = IO { runIO :: realWorld -> (a, realWorld) }
+```
+
+W rzeczywistości nie mamy dostępu do obiektu "prawdziwego świata", zarządza nim środowisko uruchomieniowe.
+
 Kilka prostych przykładów
 ```haskell
 hello = putStrLn "Hello, world!"
