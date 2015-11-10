@@ -75,6 +75,8 @@ Heinrich Kleisli był szwajcarskim matematykiem, którego nazwisko nosi kilka tw
 Monoid to inaczej półgrupa z jedynką. Półgrupa z jedynką to zbiór wartości, wewnętrzna operacja zdefiniowana na nim i element neutralny ("jedynka"), np. $$(\mathbb{R}, *, 1)$$, $$(\mathbb{R}, +, 0)$$.
 Zbiór funkcji `a -> m b`, operator Kleisli `>=>` (albo `<=<`) i funkcja `return` (albo `pure`) tworzą półgrupę z jedynką.
 
+![](http://vignette2.wikia.nocookie.net/gameofthrones/images/7/7f/Daenerys_and_dragons_2x10.png/revision/latest?cb=20120604062453)
+
 ### Notacja `do`
 Zwykłyt zapis
 ```haskell
@@ -349,8 +351,6 @@ Ilustrację znowu pożyczyłem z [http://adit.io/](http://adit.io/posts/2013-04-
 
 ## Transformatory Monad
 
-### ReaderT
+Transformatory pozwalają składać ze sobą monady.
 
-### WriterT
-
-### StateT
+![](monadowa_matrioszka.jpg)
