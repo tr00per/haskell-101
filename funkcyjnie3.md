@@ -383,6 +383,10 @@ Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, kt�
 
 ![](monadowa_matrioszka.jpg)
 
+Zawarłem na tym obrazku dwa niedopowiedzenia, ale i tak jest to ładna ilustracja (zdjęcie z Internetów, podpisy moje).
+
+Transformatory mogą być w dowolnej kolejności i jeszcze do tego się powtarzać, natomiast nasza generyczna wartość `a` jest z punktu widzenia kodu parametrem zewnętrznego transformatora.
+
 ### Przykład użycia stosu transformatorów
 Wzorowane na przykłądach z [Real World Haskell](http://book.realworldhaskell.org/read/monad-transformers.html).
 
