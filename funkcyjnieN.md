@@ -3,16 +3,12 @@
 Tasty
 
 # Myśleć funkcynie #5
-## Parsowanie
-Parsec
-
-# Myśleć funkcynie #6
 ## Wielowątkowość
 ### Współbieżność
 
 ### Zrównoleglanie
 
-#Myśleć funkcyjnie #7
+#Myśleć funkcyjnie #6
 ## Komunikacja sieciowa
 Czat?
 ### Klient
@@ -26,9 +22,15 @@ Oauth?
 ### Serwer
 HTTP?
 
+# Myśleć funkcynie #7
+## Parsowanie
+Parsec
+
 #Myśleć funkcyjnie #8
 ## GUI
 threepenny-gui
 
+#Myśleć funkcyjnie #9
 ## Template Haskell
 ### Soczewki
+### ?
