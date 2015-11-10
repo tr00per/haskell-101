@@ -185,7 +185,7 @@ O ile taka forma zapisu jest mało intuicyjna na pierwszy rzut oka, to istnieje 
 v1 = [ x * y | x <- [3,4,5], y <- [4,5,6], x > y ]
 -- [20]
 
-import Control.Monad
+import Control.Monad (guard)
 v2 = do
    x <- [3,4,5]
    y <- [4,5,6]
