@@ -175,7 +175,7 @@ import Data.Char
 ```
 
 O ile taka forma zapisu jest mało intuicyjna na pierwszy rzut oka, to istnieje kolejny cukier składniowy, przeznaczony dla list, czyli wyrażenie listowe (_list comprehension_)
-```haksell
+```haskell
 [ toUpper x | x <- "abc" ]
 -- "ABC"
 
