@@ -1,4 +1,15 @@
 # Embeded Domain-Specific Language
+## Co to?
+Z EDSL mamy doczynienia wtedy, kiedy wykorzystując elementy języka tworzymy w nim zestaw narzędzi, którymi łatwiej jest operować w danej dziedzinie wiedzy. Idea jest taka, żeby analityk biznesowy mógł razem z programistą stworzyć wspólny język, który będzie zrozumiały dla obu stron. Kompilowane zasady biznesowe.
+
+Jednym podejściem jest stworzenie lub dołączenie zewnętrznego języka skryptowego. 
+
+Przykładem zewnętrznego języka domenowego, o którym prawdopodobnie wszyscy słyszeliście, jest **SQL**. Jest to język domenowy do manipulacji obszernymi zbiorami danych z bazie relacynej.
+
+Można tez pod tę definicję podciągnąć języki skryptowe używane w grach do programowania zachowań przeciwników (np. wybór najlepszej ścieżki; sam algorytm jej wyznaczania będzie zaimplementowany w głównym języku) lub modelowania zachowań środowiska (np.,, kiedy ma zacząć padać deszcz). **Lua** jest przykładem języka, który został zastosowany w wielu grach własnie do tego celu (Wikipedia wymienia 151 gier, które go wykorzystują, m. in.: Angry Birds, Baldur's Gate, Freeciv, Saints Row 2/3/4, Warhammer 40k: Dawn of War 1/2).
+
+Jeśli język oferuje wystarczającą ekspresywność, można ominąć wprowadzenie zwenętrznego języka (i pisanie parsera albo wciąganie frameworku, jak [xText](https://eclipse.org/Xtext/) dla Javy).
+
 ## Przykład EDSL dla jednostek
 Przykład poniżej zapożyczyłem z książki [Real World Haskell](http://book.realworldhaskell.org/read/), a reprezentuje on EDSL wspomagający obliczenia za pomocą implementacji matematyki jednostek
 
@@ -238,7 +249,7 @@ instance (Show a, Num a) => Show (Units a) where
 
 ---
 ## Przykład EDSL dla giełdy
-Znalazłem bardzo ładny choć ograniczony przykład EDSL w Scali, który przetłumaczyłem do Haskella. Sam nie jestem ekspertem od rynków, więc wszelkie niedopowiedzenia i niedosokonałości biorę na siebie.
+Znalazłem bardzo ładny choć ograniczony przykład EDSL w Scali, który przetłumaczyłem do Haskella. Sam nie jestem ekspertem od rynków, więc wszelkie niedopowiedzenia i niedosokonałości musicie mi wybaczyć.
 
 Źródło: [DSL for the Uninitiated](http://cacm.acm.org/magazines/2011/7/109910-dsl-for-the-uninitiated/fulltext)
 
