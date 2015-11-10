@@ -223,7 +223,7 @@ attacker `attack` defender = do
 ---
 ### Reader
 
-Konfiguracja!
+Konfiguracja.
 
 Uproszczona definicja
 ```haskell
@@ -232,6 +232,8 @@ newtype Reader r a = Writer { runReader :: r -> a }
 instance (Monoid w) => Monad (Writer w) --where ...
 ```
 
+Analogicznie operacje są skupione w klasie `MonadReader`, z czego najważniejszą jest `ask`. Reader dostarcza nam niemodyfikowalną strukturę, którą możemy przywołać w naszym kodzie, by następnie wyłuskać z niej potrzebną wartość.
+
 ## Stan
 
 ### State
@@ -239,7 +241,7 @@ Przechowywanie stanu między akcjami.
 
 Uproszczona definicja
 ```haskell
-data Writer w a = Writer { runWriter :: w -> (a, w) }
+data State w a = State { runState :: s -> (a, s) }
 ```
 
 Poniżej niedoskonały, ale działający kalkulator parsujący Polish Prefix Notation.
