@@ -244,6 +244,18 @@ Uproszczona definicja
 data State w a = State { runState :: s -> (a, s) }
 ```
 
+Operacja zawarte w `MonadState`, a najważniejsze z nich to `set` i `get`. Dla tej monady mamy również zestaw funkcji "uruchamiających":
+
+```haskell
+runState :: State s a -> s -> (a, s)
+
+evalState :: State s a -> s -> a
+-- fst . runState
+
+execState :: State s a -> s -> s
+-- snd . runState
+```
+
 Poniżej niedoskonały, ale działający kalkulator parsujący Polish Prefix Notation.
 ```haskell
 import Control.Monad.State
