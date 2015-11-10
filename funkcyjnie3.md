@@ -513,9 +513,11 @@ newtype MaybeT m a = MaybeT {
     runMaybeT :: m (Maybe a)
 }
 
-pureMT :: (Monad m) => a -> MaybeT m a
+fmapMT :: (Functor m) => (a -> b) -> MaybeT m a -> MaybeT m b
 
-fmapMT :: (Monad m) => (a -> b) -> MaybeT m a -> MaybeT m b
+pureMT :: (Applicative m) => a -> MaybeT m a
+
+apMT :: (Applicative m) => MaybeT m (a -> b) -> MaybeT m a -> MaybeT m b
 
 failMT :: (Monad m) => t -> MaybeT m a
 
