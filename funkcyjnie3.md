@@ -365,3 +365,7 @@ type State s = StateT s Identity
 Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, które będą mieć znaczenie dla naszej aplikacji.
 
 ![](monadowa_matrioszka.jpg)
+
+```haskell
+
+```
