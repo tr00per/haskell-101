@@ -397,7 +397,7 @@ appMain = ...
 ```
 
 To teraz jeszcze krótkie ciało programu, żeby zaprezentować, że mamy dostęp do wszystkich potrzebnych rzeczy
-```haksell
+```haskell
 appMain :: Application ()
 appMain = do
     putStrLn' "Zaczynam!"
@@ -418,7 +418,6 @@ appMain = do
 
 I jeszcze main, żeby to wszystko ze sobą połączyć:
 ```haskell
-
 main :: IO ()
 main = do
     putStrLn "Hi"
@@ -461,4 +460,13 @@ Hi
 AppConfig {maxValue = 10}
 Zaczynam!
 ...
+```
+
+Komplet importów dla naszej aplikacji wygląda tak:
+```haskell
+
+import System.Environment (getArgs)
+import Control.Monad.Reader
+import Control.Monad.Writer
+import Control.Monad.State
 ```
