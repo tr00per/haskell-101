@@ -387,7 +387,7 @@ Zawarłem na tym obrazku dwa niedopowiedzenia, ale i tak jest to ładna ilustrac
 
 Transformatory mogą być w dowolnej kolejności i jeszcze do tego się powtarzać, natomiast nasza generyczna wartość `a` jest z punktu widzenia kodu parametrem zewnętrznego transformatora.
 
-`IO` nie ma swojego transformatora i jeśli chcemy użyć komunikacji z zewnętrznym światem, to muszą się one znajdować u podstawy naszego stosu efektów.
+`IO` nie ma swojego transformatora i jeśli chcemy użyć komunikacji z zewnętrznym światem, to musi się ona znajdować u podstawy naszego stosu efektów.
 
 ### Przykład użycia stosu transformatorów
 Wzorowane na przykłądach z [Real World Haskell](http://book.realworldhaskell.org/read/monad-transformers.html).
