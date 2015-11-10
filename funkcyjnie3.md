@@ -385,7 +385,7 @@ Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, kt�
 
 Zawarłem na tym obrazku dwa niedopowiedzenia, ale i tak jest to ładna ilustracja (zdjęcie z Internetów, podpisy moje).
 
-Transformatory mogą być w dowolnej kolejności i jeszcze do tego się powtarzać, natomiast nasza generyczna wartość `a` jest z punktu widzenia kodu parametrem zewnętrznego transformatora.
+(1) Transformatory mogą być w dowolnej kolejności i jeszcze do tego się powtarzać, natomiast (2) nasza generyczna wartość `a` jest z punktu widzenia kodu parametrem zewnętrznego transformatora.
 
 `IO` nie ma swojego transformatora i jeśli chcemy użyć komunikacji z zewnętrznym światem, to musi się ona znajdować u podstawy naszego stosu efektów.
 
@@ -433,7 +433,7 @@ appMain = do
     limit <- maxValue <$> ask
     tell ["Odczytałem limit " ++ show limit]
     putStrLn' $ "Limit to " ++ show limit
-    put (limit * 10)
+    put [limit * 10]
     newValue <- get
     putStrLn' $ "Wartość stanu: " ++ show newValue
     tell ["Kończymy..."]
