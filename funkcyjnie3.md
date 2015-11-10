@@ -367,5 +367,26 @@ Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, kt�
 ![](monadowa_matrioszka.jpg)
 
 ```haskell
+type AppLog = [String]
+type AppState = [Integer]
+data AppConfig = AppConfig {
+    maxValue :: Integer
+} deriving Show
 
+
+appMain :: WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) ()
+
+run :: WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) () -> AppConfig -> AppState -> IO (((), AppLog), AppState)
+```
+
+Nie da się tego normalnie używać... Ale od czego są aliasy!
+```haskell
+newtype Application a = Application (WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) a)
+newtype AppResult a = AppResult (IO ((a, AppLog), AppState))
+
+run :: Application () -> AppConfig -> AppState -> AppResult ()
+run (Application app) config initState = AppResult (runStateT (runReaderT (runWriterT app) config) initState)
+
+appMain :: Application ()
+appMain = ?
 ```
