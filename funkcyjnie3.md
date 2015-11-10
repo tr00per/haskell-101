@@ -216,6 +216,12 @@ attacker `attack` defender = do
 ```
 
 ---
+### Reader
+
+Konfiguracja!
+
+```
+
 ## Stan
 
 ### State
