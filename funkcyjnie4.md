@@ -3,6 +3,8 @@
 ## Testowanie
 Tasty
 
+# Myśleć funkcynie #5
+
 ## Parsowanie
 Parsec
 
