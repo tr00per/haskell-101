@@ -59,7 +59,7 @@ Teraz jeden dodatkowy krok:
 f =<< g x
 ```
 
-Teraz już widać, co jest grane. `(>>=)` jest odwróconym operatorem `(=<<)` (jest też `(>=>)`).
+`(>>=)` jest odwróconym operatorem `(=<<)` (jest też `(>=>)`). Teraz już widać, co jest grane!
 
 Możemy też napisać:
 ```haskell
