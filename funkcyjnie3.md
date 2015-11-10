@@ -513,9 +513,9 @@ newtype MaybeT m a = MaybeT {
     runMaybeT :: m (Maybe a)
 }
 
-bindMT :: (Monad m) => MaybeT m a -> (a -> MaybeT m b) -> MaybeT m b
-
 pureMT :: (Monad m) => a -> MaybeT m a
+
+fmapMT :: (Monad m) => (a -> b) -> MaybeT m a -> MaybeT m b
 
 failMT :: (Monad m) => t -> MaybeT m a
 
