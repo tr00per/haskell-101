@@ -353,4 +353,15 @@ Ilustrację znowu pożyczyłem z [http://adit.io/](http://adit.io/posts/2013-04-
 
 Transformatory pozwalają składać ze sobą monady.
 
+Prawdziwa definicja wcześniejej wymienionych monad:
+```haskell
+type Writer w = WriterT w Identity
+
+type Reader r = ReaderT r Identity
+
+type State s = StateT s Identity
+```
+
+Zamiast monady identyczności możemy ułożyć sobie własny stos efektów, które będą mieć znaczenie dla naszej aplikacji.
+
 ![](monadowa_matrioszka.jpg)
