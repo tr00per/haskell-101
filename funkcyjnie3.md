@@ -70,6 +70,11 @@ bindlr ma f = join . fmap f $ ma
 -- jak (>>=)
 ```
 
+Zachodzi również poniższa zależność z funktorem i aplikatorem:
+```haskell
+fmap f xs ==  xs >>= pure . f
+```
+
 ### Żargon i nerdowanie
 Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
 
