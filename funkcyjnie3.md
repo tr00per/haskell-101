@@ -49,7 +49,7 @@ Niepodobny do niczego. Jest jednak jeszcze jeden, podobny operator:
 (f <=< g) x
 ```
 
-To już jest znacznie bardziej podobne do łączenia funkcji przez `(.)`. `(<=<)` jest operatorem łączącym funkcje działające na monadach (monadowe).
+To już jest znacznie bardziej podobne do łączenia funkcji przez `(.)`. `(<=<)` jest operatorem łączącym funkcje działające na monadach.
 
 Teraz jeden dodatkowy krok:
 ```haskell
