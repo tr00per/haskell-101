@@ -185,7 +185,9 @@ Logowanie.
 
 Uproszczona definicja
 ```haskell
-data Writer w a = Writer { runWriter :: w -> (a, w) }
+newtype Writer w a = Writer { runWriter :: (a, w) }
+
+instance (Monoid w) => Monad (Writer w) --where ...
 ```
 
 Dostępne operacje są skupione w klasie `MonadWriter`, z czego najważniejszą jest `tell`. 
@@ -223,6 +225,11 @@ attacker `attack` defender = do
 
 Konfiguracja!
 
+Uproszczona definicja
+```haskell
+newtype Reader r a = Writer { runReader :: r -> a }
+
+instance (Monoid w) => Monad (Writer w) --where ...
 ```
 
 ## Stan
