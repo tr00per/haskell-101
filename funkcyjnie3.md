@@ -180,6 +180,13 @@ Oto nieskończona lista wyrazów ciągu Fibonacciego, która oblicza samą siebi
 ### Writer
 Logowanie.
 
+Uproszczona definicja
+```haskell
+data Writer w a = Writer { runWriter :: w -> (a, w) }
+```
+
+Dostępne operacje są skupione w klasie `MonadWriter`, z czego najważniejszą jest `tell`. 
+
 Wyrwałem fragment ze swojej gry tekstowej. Nie będę twierdził, że to najpiękniejszy kod na świecie, ale za to ładnie ilustruje przypadek użycia monady `Writer`. Przechowuję `[String]`, bo każdy ciąg w tablicy to jedna linia.
 ```haskell
 battle :: Player -> Creature -> Writer [String] (Player, BattleResult)
@@ -213,6 +220,11 @@ attacker `attack` defender = do
 
 ### State
 Przechowywanie stanu między akcjami.
+
+Uproszczona definicja
+```haskell
+data Writer w a = Writer { runWriter :: w -> (a, w) }
+```
 
 Poniżej niedoskonały, ale działający kalkulator parsujący Polish Prefix Notation.
 ```haskell
