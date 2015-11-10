@@ -383,12 +383,14 @@ Nie da się tego normalnie używać... Ale od czego są aliasy!
 ```haskell
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-newtype Application a = Application (WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) a)
-    deriving (Functor, Applicative, Monad, MonadIO, MonadWriter AppLog, MonadReader AppConfig, MonadState AppState)
-newtype AppResult a = AppResult (IO ((a, AppLog), AppState))
+newtype Application a = Application {
+    runApp :: WriterT AppLog (ReaderT AppConfig (StateT AppState IO)) a
+} deriving (Functor, Applicative, Monad, MonadIO, MonadWriter AppLog, MonadReader AppConfig, MonadState AppState)
+
+newtype AppResult a = AppResult { getResult :: IO ((a, AppLog), AppState) }
 
 run :: Application () -> AppConfig -> AppState -> AppResult ()
-run (Application app) config initState = AppResult (runStateT (runReaderT (runWriterT app) config) initState)
+run app config initState = AppResult (runStateT (runReaderT (runWriterT (runApp app)) config) initState)
 
 appMain :: Application ()
 appMain = ...
@@ -396,5 +398,20 @@ appMain = ...
 
 To teraz jeszcze krótkie ciało programu, żeby zaprezentować, że mamy dostęp do wszystkich potrzebnych rzeczy
 ```haksell
-
+appMain :: Application ()
+appMain = do
+    putStrLn' "Zaczynam!"
+    tell ["Zaczęło się..."]
+    oldValue <- get
+    putStrLn' $ "Początkowa wartość stanu: " ++ show oldValue
+    limit <- maxValue <$> ask
+    tell ["Odczytałem limit " ++ show limit]
+    putStrLn' $ "Limit to " ++ show limit
+    put (limit * 10)
+    newValue <- get
+    putStrLn' $ "Wartość stanu: " ++ show newValue
+    tell ["Kończymy..."]
+    putStrLn' "Skończyłem!"
+    where
+        putStrLn' = liftIO . putStrLn
 ```
