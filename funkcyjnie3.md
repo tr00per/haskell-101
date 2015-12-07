@@ -540,11 +540,10 @@ __Zadanie__: Stworzyć implementację transformatora `MaybeT`, który dodaje do 
 
 Szablon na dobry początek:
 ```haskell
-newtype MaybeT m a = MaybeT {
-    runMaybeT :: m (Maybe a)
-}
+newtype MaybeT m a = MaybeT { runMaybeT :: m (Maybe a) }
 
-fmapMT :: (Functor m) => (a -> b) -> MaybeT m a -> MaybeT m b
+instance (Functor m) => Functor (MaybeT m) where
+    fmap f = MaybeT . (fmap (fmap f)) . runMaybeT
 
 pureMT :: (Applicative m) => a -> MaybeT m a
 
