@@ -8,6 +8,10 @@ Tasty
 
 ### Zrównoleglanie
 
+### STM
+
+### Monada Par
+
 #Myśleć funkcyjnie #6
 ## Komunikacja sieciowa
 Czat?
