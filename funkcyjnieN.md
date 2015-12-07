@@ -2,6 +2,8 @@
 ## Testowanie
 Tasty
 
+## Profilowanie
+
 # Myśleć funkcynie #5
 ## Wielowątkowość
 ### Współbieżność
