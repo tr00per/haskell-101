@@ -5,12 +5,12 @@ Tasty
 # Myśleć funkcynie #5
 ## Wielowątkowość
 ### Współbieżność
+forkIO
 
 ### Zrównoleglanie
+Monada Par
 
 ### STM
-
-### Monada Par
 
 #Myśleć funkcyjnie #6
 ## Komunikacja sieciowa
