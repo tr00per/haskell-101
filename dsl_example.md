@@ -169,7 +169,7 @@ data Num a => Units a = Units a (SymbolicManip a)
 
 {- Implement Units for Num.  We don't know how to convert between
 arbitrary units, so we generate an error if we try to add numbers with
-different units.  For multiplication, generate the appropriate
+different units.  For multiplication, generate the appropriate
 new units. -}
 instance (Num a) => Num (Units a) where
     (Units xa ua) + (Units xb ub) 
