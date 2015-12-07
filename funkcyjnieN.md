@@ -7,7 +7,6 @@ Tasty
 # Myśleć funkcynie #5
 ## Wielowątkowość
 ### Współbieżność
-forkIO
 
 ### Zrównoleglanie
 Monada Par
