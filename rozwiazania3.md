@@ -30,19 +30,29 @@ instance Monad Ident where
 ![](http://www.timemachinego.com/linkmachinego/wordpress/wp-content/uploads/2009/02/techcatpreview.jpg)
 
 ```haskell
-newtype MaybeT m a = MaybeT {
-    runMaybeT :: m (Maybe a)
-}
+newtype MaybeT m a = MaybeT { runMaybeT :: m (Maybe a) }
 
-fmapMT :: (Functor m) => (a -> b) -> MaybeT m a -> MaybeT m b
+instance (Functor m) => Functor (MaybeT m) where
+    fmap f = MaybeT . (fmap (fmap f)) . runMaybeT
 
-pureMT :: (Applicative m) => a -> MaybeT m a
+instance (Functor m, Monad m) => Applicative (MaybeT m) where
+    pure = return
+    (<*>) = ap
 
-apMT :: (Applicative m) => MaybeT m (a -> b) -> MaybeT m a -> MaybeT m b
+instance (Monad m) => Monad (MaybeT m) where
+    fail _ = MaybeT (return Nothing)
+    return = lift . return
+    x >>= f = MaybeT $ do
+        v <- runMaybeT x
+        case v of
+            Nothing -> return Nothing
+            Just y  -> runMaybeT (f y)
 
-bindMT :: (Monad m) => MaybeT m a -> (a -> MaybeT m b) -> MaybeT m b
+instance MonadTrans MaybeT where
+    lift = MaybeT . liftM Just
 
-failMT :: (Monad m) => t -> MaybeT m a
+instance (MonadIO m) => MonadIO (MaybeT m) where
+    liftIO = lift . liftIO
 ```
 
 ![](http://new4.fjcdn.com/pictures/Cat+racing_d7cac3_4877215.jpg)
