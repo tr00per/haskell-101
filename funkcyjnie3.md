@@ -396,7 +396,7 @@ Zawarłem na tym obrazku dwa niedopowiedzenia, ale i tak jest to ładna ilustrac
 `IO` nie ma swojego transformatora i jeśli chcemy użyć komunikacji z zewnętrznym światem, to musi się ona znajdować u podstawy naszego stosu efektów.
 
 ### Przykład użycia stosu transformatorów
-Wzorowane na przykłądach z [Real World Haskell](http://book.realworldhaskell.org/read/monad-transformers.html).
+Wzorowane na przykładach z [Real World Haskell](http://book.realworldhaskell.org/read/monad-transformers.html).
 
 ```haskell
 type AppLog = [String]
