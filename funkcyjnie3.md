@@ -251,9 +251,7 @@ Konfiguracja.
 
 Uproszczona definicja
 ```haskell
-newtype Reader r a = Writer { runReader :: r -> a }
-
-instance (Monoid w) => Monad (Writer w) --where ...
+newtype Reader r a = Reader { runReader :: r -> a }
 ```
 
 Analogicznie operacje są skupione w klasie `MonadReader`, z czego najważniejszą jest `ask`. Reader dostarcza nam niemodyfikowalną strukturę, którą możemy przywołać w naszym kodzie, by następnie wyłuskać z niej potrzebną wartość.
