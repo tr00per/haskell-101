@@ -545,13 +545,20 @@ newtype MaybeT m a = MaybeT { runMaybeT :: m (Maybe a) }
 instance (Functor m) => Functor (MaybeT m) where
     fmap f = MaybeT . (fmap (fmap f)) . runMaybeT
 
-pureMT :: (Applicative m) => a -> MaybeT m a
+instance (Functor m, Monad m) => Applicative (MaybeT m) where
+    pure = return
+    (<*>) = ap
 
-apMT :: (Applicative m) => MaybeT m (a -> b) -> MaybeT m a -> MaybeT m b
+instance (Monad m) => Monad (MaybeT m) where
+    fail ...?
+    return ...?
+    x >>= f ...?
 
-bindMT :: (Monad m) => MaybeT m a -> (a -> MaybeT m b) -> MaybeT m b
+instance MonadTrans MaybeT where
+    lift ...?
 
-failMT :: (Monad m) => t -> MaybeT m a
+instance (MonadIO m) => MonadIO (MaybeT m) where
+    liftIO ...?
 ```
 
 ---
