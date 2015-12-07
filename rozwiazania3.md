@@ -33,7 +33,7 @@ instance Monad Ident where
 newtype MaybeT m a = MaybeT { runMaybeT :: m (Maybe a) }
 
 instance (Functor m) => Functor (MaybeT m) where
-    fmap f = MaybeT . (fmap (fmap f)) . runMaybeT
+    fmap f = MaybeT . fmap (fmap f) . runMaybeT
 
 instance (Functor m, Monad m) => Applicative (MaybeT m) where
     pure = return
