@@ -42,7 +42,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -173,6 +173,7 @@ Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument,
 Haskell pod względem składniowym wyróżnia dwa typy operacji:
 
 * funkcje prefiksowe \(zapisane literami itp.\)
+
   ```haskell
   myfunc x
   filter myfunc [1..10]
@@ -180,6 +181,7 @@ Haskell pod względem składniowym wyróżnia dwa typy operacji:
   ```
 
 * operatory \(funkcje infiksowe; zapisane symbolami\)
+
   ```haskell
   1 + 1
   4.5 * 8
@@ -261,7 +263,7 @@ map f xs = if null xs
            else f (head xs) : map f (tail xs)
 ```
 
-Mamy przykład "rekurencji ogonowej" \(tail recursion\).
+Uwaga: to nie jest rekurencja ogonowa \(tail recursion\)!
 
 ---
 
