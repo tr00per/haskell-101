@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -266,9 +266,9 @@ Scala
 Jak mogłaby wyglądać implementacja funkcji `map`?
 
 ```haskell
-map f xs = if null xs
-           then []
-           else f (head xs) : map f (tail xs)
+map f xs = if null xs                         -- null zwróci True, jeśli lista jest pusta
+           then []                            -- efektem mapowania na pustej liście jest pusta lista
+           else f (head xs) : map f (tail xs) -- nowa wartość zostaje głową nowej listy, ogon obliczamy rekurencyjnie
 ```
 
 Uwaga: to nie jest rekurencja ogonowa \(tail recursion\)!
@@ -319,7 +319,7 @@ map (lessthan8 . sqr) [1..5]
 -- [True,True,False,False,False]
 ```
 
-**Szybkie zadanie**: Zdefiniować funkcję `cube` i składając ją z funckją `takeWhile` zdefiniować funkcję, która pobierze elementy z listy, dopóki ich sześciany są mniejsze od 50.
+**Szybkie zadanie**: Zdefiniować funkcję `cube` i składając ją z funkcją porównującą z liczbą 50, użyć ich połączenia jako predykat dla funkcji `takeWhile` , która pobierze elementy z listy, dopóki ich sześciany są mniejsze od 50.
 
 ---
 
