@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -259,7 +259,7 @@ Scala
 (1.0 to 5.0 by 1.0) map (Math.sqrt)
 ```
 
-**Szybkie zadanie**: Zdefiniować funkcję `square` i zaaplikować ją na liście liczb od 1 do 10
+**Szybkie zadanie**: Zdefiniować funkcję `square` i zaaplikować ją na liście liczb od 1 do 10.
 
 ### W głąb mapy
 
@@ -353,6 +353,8 @@ def sqr = (x : Int) => x * x
 def sqr_tpl[A](x: A)(implicit numeric: Numeric[A]): A = numeric.times(x, x)
 ```
 
+**Szybkie zadanie**: Zdefiniować funkcję `square` jako lambdę i zaaplikować ją na liście liczb od 1 do 10.
+
 ### Żargon i nerdowanie
 
 Konwersja Eta \(η\) - proces dodawania albo ujmowania abstrakcji od funkcji.
@@ -439,7 +441,7 @@ bank1_wybierz = wybierz polityka_prosta
 
 ---
 
-## Składanie
+## Złożenia
 
 Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
 
