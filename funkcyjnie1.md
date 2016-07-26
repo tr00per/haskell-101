@@ -31,6 +31,8 @@ W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
 [1,3..10]
 ```
 
+**Szybkie zadanie**: Stworzyć odliczającą w dół listę nieparzystych elementów między 1 a 100.
+
 Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typy można użyć krotki
 
 ```haskell
@@ -42,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -77,6 +79,8 @@ head [1..]
 ```
 
 Interpreter się nie zawiesza, ponieważ generowane jest tylko tyle, ile potrzeba do zaspokojenia żądania.
+
+**Szybkie zadanie**: Za pomocą funkcji `drop` i `take` uzyskać wycinek listy od 5 do 10 elementu.
 
 Przykład \#1: separacja generowania potencjalnych rozwiązań od sprawdzania poprawności:
 
@@ -168,6 +172,8 @@ let myfunc x = x * x
 
 Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
 
+**Szybkie zadanie**: Zdefiniować funkcję `slice`, która będzie zwracać zadany wycinek z listy.
+
 ### Funkcje i funkcje
 
 Haskell pod względem składniowym wyróżnia dwa typy operacji:
@@ -253,6 +259,8 @@ Scala
 (1.0 to 5.0 by 1.0) map (Math.sqrt)
 ```
 
+**Szybkie zadanie**: Zdefiniować funkcję `square` i zaaplikować ją na liście liczb od 1 do 10
+
 ### W głąb mapy
 
 Jak mogłaby wyglądać implementacja funkcji `map`?
@@ -310,6 +318,8 @@ map lessthan8 pośrednia
 map (lessthan8 . sqr) [1..5]
 -- [True,True,False,False,False]
 ```
+
+**Szybkie zadanie**: Zdefiniować funkcję `cube` i składając ją z funckją `takeWhile` zdefiniować funkcję, która pobierze elementy z listy, dopóki ich sześciany są mniejsze od 50.
 
 ---
 
