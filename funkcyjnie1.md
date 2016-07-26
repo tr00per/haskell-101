@@ -1,4 +1,4 @@
-# Myśleć funkcyjnie \#1
+# Myśleć funkcyjnie #1
 
 Cała przyjemność polega na tym, żeby małą ilością kodu wyrazić możliwie dużo. Na usuwaniu szumu z kodu.
 
