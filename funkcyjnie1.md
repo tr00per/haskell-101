@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -483,14 +483,6 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 ### Zadania
 
 **Zadanie**: Zaimplementować kilka standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`. Przy definicji `map` starajcie się użyć łączenia z funkcją tworzącą listę `(:)`.
-
-**Zadanie**: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
-
-**Zadanie**: Zaimportować funkcję `foldl'` za pomocą `import Data.List (foldl')` i porównać ten wariant z pozostałymi dwoma
-
-### Wnioski
-
-Jeśli przetwarzamy stumień danych, nie wiadomo ile będzie elementów i tworzymy z niego nowy strumień, użyjmy `foldr`. Jeśli przetwarzamy skończoną liczbę elementów, która zmieści się w pamięci, a do tego faktycznie składmy je w wszystkie jedną wartość, użyjmy `foldl'` \(z apostrofem\).
 
 ---
 
