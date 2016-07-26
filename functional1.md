@@ -2,6 +2,7 @@
 
 All the pleasure comes from expressing ideas in a concise way. From removing noise from our code.
 
+
 $$
 SNR = P_{signal}/P_{noise}
 $$
@@ -9,58 +10,62 @@ $$
 
 ---
 
-## Listy i krotki
+## Lists and tuples
 
-W programowaniu funkcyjnym powszechnie używa się list zamiast tablic
+In functional programming lists are universally more common than arrays
 
 ```haskell
--- Lista liczb
+-- a list of numbers
 [1,2,3,4,5]
 
--- "Odcukrzona" wersja
+-- "desugared" version
 1:2:3:4:5:[]
 
--- Lista znaków
+-- a list of characters
 ['H','a','s','k','e','l','l']
-"Curry" -- w Haskellu typ String jest aliasem dla tablicy znaków
+"Curry" -- in Haskell the String type is just an alias for a list of chars
 "Wąchock & 漢字" -- Unicode!
 
--- Generatory
+-- Generators
 [1..10]
 [1,3..10]
 ```
 
-**Szybkie zadanie**: Stworzyć odliczającą w dół listę nieparzystych elementów między 1 a 100.
+**Quick exercise**: Create a countdown list of odd numbers between 1 and 100.
 
-Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typy można użyć krotki
+**Quick exercise**: Create a list of characters from `'a'` to `'z'`.
+
+All elements of a list must be of the same type. To mix types we need to use a tuple.
 
 ```haskell
-(10, "Karmel")
+(10, "Caramel")
 (True, -1)
 (40, 255, 0)
 
--- lista krotek - lista asocjacyjna
+-- list of tuples - "poor man's dictionary"
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Lists** can have zero or more **elements of one type**, while **_tuples_** can **_mix types of elements_**, but once order and length are defined, we cannot change it.
 
-Przy okazji: unit, czyli bezwartościowa wartość
+By the way: unit, otherwise known as a singleton type. It's used in Haskell to mark functions that do not return anything useful (they're probably side-effecting and unpure).
 
 ```haskell
 ()
 ```
 
-Listy dzielą się na "głowę" i "ogon":
+Lists are made from a "head" and a "tail":
 
 ```haskell
-head [1..5]
+head [1, 2, 3, 4, 5]
 -- 1
-tail [1..5]
+tail [1, 2, 3, 4, 5]
 -- [2,3,4,5]
+tail (tail [1, 2, 3, 4, 5])
+-- [3, 4, 5]
 ```
 
-Nieskończone listy
+Infinite lists
 
 ```haskell
 [1..]
@@ -68,35 +73,29 @@ Nieskończone listy
 
 ![To infinity and beyond!](http://img.interia.pl/rozrywka/nimg/2/7/roz4286600.jpg)
 
-### Leniwe obliczanie
+### Lazy computation
 
-Spróbujcie tego
+Try this
 
 ```haskell
 take 10 [1..]
 head [1..]
 ```
 
-Interpreter się nie zawiesza, ponieważ generowane jest tylko tyle, ile potrzeba do zaspokojenia żądania.
+Computation concludes, because only the part that is required by the consuming function is ever created.
 
-**Szybkie zadanie**: Za pomocą funkcji `drop` i `take` uzyskać wycinek listy od 5 do 10 elementu.
+**Quick exercise**: Using functions `drop` and `take` obtain a slice of a list between 5th and 10th element. Use an infinite list as the input.
 
-Przykład \#1: separacja generowania potencjalnych rozwiązań od sprawdzania poprawności:
+Example: separation of generating potential solutions from actually checking the correctness of a solution:
 
 ```haskell
 head $ filter correct_solution $ generate_values data
--- albo: head (filter correct_solution (generate_values data))
-```
-
-Przykład \#2: separacja wyświetlania od obliczeń:
-
-```haskell
-display $ prepare_geometry source
+-- or: head (filter correct_solution (generate_values data))
 ```
 
 ---
 
-## Filtrowanie
+## Filtering
 
 ```haskell
 odd 1
@@ -105,9 +104,9 @@ even 1
 filter odd [1..10]
 ```
 
-`filter` jest funkcją wyższego rzędu, przyjmuje jako jeden ze swoich argumentów inną funkcję!
+`filter` is a higher-order function, it accepts another function as one of its arguments. In this particular case we call it a predicate.
 
-Dla porównania w C++:
+For comparison in C++:
 
 ```cpp
 #include <iostream>
@@ -143,7 +142,7 @@ int main()
 
 ![](http://i1.kym-cdn.com/photos/images/original/000/000/681/what-you-did-there-i-see-it.thumbnail.jpg)
 
-Ok, to nie było do końca uczciwe, pełny program w Haskellu wyglądałby tak:
+Ok, that wasn't entirely fair. Here comes the full application in Haskell:
 
 ```haskell
 main = print (filter odd [1..10])
@@ -151,7 +150,7 @@ main = print (filter odd [1..10])
 
 ![](http://i3.kym-cdn.com/entries/icons/original/000/001/987/fyeah.jpg)
 
-To jeszcze w Scali:
+A little bit of Scala:
 
 ```scala
 object Main extends App {
@@ -161,23 +160,23 @@ object Main extends App {
 }
 ```
 
-Dla poczucia uczciwości dodam, że można filtrować kolekcje w C++ za pomocą kombinacji `remove` i `erase`, ale po pierwsze trzeba podać negatywny warunek, po drugie \(i ważniejsze\) jest to operacja modyfikująca daną kolekcję.
+To be honest, you can filter a collection in C++ by using combination of `remove` and `erase`, but first of all, the predicate is negative, and secondly it a mutating operation, it destroys the underlying collection.
 
-### Definiowanie własnej funkcji w GHCI
+### Custom function in GHCI
 
 ```haskell
 let myfunc x = x * x
 ```
 
-Aby `filter` zaakceptował naszą funkcję, musi ona przyjmować jeden argument, którego typ musi zgadzać się z typem przechowywanym w liście. Wartością zwracaną musi być typu `Bool`.
+For `filter` to accept our function, it must accept a single argument, which type must correspond to the type in the filtered list. The return value must always be of type `Bool`.
 
-**Szybkie zadanie**: Zdefiniować funkcję `slice`, która będzie zwracać zadany wycinek z listy.
+**Quick exercise**: Define the `slice` function, which accepts an offset, length and returns a slice of the given list.
 
-### Funkcje i funkcje
+### Functions and functions
 
-Haskell pod względem składniowym wyróżnia dwa typy operacji:
+In Haskell syntactically there are twp types of operations:
 
-* funkcje prefiksowe \(zapisane literami itp.\)
+* prefix functions \(written with letters, numbers etc.\)
 
   ```haskell
   myfunc x
@@ -185,7 +184,7 @@ Haskell pod względem składniowym wyróżnia dwa typy operacji:
   elem 3 [1..10]
   ```
 
-* operatory \(funkcje infiksowe; zapisane symbolami\)
+* infix functions \(operators; written with symbols\)
 
   ```haskell
   1 + 1
@@ -193,8 +192,7 @@ Haskell pod względem składniowym wyróżnia dwa typy operacji:
   1:2:[]
   ```
 
-
-W obu wypadkach domyślną konwencję wywołania możemy zmienić:
+In both cases the default fixity can be changed:
 
 ```haskell
 (+) 4.5 8
@@ -205,29 +203,29 @@ W obu wypadkach domyślną konwencję wywołania możemy zmienić:
 128 `div` 3
 ```
 
-### GHCI i typy
+### GHCI and types
 
-Aby wyświetlić typ wyrażenia w GHCI trzeba poprzedzić je komendą `:t` albo przestawić flagę `:set +t`.
+To show the type of an expression in GHCi you can prefix your expression with the `:t` command or toggle a flag to see types of each entered expression with `:set +t`.
 
-### Zadania
+### Exercises
 
-**Zadanie**: Zdefiniować własną funckję `odd` albo `even` i użyć jej do przefiltrowania listy.
+**Exercise**: Define your version of functions either `odd` or `even` and use it to filter a list.
 
-**Zadanie**: Napisać funckję, która posłuży do odfiltrowania liczb, które są podzielne przez 4, ale nie przez 3
+**Exercise**: Create a function, which would filter numbers, which are divisible by 4, but not by 3.
 
-Przydatne funkcje: `div`, `mod`, `not`, `&&`, `||`, `==`, `/=`.
+Useful functions: `div`, `mod`, `not`, `&&`, `||`, `==`, `/=`.
 
 ---
 
-## Mapowanie
+## Mapping
 
-W językach funkcyjnych nie ma pętli.
+In a functional language, there are no loops.
 
-A przed chwilą wykonaliśmy serię operacji na liście wartości i wcale jej nam nie brakowało!
+But we just did a bunch of operations on a list and we did not need a loop!
 
 ![Shock!](http://www.pagefield.co.uk/wp-content/uploads/2013/06/shock.jpg)
 
-Filtrowanie jest bardzo popularną operacją na liście elementów. Równie powszechną, jeśli nie wszechobecną, operacją jest transformacja wartości w liście na nowe wartości.
+Another operation on a list, even more popular than filtering, is applying a function to each element of the list. It's called **mapping**.
 
 ```C++
 double somearr[] = {1, 2, 3, 4, 5}, outarr[5];
@@ -237,7 +235,7 @@ for (int i = 0; i < 5; ++i)
 }
 ```
 
-W Haskellu taka operacja wytwarza nową listę.
+In Haskell such operation creates a new list.
 
 ```haskell
 map odd [1..5]
@@ -245,7 +243,7 @@ map sqrt [1..5]
 map toUpper "Amsterdam" -- wymaga modułu Data.Char
 ```
 
-C++ \(samo gęste\)
+C++ \(essence\)
 
 ```cpp
 std::list<double> somelist = {1, 2, 3, 4, 5}, outlist(5);
@@ -258,44 +256,46 @@ Scala
 (1.0 to 5.0 by 1.0) map (Math.sqrt)
 ```
 
-**Szybkie zadanie**: Zdefiniować funkcję `square` i zaaplikować ją na liście liczb od 1 do 10.
+**Quick exercise**: Define function `square` and apply it to a list of numbers from 1 to 10.
 
-### W głąb mapy
+### Inside the `map`
 
-Jak mogłaby wyglądać implementacja funkcji `map`?
+How could an implementation of the `map` look in Haskell?
 
 ```haskell
-map f xs = if null xs                         -- null zwróci True, jeśli lista jest pusta
-           then []                            -- efektem mapowania na pustej liście jest pusta lista
-           else f (head xs) : map f (tail xs) -- nowa wartość zostaje głową nowej listy, ogon obliczamy rekurencyjnie
+map f xs = if null xs                         -- null returns True, if the list is empty
+           then []                            -- effect of mapping over an empty list is an empty list
+           else f (head xs) : map f (tail xs) -- new value becomes a head of the new list, tail is computed recursively
 ```
 
-Uwaga: to nie jest rekurencja ogonowa \(tail recursion\)!
+Warning: this function is not tail recursive!
 
 ---
 
-## Łączenie
+## Composition
 
-Pamiętacie z matematyki łączenie funkcji?
-
+Do you remember function composition from Math class in high school?
 
 $$
 f(g(x)) = (f \circ g)(x)
 $$
 
-
-W Haskellu też można łączyć funkcje \(duh...\), a nawet jest udostępniony do tego specjalny operator!
+In Haskell we also can compose functions and there's an operator for that!
 
 ```haskell
 h x = f (g x)
 h' x = (f . g) x
 ```
 
-Co może być na początku nieintuicyjne, funkcje połączone za pomocą operatora `(.)` są aplikowane od prawej do lewej - tak jak w matematycznym odpowiedniku.
+Just as in mathematics, functional composition in Haskell is read from right to left.
 
-Nie wszystkie funkcje da się ze sobą łączyć - na styku typy wartości zwracanej i argumentu muszą się zgadzać.
+For two function to be eligible for composition, the need to have compatible types in-between.
 
-### Łączenie i mapowanie
+```haskell
+-- (.) :: (b -> c) -> (a -> b) -> a -> c
+```
+
+### Composition and mapping
 
 ```haskell
 let sqr x = x * x
@@ -309,16 +309,18 @@ let lessthan8 x = x < 8
 :t (lessthan8 . sqr)
 -- (lessthan8 . sqr) :: (Num a, Ord a) => a -> Bool
 
-let pośrednia = map sqr [1..5]
+let transient = map sqr [1..5]
 -- [1,4,9,16,25]
-map lessthan8 pośrednia
+map lessthan8 transient
 -- [True,True,False,False,False]
 
 map (lessthan8 . sqr) [1..5]
 -- [True,True,False,False,False]
 ```
 
-**Szybkie zadanie**: Zdefiniować funkcję `cube` i składając ją z funkcją porównującą z liczbą 50, użyć ich połączenia jako predykat dla funkcji `takeWhile` , która pobierze elementy z listy, dopóki ich sześciany są mniejsze od 50.
+**Quick exercise**: Define function `cube` and compose it with function `lessthan50`. Use the composed function as a predicate for `filter`.
+
+**Quick exercise**: Compare the result with using the predicate in function `takeWhile` on finite and infinite lists.
 
 ---
 
@@ -326,9 +328,9 @@ map (lessthan8 . sqr) [1..5]
 
 ![](http://vignette1.wikia.nocookie.net/half-life/images/c/c9/Half-Life_Wiki_Logo.png/revision/20130801093040?path-prefix=en)
 
-Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to słyszeliście o funkcjach lambda.
+If you didn't live under a rock for the last few years, you probably heard of lambdas.
 
-To taka funkcja, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
+Lambdas are functions, which we define ad hoc to avoid naming a trivial function, or simply to avoid naming it improperly.
 
 ```haskell
 myfilter xs = filter (\x -> x `mod` 4 == 0 && x `mod` 3 /= 3) xs
@@ -336,7 +338,7 @@ myfilter xs = filter (\x -> x `mod` 4 == 0 && x `mod` 3 /= 3) xs
 squares xs = map (\x -> x * x) xs
 ```
 
-Haskell udostępnie też dwa inne mechanizmy do definiowania lokalnych nazwanych funkcji, więc w produkcyjnych warunkach możecie zobaczyć ich znacznie mniej, niż w podręcznikach czy tutaj.
+Haskell gives you two more mechanisms for defining local functions, so in "real life" you would see less lambdas, than in textbooks or this part of the workshop.
 
 C++
 
@@ -352,16 +354,16 @@ def sqr = (x : Int) => x * x
 def sqr_tpl[A](x: A)(implicit numeric: Numeric[A]): A = numeric.times(x, x)
 ```
 
-**Szybkie zadanie**: Zdefiniować funkcję `square` jako lambdę i zaaplikować ją na liście liczb od 1 do 10.
+**Quick exercise**: Define the square function as a lambda and apply it to a list of numbers from 1 to 10.
 
-### Żargon i nerdowanie
+### Jargon and nerding-out
 
-Konwersja Eta \(η\) - proces dodawania albo ujmowania abstrakcji od funkcji.
+Eta \(η\) conversion - process of adding or removing abstraction over a function.
 
-* Eta-redukcja: `\x -> abs x` zamieniamy w `abs`
-* Eta-abstrakcja: `abs` zamieniamy w `\x -> abs x`
+* Eta-reduction: `\x -> abs x` becomes `abs`
+* Eta-abstraction: `abs` becomes `\x -> abs x`
 
-Kolejne aplikowanie η-redukcji jest trzonem stylu programowania "bezpunktowego" \(_pointfree_, dla złośliwych _pointless_\).
+Application of η-reduction is the basis of _pointfree_ style of programming \(_pointless_ if you don't like it\).
 
 ```haskell
 add''' = (+)
@@ -372,9 +374,9 @@ h' x = (f . g) x
 h'' = f . g
 ```
 
-Styl ten jest czasem pomocny - stosowaliśmy go tutaj - jednak łatwo doprowadzić do poziomu abstrakcji, który będzie nieczytelny nawet dla autora. Dlatego zalecany jest umiar.
+It's very useful to define your functions as a pipe of consequent applications of functions. The code becomes more readable, given you keep names of your functions descriptive.
 
-Ciekawostki
+Interesting equations:
 
 ```haskell
 map f . map g == map (f . g)
@@ -387,16 +389,16 @@ map f . filter (p . f) == filter p . map f
 
 ![](https://wiki.haskell.org/wikiupload/8/86/HaskellBCurry.jpg)
 
-Currying to "wielka rzecz" w językach takich jak Scala, ponieważ odnosi się ją do jedynej słusznej konwencji wywołania funkcji w Javie.
+Currying is a "big thing" in languages such as Scala, because the point of reference is the One True Java function call convention.
 
 ```scala
 def modN_uncurried(n: Int, x: Int) = x % n == 0
 def modN_curried(n: Int)(x: Int) = x % n == 0
 ```
 
-Chodzi o to, że funckję, która przyjmuje ustaloną liczbę elementów, można zamienić na serię funkcji, które przyjmują tylko jeden argument. Pojęcie to łączy się z _częściową aplikacją_.
+It comes down to the ability of a function, which accepts a given number of arguments, to accept those arguments one-by-one, effectively creating a series of one-parameter functions. Application of the final argument enables the execution of the main body. Before that last argument we call the function _partially applied_ and the mechanism, enabled by currying, is _partial application_.
 
-W Haskellu częściowa aplikacja jest powszechnie używana.
+In Haskellu currying is transparent and partial application is omnipresent.
 
 ```haskell
 add x y = x + y
@@ -409,7 +411,7 @@ add5'' = add 5
 add5''' = (5+)
 ```
 
-Można pomyśleć, że wszystkie funkcje w Haskellu tak naprawdę pod spodem składają się z serrii jednoargumentowych funkcji
+You can think of all the function in Haskell as a series of one-argument functions.
 
 ```haskell
 add x y = x + y
@@ -479,9 +481,9 @@ foldl (\acc x -> x : acc) [] [1..10]
 
 Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
 
-### Zadania
+### Exercises
 
-**Zadanie**: Zaimplementować kilka standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`. Przy definicji `map` starajcie się użyć łączenia z funkcją tworzącą listę `(:)`.
+**Exercise**: Zaimplementować kilka standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`. Przy definicji `map` starajcie się użyć łączenia z funkcją tworzącą listę `(:)`.
 
 ---
 
@@ -538,9 +540,9 @@ legal x = case x of
                 | otherwise -> True
 ```
 
-### Zadania
+### Exercises
 
-**Zadanie**: Zaimplementować dwie ze standardowych funkcji za pomocą wzorcowania i strażników: `(++)`, `reverse`, \(`take` albo `drop`\).
+**Exercise**: Zaimplementować dwie ze standardowych funkcji za pomocą wzorcowania i strażników: `(++)`, `reverse`, \(`take` albo `drop`\).
 
 ---
 
