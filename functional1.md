@@ -419,7 +419,7 @@ add' x = \y -> x + y
 add'' = \x -> \y -> x + y
 ```
 
-### Żargon i nerdowanie
+### Jargon and nerding-out
 
 Curring tak naprawdę został stworzony przez rosyjskiego matematyka i twórcę rachunku kombinatorów: Mosesa Schönfinkela. Haskell Curry, który z kolei był amerykaninem, rozwinął koncepcję Schönfinkela.
 
