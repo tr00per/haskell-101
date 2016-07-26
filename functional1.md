@@ -463,9 +463,9 @@ filter p xs = foldr pred [] xs
     where pred x acc = if p x then x:acc else acc
 ```
 
-Składanie w Haskellu, występuje w dwóch odmianach
+Folding in Haskell comes in two flavours
 
-* prawostronne
+* right fold
 
 ```haskell
 foldr (\x acc -> x + acc) 0 [1..10]
@@ -476,7 +476,7 @@ foldr (\x acc -> x : acc) [] [1..10]
 -- ==> [1,2,3,4,5,6,7,8,9,10]
 ```
 
-* lewostronne
+* left fold
 
 ```haskell
 foldl (\acc x -> acc + x) 0 [1..10]
@@ -487,19 +487,19 @@ foldl (\acc x -> x : acc) [] [1..10]
 -- ==> [10,9,8,7,6,5,4,3,2,1]
 ```
 
-### GHCI i statystyki
+### GHCI and stats
 
-Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHCI trzeba przestawić flagę `:set +s`.
+To display memory and execution time statistics in GHCi toggle a flag `:set +s`.
 
 ### Exercises
 
-**Exercise**: Zaimplementować kilka standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`. Przy definicji `map` starajcie się użyć łączenia z funkcją tworzącą listę `(:)`.
+**Exercise**: Implement a few Prelude function using a fold of your choosing: `sum` (or `product`), `length`, `map`. While defining the `map` try using function compisition with the list-creating function `(:)`.
 
 ---
 
-## Wzorcowanie i strażnicy
+## Pattern matching and guards
 
-Ignorując na chwilę, że mapowanie jest tak naprawdę reprezentowane prez złożenie, funkcję `map` można zapisać w taki sposób:
+Ignoring for a while that `map` is really implemented in terms of `fold`, we saw the definition as shown below:
 
 ```haskell
 map f xs = if null xs
@@ -507,23 +507,23 @@ map f xs = if null xs
            else f (head xs) : map f (tail xs)
 ```
 
-Istnieje przejrzystszy sposób wyrażenia jej:
+There is a bettern method:
 
 ```haskell
 map f []     = []
 map f (x:xs) = f x : map f xs
 ```
 
-A nawet jeszcze lepiej:
+Or even better:
 
 ```haskell
 map _ []     = []
 map f (x:xs) = f x : map f xs
 ```
 
-Symbol `_` we wzorcu oznacza, że nie będziemy używać wartości znajdującej się na tej pozycji.
+The `_` in the pattern means, that we won't use the argument on this position.
 
-Mechanizm wzorcowania \(pattern matching\) znajduje zastosowanie w wielu miejscach w Haskellu. Zamiast bezpośrendio w nagłówku funkcji można go tez użyć wewnątrz:
+Pattern matching is a common mechanism in Haskell. One can also write it inside the function body as a `case` expression:
 
 ```haskell
 map f xs = case xs of
@@ -531,7 +531,7 @@ map f xs = case xs of
                x:xs -> f x : map f xs
 ```
 
-Mechanizmem, który często towarzyszy wzorcowaniu, są strażnicy \(guards\):
+Additionally we can use guards to ensure some further conditions:
 
 ```haskell
 legal 0             = False
@@ -540,7 +540,7 @@ legal x | x < -5    = False
         | otherwise = True
 ```
 
-Również i w tym wypadku da się zastosować ten mechanizm wewnątrz ciała funkcji:
+It also can be used inside the function body:
 
 ```haskell
 legal x = case x of
@@ -552,11 +552,10 @@ legal x = case x of
 
 ### Exercises
 
-**Exercise**: Zaimplementować dwie ze standardowych funkcji za pomocą wzorcowania i strażników: `(++)`, `reverse`, \(`take` albo `drop`\).
+**Exercise**: Implement a few Prelude function using pattern matching and guards: `(++)`, `reverse`, `take` (or `drop`\).
 
 ---
 
 ## Interludium
 
 ![SNR](http://www.kessleru.com/wp-content/uploads/2014/07/audiobasics.gif)
-
