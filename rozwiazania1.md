@@ -1,4 +1,4 @@
-### Rozwiązanie
+### Solution
 ```haskell
 let odd x = x `mod` 2 == 1
 
@@ -10,7 +10,7 @@ filter even [1..10]
 
 ![](http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg)
 
-### Rozwiązanie
+### Solution
 ```haskell
 let myfilter x = x `mod` 4 == 0 && x `mod` 3 /= 0
 
@@ -19,7 +19,7 @@ filter myfilter [1..20]
 
 ![](http://dothash.buzz/wp-content/uploads/2015/06/lolcat-4.jpg)
 
-### Rozwiązanie
+### Solution
 ```haskell
 Prelude> foldr (:) [] [1..]
 [1,2,3,4,5,6,7,8,9,10,...
@@ -30,7 +30,7 @@ Prelude> foldl (>:) [] [1..]
 
 ![](http://images.andrej3000.com/upload/2012/07/20/20120720140325-0002cca8.png)
 
-### Rozwiązanie
+### Solution
 ```haskell
 -- sum
 sum = foldl' (+) 0
@@ -49,7 +49,7 @@ map f = foldr ((:) . f) []
 
 ![](http://new1.fjcdn.com/pictures/Lolcats_b0a5ec_147272.jpg)
 
-### Rozwiązanie
+### Solution
 ```haskell
 -- (++)
 [] ++ ys = ys
