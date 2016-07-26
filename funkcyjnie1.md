@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -332,7 +332,7 @@ Jeśli nie żyliście pod kamieniem przez ostatnie kilka lat, to słyszeliście 
 To taka funkcja, którą definiujemy "na kolanie", bo jest za krótka, żeby zaprzątać nią szerszą przestrzeń nazw.
 
 ```haskell
-myfilter xs = filter (\x -> x % 4 == 0 && x % 3 \= 3) xs
+myfilter xs = filter (\x -> x `mod` 4 == 0 && x `mod` 3 /= 3) xs
 
 squares xs = map (\x -> x * x) xs
 ```
@@ -446,7 +446,7 @@ bank1_wybierz = wybierz polityka_prosta
 Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
 
 ```haskell
-map f xs = foldr ((:) . f) [] xs
+map f xs = foldr (???) [] xs
 
 filter p xs = foldr (pred p) [] xs
     where pred f x acc = if f x then x:acc else acc
@@ -482,7 +482,7 @@ Aby wyświetlić statystyki zużycia pamięci i czasu wykonania wyrażenia w GHC
 
 ### Zadania
 
-**Zadanie**: Zaimplementować dwie ze standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`.
+**Zadanie**: Zaimplementować kilka standardowych funkcji za pomocą wybranego złożenia: \(`sum` albo `product`\), `length`, `map`. Przy definicji `map` starajcie się użyć łączenia z funkcją tworzącą listę `(:)`.
 
 **Zadanie**: Wywołać oba rodzaje złożeń tworzących listę na nieskończonej liście wejściowej
 
