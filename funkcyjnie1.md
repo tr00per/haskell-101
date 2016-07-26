@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -401,13 +401,13 @@ W Haskellu częściowa aplikacja jest powszechnie używana.
 
 ```haskell
 add x y = x + y
-add5 = add 5
+add5 y = add 5 
 
 add' = (+)
-add5' = (5+)
+add5' x = (5+) x
 
-map f xs = foldr ((:) . f) [] xs
-map' f = foldr ((:) . f) []
+add5'' = add 5
+add5''' = (5+)
 ```
 
 Można pomyśleć, że wszystkie funkcje w Haskellu tak naprawdę pod spodem składają się z serrii jednoargumentowych funkcji
