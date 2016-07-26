@@ -170,6 +170,10 @@ For `filter` to accept our function, it must accept a single argument, which typ
 
 **Quick exercise**: Define the `slice` function, which accepts an offset, length and returns a slice of the given list.
 
+### GHCI and types
+
+To show the type of an expression in GHCi you can prefix your expression with the `:t` command or toggle a flag to see types of each entered expression with `:set +t`.
+
 ### Functions and functions
 
 In Haskell syntactically there are twp types of operations:
@@ -200,10 +204,6 @@ In both cases the default fixity can be changed:
 3 `elem` [1..10]
 128 `div` 3
 ```
-
-### GHCI and types
-
-To show the type of an expression in GHCi you can prefix your expression with the `:t` command or toggle a flag to see types of each entered expression with `:set +t`.
 
 ### Exercises
 
@@ -364,12 +364,12 @@ Eta \(η\) conversion - process of adding or removing abstraction over a functio
 Application of η-reduction is the basis of _pointfree_ style of programming \(_pointless_ if you don't like it\).
 
 ```haskell
-add''' = (+)
+addIt = (+)
 (>:) = flip (:)
 
 h x = f (g x)
-h' x = (f . g) x
-h'' = f . g
+h2 x = (f . g) x
+h3 = f . g
 ```
 
 It's very useful to define your functions as a pipe of consequent applications of functions. The code becomes more readable, given you keep names of your functions descriptive.
