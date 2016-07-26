@@ -44,7 +44,7 @@ Wszystkie elementy w liście muszą być tego samego typu. Aby móc mieszać typ
 [(1,"San Francisco"), (2, "New York")]
 ```
 
-**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast _**krotki**_ mogą _**mieszać typy elementów**_, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
+**Listy** mogą przechowywać zero albo więcej **elementów jednego typu**, natomiast **_krotki_** mogą **_mieszać typy elementów_**, jednak raz zdefiniowanych kolejności i rozmiaru nie da sie zmienić
 
 Przy okazji: unit, czyli bezwartościowa wartość
 
@@ -457,10 +457,10 @@ Składanie w Haskellu, występuje w dwóch odmianach
 * prawostronne
 
 ```haskell
-foldr (+) 0 [1..10]
+foldr (\x acc -> x + acc) 0 [1..10]
 -- 0 + (1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + 10)))))))))
 
-foldr (:) [] [1..10]
+foldr (\x acc -> x : acc) [] [1..10]
 -- 1:(2:(3:(4:(5:(6:(7:(8:(9:(10:[])))))))))
 -- ==> [1,2,3,4,5,6,7,8,9,10]
 ```
@@ -468,12 +468,11 @@ foldr (:) [] [1..10]
 * lewostronne
 
 ```haskell
-foldl (+) 0 [1..10]
+foldl (\acc x -> acc + x) 0 [1..10]
 -- (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9) + 10
 
-let (>:) = flip (:)
-foldl (>:) [] [1..10]
--- ((((((((([]>:1)>:2)>:3)>:4)>:5)>:6)>:7)>:8)>:9)>:10
+foldl (\acc x -> x : acc) [] [1..10]
+-- 10:(9:(8:(7:(6:(5:(4:(3:(2:(1:[])))))))))
 -- ==> [10,9,8,7,6,5,4,3,2,1]
 ```
 
