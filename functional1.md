@@ -2,11 +2,9 @@
 
 All the pleasure comes from expressing ideas in a concise way. From removing noise from our code.
 
-
 $$
 SNR = P_{signal}/P_{noise}
 $$
-
 
 ---
 
@@ -398,7 +396,7 @@ def modN_curried(n: Int)(x: Int) = x % n == 0
 
 It comes down to the ability of a function, which accepts a given number of arguments, to accept those arguments one-by-one, effectively creating a series of one-parameter functions. Application of the final argument enables the execution of the main body. Before that last argument we call the function _partially applied_ and the mechanism, enabled by currying, is _partial application_.
 
-In Haskellu currying is transparent and partial application is omnipresent.
+In Haskell currying is transparent and partial application is omnipresent.
 
 ```haskell
 add x y = x + y
@@ -421,36 +419,48 @@ add'' = \x -> \y -> x + y
 
 ### Jargon and nerding-out
 
-Currying was really created by a russion mathematician and creator of the combinatory logic: Moses Schönfinkel. Haskell Curry, who was an american, expanded Schönfinkel's concept.
+Currying was really created by a Russian mathematician and creator of the combinatory logic: Moses Schönfinkel. Haskell Curry, who was an American, expanded Schönfinkel's concept.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Schonfinkel.gif)
 
-### Bliżej rzeczywistości
+### A bit closer to reality
+
+Dependency injection with partial application
 
 ```haskell
--- wybierz :: Num a => (a -> a -> Bool) -> a -> a -> a
-wybierz polityka dostępne żądane = if polityka dostępne żądane
-                                   then dostępne - żądane
-                                   else dostępne
+-- withdraw :: Num a => (a -> a -> Bool) -> a -> a -> a
+withdraw policy available requested =
+    if policy available requested
+    then available - requested
+    else available
 
--- polityka_prosta :: Ord a => a -> a -> Bool
-polityka_prosta ma chce = ma >= chce
+-- simplePolicy :: Ord a => a -> a -> Bool
+simplePolicy has wants = has >= wants
 
--- bank1_wybierz :: (Num a, Ord a) => a -> a -> a
-bank1_wybierz = wybierz polityka_prosta
+-- bank1Withdraw :: (Num a, Ord a) => a -> a -> a
+bank1Withdraw = withdraw simplePolicy
 ```
 
 ---
 
-## Złożenia
+## Folds
 
-Jest jeszcze jedna operacja wyższego rzędu, którą warto przyswoić, ponieważ znajduje się na jeszcze wyższym poziomie abstrakcji, niż `filter` czy `map`.
+There's one more higher-order function for today, one that is of even higher abstraction than `filter` or `map`. It encapsulates the idea of reducing the container (e.g., list) into a result given a starting point and the method.
 
 ```haskell
-map f xs = foldr (???) [] xs
+map f xs = if null xs
+           then []
+           else f (head xs) : map f (tail xs)
 
-filter p xs = foldr (pred p) [] xs
-    where pred f x acc = if f x then x:acc else acc
+filter p xs = if null xs
+              then []
+              else pred
+    where pred = if p (head xs) then (head xs) : filter p (tail xs) else filter p (tail xs)
+
+map f xs = foldr (???) [] xs             -- this will be an exercise
+
+filter p xs = foldr pred [] xs
+    where pred x acc = if p x then x:acc else acc
 ```
 
 Składanie w Haskellu, występuje w dwóch odmianach
