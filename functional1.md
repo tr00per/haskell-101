@@ -1,4 +1,4 @@
-# Functional Thinking \#1
+# Functional Thinking #1
 
 All the pleasure comes from expressing ideas in a concise way. From removing noise from our code.
 
