@@ -65,6 +65,7 @@ instance Functor Drzewo where
 ### Rozwiązanie - przypadek użycia
 ```haskell
 znajdź ident = maybe Niezarejestrowany Znany . lookup ident
+znajdź baza ident = maybe Niezarejestrowany Znany $ lookup ident baza
 ```
 
 ![](https://i.chzbgr.com/full/8967945984/hF359ACDC/)
