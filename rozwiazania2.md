@@ -42,10 +42,12 @@ instance Num Kolor where
 
 ![](https://i.chzbgr.com/maxW500/8548211712/hF0537D89/)
 
-### Przypadek użycia
+### Rozwiązanie - przypadek użycia
 ```haskell
 znajdź ident = maybe Niezarejestrowany Znany . lookup ident
 ```
+
+![](https://i.chzbgr.com/full/8967945984/hF359ACDC/)
 
 ### Rozwiązanie
 Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
