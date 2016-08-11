@@ -183,8 +183,9 @@ type Login = String
 type Baza = [(Ident, Login)]
 data Użytkownik = Niezarejestrowany | Znany Login deriving Show
 
-znajdź :: Ident -> Baza -> Użytkownik
-znajdź ident = undefined
+-- znajdź :: Ident -> Baza -> Użytkownik
+-- znajdź :: Baza -> Ident -> Użytkownik
+-- znajdź ??? = ???
 
 main = print $ znajdź (Ident 3) [(Ident 3,"Ala")]
 ```
