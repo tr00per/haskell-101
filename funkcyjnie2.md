@@ -152,6 +152,8 @@ Implementacja funktorów powinna spełnić pewne właściwości, które jednak s
 fmap id == id
 fmap (f . g) == fmap f . fmap g
 ```
+### Zadania
+__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
 
 #### Maybe
 ```haskell
@@ -164,6 +166,7 @@ instance Functor Maybe where
 fmap (\x -> x*x) (Just 5)
 fmap (\x -> x*x) Nothing
 ```
+
 #### Więcej `Maybe`
 `Maybe` jest jednym z podstawowych narzędzi i standardowa biblioteka posiada kilka bardzo przydatnych funkcji pomocniczych, które siedzą w module `Data.Maybe`, np.:
 ```haskell
@@ -246,9 +249,7 @@ Przykład z wcześniej, czyli dlaczego nie potrzebujemy domyślnej implementacji
 ```
 
 ### Zadania
-__Zadanie__: Mając typ danych `data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)` zaimplementować dla niego instancję funktora
-
-__Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora
+__Zadanie__: Bazując na poprzedniej implementacji, zapisać dla typu `Drzewo` instancję aplikatora. Żeby sprawdzić działanie - dodajcie do siebie wartości zawarte w dwóch drzewach (wynikiem jest drzewo).
 
 ---
 # Interludium
