@@ -69,6 +69,8 @@ data Kolory = Czerwony | Zielony | Niebieski
 -- mogą być parametryzowane i rekurencyjne
 data Drzewo a = Nic | Węzeł a (Drzewo a) (Drzewo a)
 ```
+### Zadania
+__Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
 
 ### Klasy
 Klasy grupują operacje, które można wykonać na danych (mogą zawierać domyślną implementację):
@@ -122,6 +124,11 @@ Nothing + Just 4
 
 Ważne: można nakładać ograniczenia kontekstu w definicji danych, ale w praktyce unika się tego i stosuje ograniczenia wyłącznie na funkcjach, które go potrzebują lub w definicjach klas.
 
+### Zadania
+__Zadanie__: Zaimplementować operację dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
+
+---
+
 ### Standardowe klasy Haskela 98
 Ilustracja prosto z [Haskell 98 Online Report](https://www.haskell.org/onlinereport/basic.html).
 
@@ -131,12 +138,6 @@ Historycznie Funktory i Aplikatory, o których za chwilę, zostały wprowadzone 
 
 W GHC 7.10 (27 marca 2015) została wprowadzona propozycja [Applicative Monad](https://wiki.haskell.org/Functor-Applicative-Monad_Proposal), która ma wejść do języka w raporcie Haskell 2014.
 
-### Zadania
-__Zadanie__: Stworzyć własny typ danych, który reprezentuje kolory
-
-__Zadanie__: Zaimplementować operację dodawania z klasy `Num` dla tego nowego typu przechowującego kolory
-
----
 ## Funktory
 Na instancjach tej klasy można wywoływać "gołe" funkcje za pomocą `fmap`
 ```haskell
