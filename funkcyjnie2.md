@@ -173,7 +173,7 @@ catMaybes :: [Maybe a] -> [a]
 mapMaybe :: (a -> Maybe b) -> [a] -> [b]
 ```
 
-Przykład użycia... napiszecie sami!
+Przykład użycia... **napiszecie sami**!
 ```haskell
 newtype Ident = Ident Int deriving Eq
 type Login = String
