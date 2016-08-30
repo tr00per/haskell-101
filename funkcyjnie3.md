@@ -11,11 +11,11 @@ Ilustracje pożyczyłem z bardzo kolorowego omówienia tematu na [http://adit.io
 ## Monady
 ![](http://image.spreadshirtmedia.net/image-server/v1/products/115205650/views/1,width=350,height=350,appearanceId=5.png)
 
-Aby coś było Monadą wystarczy, że będzie miało zdefiniowane dwie operacje:
+Aby coś było Monadą wystarczy, że będzie implementopwało klasę `Monad` i miało zdefiniowane dwie funkcje:
 * `return :: Monad m => a -> m a` operacja, która umieszcza wartość w pojemniku, synonim `pure`
-* `(>>=) :: Monad m => m a -> (a -> m b) -> m b` operacja łącząca dwie monadyczne funkcje
+* `(>>=) :: Monad m => m a -> (a -> m b) -> m b` monadyczny ekwiwalent aplikacji funkcji `($)`
 
-Druga operacja nazywa się "bind" i za moment przyjrzymy jej się bliżej.
+Druga operacja nazywa się "bind" i za moment przyjrzymy się jej bliżej.
 
 Klasa monady udostępnia jeszcze dwie operacje:
 * `(>>) :: Monad m => m a -> m b -> m b` tylko zaznacza następstwo akcji, nie przekazuje rezultatu pierwszej akcji do drugiej
