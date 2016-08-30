@@ -41,7 +41,7 @@ Dla monad mamy zdefiniowany operator o podobnym kształcie typu: rybka płynąca
 (g' <=< f') x
 ```
 
-Mamy też operator rybek płynących z lewej strony:
+Mamy też operator rybki płynącej z lewej strony:
 ```haskell
 (>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
 
@@ -63,7 +63,7 @@ f' x >>= g'
 
 Możemy też napisać:
 ```haskell
-bindrl f = join . fmap f
+bindrl f ma = join . fmap f $ ma
 -- jak (=<<)
 
 bindlr ma f = join . fmap f $ ma
