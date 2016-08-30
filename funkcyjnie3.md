@@ -75,6 +75,9 @@ Zachodzi również poniższa zależność z funktorem i aplikatorem:
 fmap f xs ==  xs >>= pure . f
 ```
 
+### Zadania
+__Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
+
 ### Żargon i nerdowanie
 Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
 
@@ -325,7 +328,7 @@ Dowolne efekty uboczne. Komunikacja ze światem zewnętrznym, współbieżność
 
 Imaginacja definicji
 ```haskell
-newtype IO realWorld a = IO { runIO :: realWorld -> (a, realWorld) }
+newtype IO a = IO { runIO :: RealWorld -> (a, RealWorld) }
 ```
 
 W rzeczywistości nie mamy dostępu do obiektu "prawdziwego świata", zarządza nim środowisko uruchomieniowe.
@@ -360,9 +363,6 @@ loadAdventure = bracket (openFile saveGameName ReadMode) hClose loadData
 
 ### Co z tym `fail`em?
 Dlaczego trzeba uważać z funkcją `fail`? Ponieważ w monadzie `IO` rzuci nam wyjątkiem, który nieprzechwycony położy całą aplikację. Musimy o tym pamiętać, jeśli będziemy wchodzić w interakcje z monadą, która nie ma swojej reprezentacji błędu.
-
-### Zadania
-__Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
 
 ## Podsumowanie
 
