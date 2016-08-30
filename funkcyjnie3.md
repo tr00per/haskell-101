@@ -24,42 +24,42 @@ Klasa monady udostępnia jeszcze dwie operacje:
 ### (>>=)
 Przypomnijmy operator łączenia `(.)`:
 $$
-f(g(x)) = (f \circ g)(x)
+g(f(x)) = (g \circ f)(x)
 $$
 ```haskell
 (.) :: (b -> c) -> (a -> b) -> a -> c
 
 -- użycie
-(f . g) x
+(g . f) x
 ```
 
-Typ binda jest nieco inny:
-```haskell
-(>>=) :: Monad m => m a -> (a -> m b) -> m b
-
--- użycie
-g x >>= f
-```
-
-Niepodobny do niczego. Jest jednak jeszcze jeden, podobny operator:
+Dla monad mamy zdefiniowany operator o podobnym kształcie typu: rybka płynąca z prawej strony:
 ```haskell
 (<=<) :: Monad m => (b -> m c) -> (a -> m b) -> a -> m c
 
 -- użycie
-(f <=< g) x
+(g' <=< f') x
 ```
 
-To już jest znacznie bardziej podobne do łączenia funkcji przez `(.)`. `(<=<)` jest operatorem łączącym funkcje działające na monadach.
-
-Teraz jeden dodatkowy krok:
+Mamy też operator rybek płynących z lewej strony:
 ```haskell
-(=<<) :: Monad m => (a -> m b) -> m a -> m b
+(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
 
 -- użycie
-f =<< g x
+(f' >=> g') x
 ```
 
-`(>>=)` jest odwróconym operatorem `(=<<)` (jest też `(>=>)`). Teraz już widać, co jest grane!
+A teraz dość już łączenia funkcji, aplikacja:
+```haskell
+($)   ::            (a -> b)   -> a   -> b
+(=<<) :: Monad m => (a -> m b) -> m a -> m b
+(>>=) :: Monad m => m a -> (a -> m b) -> m b
+
+-- użycie
+g $ f x
+g' =<< f' x
+f' x >>= g'
+```
 
 Możemy też napisać:
 ```haskell
