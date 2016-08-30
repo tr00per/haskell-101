@@ -76,7 +76,25 @@ fmap f xs ==  xs >>= pure . f
 ```
 
 ### Zadania
-__Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość
+__Zadanie__: Stworzyć implementację trywialnej monady, która nic nie robi, a jedynie zamyka w sobie wartość. Pakiet startowy:
+```haskell
+import Data.Char
+
+upper :: String -> String
+upper = map toUpper
+
+upperIdent :: String -> Ident String
+upperIdent x = return (upper x)
+-- upperIdent = return . upper
+
+main = do
+    print (Ident 42)
+    print $ upper `fmap` (Ident "abc")
+    print $ (+) <$> (Ident 3) <*> (Ident 2)
+    print $ return "def" >>= upperIdent
+
+data Ident a = Ident a deriving Show
+```
 
 ### Żargon i nerdowanie
 Operatory łączenia funkcji monadycznych są też nazywane operatorami Kleisli
