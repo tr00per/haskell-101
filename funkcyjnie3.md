@@ -578,6 +578,17 @@ instance (MonadIO m) => MonadIO (MaybeT m) where
 ```
 
 ---
+## The Eff Monad
+Aletrnatywna metoda łączenia ze sobą efektów ubocznych w "stosy". Została opisana w [Extensible Effects](http://okmij.org/ftp/Haskell/extensible/exteff.pdf) i dostępnych jest kilka implementacji, z czego na najbardziej dojrzałą (i utrzymywaną) wygląda [extensible-effects](http://hackage.haskell.org/package/extensible-effects).
+
+Nie jest tak powszechnie stosowana jak Monad Transformery, a powstała między innymi, by zaadresować wady MTL, jak:
+* Eff tworzy płaską strukturę...
+* ...mimo to z każdym "odpakowaniem" wartości otrzymujemy prostszy "stos" efektów - nie tracimy 
+* Nie trzeba pisać $$n^2$$ instancji
+
+Polecam Wam spojrzeć na oryginalny artykuł, żeby wiedzieć, skąd się to wzięło, bo to temat modny prawie jak Free Monada ;)
+
+---
 
 ![](http://vignette2.wikia.nocookie.net/looneytunes/images/e/e1/All.jpg/revision/latest?cb=20150313020828)
 
